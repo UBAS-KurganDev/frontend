@@ -1,7 +1,7 @@
-import ExamScreen from '../../pages/ExamScreen/ExamScreen.tsx';
+import { SearchPage } from '../../pages/SearchPage/SearchPage.tsx';
 
 export default function App() {
   return (
-    <ExamScreen/>
+    <SearchPage/>
   );
 }

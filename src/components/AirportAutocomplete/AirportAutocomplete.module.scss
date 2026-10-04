@@ -1,0 +1,110 @@
+.autocomplete {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+
+  .label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a5568;
+  }
+
+  .inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .input {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 1px solid #cbd5e0;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+
+      &:focus {
+        border-color: #3182ce;
+        box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.15);
+      }
+    }
+
+    .loader {
+      position: absolute;
+      right: 14px;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #cbd5e0;
+      border-top-color: #3182ce;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+  }
+
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    max-height: 280px;
+    overflow-y: auto;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    list-style: none;
+    padding: 4px 0;
+    margin: 0;
+    z-index: 100;
+
+    .option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 16px;
+      cursor: pointer;
+      transition: background-color 0.15s;
+
+      &:hover,
+      &.highlighted {
+        background-color: #edf2f7;
+      }
+
+      .cityInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        .cityName {
+          font-size: 15px;
+          font-weight: 600;
+          color: #2d3748;
+        }
+
+        .countryName,
+        .airportName {
+          font-size: 12px;
+          color: #718096;
+        }
+      }
+
+      .codeBadge {
+        background-color: #ebf8ff;
+        color: #2b6cb0;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 4px 8px;
+        border-radius: 6px;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
