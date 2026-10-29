@@ -1,73 +1,77 @@
-# React + TypeScript + Vite
+# UBAS Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + TypeScript + Vite: поиск авиамаршрутов с пересадками.
 
-Currently, two official plugins are available:
+## Запуск и проверки
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm ci
+npm start
+npm run build
+npm run lint
+npm test -- --run
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Адрес бэкенда
 
-```js
-// .eslintrc.сjs
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+В `.env.development` задаётся адрес сервера:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```dotenv
+VITE_API_URL=http://127.0.0.1:8000
 ```
+
+Клиент добавляет `/api/v1`. Также допустим адрес, уже заканчивающийся на
+`/api` или `/api/v1`: префикс не дублируется. Без переменной запросы идут на
+`/api/v1` текущего origin. При таком размещении сервер или reverse proxy должен
+направлять этот путь к бэкенду. При разных origin бэкенд должен разрешать CORS
+для адреса фронтенда и заголовка `Idempotency-Key`, если он используется.
+
+## API-клиент
+
+Типы в `src/api/models.ts` соответствуют предоставленной схеме UBAS Backend 0.1.0.
+Даты передаются ISO-строками, денежные суммы остаются десятичными строками.
+Необязательные и nullable-поля отражены отдельно. Ограничения форматов и диапазонов
+проверяет сервер; TypeScript-типы не выполняют runtime-валидацию JSON.
+
+`src/api/route.ts` предоставляет `createRoute`, `getRouteStatus`, `getRouteResult`
+и последовательный опрос `waitForRouteResult`:
+
+```ts
+import { createRoute, waitForRouteResult } from './src/api/route';
+
+const controller = new AbortController();
+const { query_id } = await createRoute({
+  origin: 'MOW',
+  destination: 'TYO',
+  date_from: '2026-11-01',
+  date_to: '2026-11-02',
+}, {
+  signal: controller.signal,
+  // Необязательный ключ: сохраняйте его при повторе того же запроса.
+  idempotencyKey: crypto.randomUUID(),
+});
+
+const { result } = await waitForRouteResult(query_id, {
+  signal: controller.signal,
+  pollInterval: 2000,
+});
+// result.routes содержит RankedRoute[], а не отдельные TicketOffer.
+// controller.abort() отменяет HTTP-запрос и ожидание следующего опроса.
+```
+
+Ответ статуса сохраняет метаданные задачи и `failure`. Результат запрашивается
+при `result_available`; ошибка задачи выбрасывается как `QueryFailedError`,
+сохраняющий `failure.code`, `failure.message` и `failure.retryable`.
+`getApiErrorMessage` форматирует сообщения HTTP 422 с путями проблемных полей.
+
+Адаптер в `src/adapters/route.ts` сохраняет исходный RankedRoute, объединяет
+сегменты всех его билетов для отображения, использует `total_cost` (включая визу),
+валюту и `metrics.total_trip_hours`. Время показывается в часовом поясе аэропорта.
+Интерфейс отображает пустые и частичные результаты и предупреждения сервера.
+
+Тесты используют Axios Mock Adapter и примеры ответов по схеме, включая несколько
+билетов, пропущенные optional-поля, ошибки и отмену. Они не требуют запущенного
+бэкенда. В форме выбираются города из локального списка `src/data/cities.ts`:
+Москва — `MOW`, Токио — `TYO`. В запрос передаются коды городов, а не отдельных
+аэропортов. В предоставленной схеме нет метода поиска городов. Аэропорты в
+найденных маршрутах по-прежнему показываются с их собственными кодами.

@@ -31,16 +31,6 @@
       }
     }
 
-    .loader {
-      position: absolute;
-      right: 14px;
-      width: 16px;
-      height: 16px;
-      border: 2px solid #cbd5e0;
-      border-top-color: #3182ce;
-      border-radius: 50%;
-      animation: spin 0.6s linear infinite;
-    }
   }
 
   .dropdown {
@@ -83,8 +73,7 @@
           color: #2d3748;
         }
 
-        .countryName,
-        .airportName {
+        .countryName {
           font-size: 12px;
           color: #718096;
         }
