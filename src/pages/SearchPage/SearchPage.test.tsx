@@ -35,7 +35,9 @@ function startSearch() {
 
 function readyResult(result = queryResult) {
   mock.onPost('/queries').reply(202, { query_id: queryId, status: 'completed', reused: true });
-  mock.onGet(statusPath).reply(200, { ...queryStatus, status: 'completed', result_available: true });
+  mock
+    .onGet(statusPath)
+    .reply(200, { ...queryStatus, status: 'completed', result_available: true });
   mock.onGet(`${statusPath}/result`).reply(200, result);
 }
 
@@ -71,9 +73,13 @@ describe('SearchPage backend integration', () => {
     startSearch();
     await screen.findByText('Найденные маршруты (1)');
     expect(screen.getByText('Отель и наземный транспорт не включены в стоимость.')).toBeTruthy();
-    expect(screen.getByText('Перед покупкой уточните стоимость билетов и условия въезда.')).toBeTruthy();
+    expect(
+      screen.getByText('Перед покупкой уточните стоимость билетов и условия въезда.'),
+    ).toBeTruthy();
     expect(screen.getByText('Пересадка не защищена перевозчиком.')).toBeTruthy();
-    expect(screen.getByText('Показаны демонстрационные данные, а не реальные предложения авиакомпаний.')).toBeTruthy();
+    expect(
+      screen.getByText('Показаны демонстрационные данные, а не реальные предложения авиакомпаний.'),
+    ).toBeTruthy();
     for (const code of [...codes, 'synthetic_demo_data']) {
       expect(screen.queryByText(code)).toBeNull();
     }
@@ -85,7 +91,9 @@ describe('SearchPage backend integration', () => {
   it('shows the safe failure message from the backend', async () => {
     mock.onPost('/queries').reply(202, { query_id: queryId, status: 'queued', reused: false });
     mock.onGet(statusPath).reply(200, {
-      ...queryStatus, status: 'failed', failure: { code: 'provider_error', message: 'Нет доступных поставщиков.' },
+      ...queryStatus,
+      status: 'failed',
+      failure: { code: 'provider_error', message: 'Нет доступных поставщиков.' },
     });
     startSearch();
     expect(await screen.findByText('Нет доступных поставщиков.')).toBeTruthy();
@@ -97,14 +105,19 @@ describe('SearchPage backend integration', () => {
     });
     startSearch();
     expect(await screen.findByText('date_from: Invalid departure date')).toBeTruthy();
-    expect(screen.getByRole('button', { name: 'Найти билеты' }).hasAttribute('disabled')).toBe(false);
+    expect(screen.getByRole('button', { name: 'Найти билеты' }).hasAttribute('disabled')).toBe(
+      false,
+    );
   });
 
   it('aborts a pending request when unmounted', async () => {
     let finishRequest!: (reply: [number, object]) => void;
-    mock.onPost('/queries').reply(() => new Promise<[number, object]>((resolve) => {
-      finishRequest = resolve;
-    }));
+    mock.onPost('/queries').reply(
+      () =>
+        new Promise<[number, object]>((resolve) => {
+          finishRequest = resolve;
+        }),
+    );
     startSearch();
     await waitFor(() => expect(mock.history.post).toHaveLength(1));
     const signal = mock.history.post[0].signal;
@@ -127,9 +140,16 @@ describe('SearchPage backend integration', () => {
     await user.click(screen.getByRole('option', { name: /Токио/ }));
     await user.click(screen.getByRole('button', { name: 'Найти билеты' }));
     await screen.findByText('Найденные маршруты (1)');
-    expect(JSON.parse(mock.history.post[0].data)).toMatchObject({ origin: 'MOW', destination: 'TYO' });
-    expect((screen.getByRole('combobox', { name: 'Откуда' }) as HTMLInputElement).value).toBe('Москва (MOW)');
-    expect((screen.getByRole('combobox', { name: 'Куда' }) as HTMLInputElement).value).toBe('Токио (TYO)');
+    expect(JSON.parse(mock.history.post[0].data)).toMatchObject({
+      origin: 'MOW',
+      destination: 'TYO',
+    });
+    expect((screen.getByRole('combobox', { name: 'Откуда' }) as HTMLInputElement).value).toBe(
+      'Москва (MOW)',
+    );
+    expect((screen.getByRole('combobox', { name: 'Куда' }) as HTMLInputElement).value).toBe(
+      'Токио (TYO)',
+    );
   });
 
   it('offers one option per city and no airport-specific options', () => {
@@ -161,18 +181,28 @@ describe('SearchPage backend integration', () => {
     fireEvent.keyDown(destination, { key: 'Enter' });
     fireEvent.click(screen.getByRole('button', { name: 'Найти билеты' }));
     await screen.findByText('Найденные маршруты (1)');
-    expect(JSON.parse(mock.history.post[0].data)).toMatchObject({ origin: 'MOW', destination: 'TYO' });
+    expect(JSON.parse(mock.history.post[0].data)).toMatchObject({
+      origin: 'MOW',
+      destination: 'TYO',
+    });
   });
 
   it('swaps the selected city names and their submitted codes together', async () => {
     readyResult();
     selectCities();
     fireEvent.click(screen.getByRole('button', { name: 'Поменять местами' }));
-    expect((screen.getByRole('combobox', { name: 'Откуда' }) as HTMLInputElement).value).toBe('Токио (TYO)');
-    expect((screen.getByRole('combobox', { name: 'Куда' }) as HTMLInputElement).value).toBe('Москва (MOW)');
+    expect((screen.getByRole('combobox', { name: 'Откуда' }) as HTMLInputElement).value).toBe(
+      'Токио (TYO)',
+    );
+    expect((screen.getByRole('combobox', { name: 'Куда' }) as HTMLInputElement).value).toBe(
+      'Москва (MOW)',
+    );
     fireEvent.click(screen.getByRole('button', { name: 'Найти билеты' }));
     await screen.findByText('Найденные маршруты (1)');
-    expect(JSON.parse(mock.history.post[0].data)).toMatchObject({ origin: 'TYO', destination: 'MOW' });
+    expect(JSON.parse(mock.history.post[0].data)).toMatchObject({
+      origin: 'TYO',
+      destination: 'MOW',
+    });
   });
 
   it('keeps edited text and prevents submission with a stale selected city code', async () => {
@@ -184,13 +214,17 @@ describe('SearchPage backend integration', () => {
     await user.type(origin, 'Екат');
     expect(origin.value).toBe('Екат');
     await user.click(screen.getByRole('button', { name: 'Найти билеты' }));
-    expect(screen.getByText('Пожалуйста, выберите город отправления и назначения из списка.')).toBeTruthy();
+    expect(
+      screen.getByText('Пожалуйста, выберите город отправления и назначения из списка.'),
+    ).toBeTruthy();
     expect(mock.history.post).toHaveLength(0);
     await user.click(origin);
     await user.click(screen.getByRole('option', { name: /Екатеринбург/ }));
     await user.click(screen.getByRole('button', { name: 'Найти билеты' }));
     await screen.findByText('Найденные маршруты (1)');
-    expect(JSON.parse(mock.history.post[0].data)).toMatchObject({ origin: 'SVX', destination: 'TYO' });
+    expect(JSON.parse(mock.history.post[0].data)).toMatchObject({
+      origin: 'SVX',
+      destination: 'TYO',
+    });
   });
-
 });

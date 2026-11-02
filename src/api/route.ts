@@ -1,12 +1,7 @@
 import { CanceledError } from 'axios';
 import { api } from './api';
 import { QueryFailedError } from './errors';
-import type {
-  GetQueryResponse,
-  QueryResult,
-  RouteRequest,
-  SubmitQueryResponse,
-} from './models';
+import type { GetQueryResponse, QueryResult, RouteRequest, SubmitQueryResponse } from './models';
 
 export type * from './models';
 
@@ -26,9 +21,12 @@ export async function createRoute(
   const { idempotencyKey, signal } = options;
   const { data } = await api.post<SubmitQueryResponse>('/queries', request, {
     signal,
-    headers: idempotencyKey === undefined ? undefined : {
-      'Idempotency-Key': idempotencyKey,
-    },
+    headers:
+      idempotencyKey === undefined
+        ? undefined
+        : {
+            'Idempotency-Key': idempotencyKey,
+          },
   });
   return data;
 }
@@ -38,7 +36,8 @@ export async function getRouteStatus(
   options: RequestOptions = {},
 ): Promise<GetQueryResponse> {
   const { data } = await api.get<GetQueryResponse>(
-    `/queries/${encodeURIComponent(queryId)}`, options,
+    `/queries/${encodeURIComponent(queryId)}`,
+    options,
   );
   return data;
 }
@@ -48,7 +47,8 @@ export async function getRouteResult(
   options: RequestOptions = {},
 ): Promise<QueryResult> {
   const { data } = await api.get<QueryResult>(
-    `/queries/${encodeURIComponent(queryId)}/result`, options,
+    `/queries/${encodeURIComponent(queryId)}/result`,
+    options,
   );
   return data;
 }

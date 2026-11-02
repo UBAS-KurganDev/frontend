@@ -1,6 +1,11 @@
-import React from 'react';
-import { FlightRoute } from '../../types/route';
-import styles from './RouteCard.module.scss';
+import { Fragment } from 'react';
+import { ArrowRight, Clock3, Plane, ShieldAlert } from 'lucide-react';
+import type { FlightRoute } from '../../types/route';
+import { formatMoney } from '../../lib/format';
+import { Badge } from '../ui/badge';
+import { Button } from '../ui/button';
+import { Card, CardContent, CardFooter } from '../ui/card';
+import { Separator } from '../ui/separator';
 import { WarningList } from '../WarningList/WarningList';
 
 interface Props {
@@ -8,125 +13,122 @@ interface Props {
   onSelect?: () => void;
 }
 
-// Функция для расчёта времени пересадки с учётом многосуточных стоповеров
 const calculateLayover = (arrivalIso: string, departureIso: string): string => {
-  const arrival = new Date(arrivalIso).getTime();
-  const departure = new Date(departureIso).getTime();
-  const diffMs = departure - arrival;
-
-  if (diffMs <= 0) return '0м';
-
-  const totalMinutes = Math.floor(diffMs / (1000 * 60));
-  const totalHours = Math.floor(totalMinutes / 60);
-  const days = Math.floor(totalHours / 24);
-  const hours = totalHours % 24;
-  const minutes = totalMinutes % 60;
-
-  if (days > 0) {
-    let result = `${days}д ${hours}ч`;
-    if (minutes > 0 && days < 2) { // Для 1-2 дней можно добавить минуты для точного расчёта
-      result += ` ${minutes}м`;
-    }
-    return result;
-  }
-
-  return `${hours}ч ${minutes}м`;
+  const minutes = Math.max(
+    0,
+    Math.floor((Date.parse(departureIso) - Date.parse(arrivalIso)) / 60000),
+  );
+  const days = Math.floor(minutes / 1440);
+  const hours = Math.floor(minutes / 60) % 24;
+  const remainder = minutes % 60;
+  return [days > 0 ? `${days}д` : '', `${hours}ч`, remainder > 0 ? `${remainder}м` : '']
+    .filter(Boolean)
+    .join(' ');
 };
 
-export const RouteCard: React.FC<Props> = ({ route, onSelect }) => {
-  const formatMoney = (amount: number, currency: string) =>
-    new Intl.NumberFormat('ru-RU', { style: 'currency', currency }).format(amount);
+export function RouteCard({ route, onSelect }: Props) {
   const candidate = route.rankedRoute.route;
+
   return (
-    <div className={styles.routeCard}>
-      <div className={styles.segmentsList}>
+    <Card className="gap-0 overflow-hidden py-0">
+      <CardContent className="space-y-4 p-5 sm:p-6">
         {route.segments.map((segment, index) => {
           const nextSegment = route.segments[index + 1];
-          
-          // Вычисляем параметры стыковки из соседних сегментов
-          const layoverDuration = nextSegment 
-            ? calculateLayover(segment.arrivalTime, nextSegment.departureTime) 
-            : null;
-            
-          const isAirportChange = nextSegment 
-            ? segment.arrivalCode !== nextSegment.departureCode 
-            : false;
-
+          const airportChange = nextSegment && segment.arrivalCode !== nextSegment.departureCode;
           return (
-            <React.Fragment key={index}>
-              {/* Карточка сегмента полёта */}
-              <div className={styles.segmentItem}>
-                <div className={styles.point}>
-                  <span className={styles.time}>{segment.departureTimeFormatted}</span>
-                  <span className={styles.city}>
+            <Fragment key={`${segment.departureCode}-${segment.departureTime}-${index}`}>
+              <div className="grid grid-cols-[minmax(0,1fr)_4rem_minmax(0,1fr)] items-center gap-3 sm:grid-cols-[minmax(0,1fr)_7rem_minmax(0,1fr)] sm:gap-5">
+                <div className="min-w-0 space-y-1">
+                  <p className="text-sm font-semibold tabular-nums sm:text-base">
+                    {segment.departureTimeFormatted}
+                  </p>
+                  <p className="text-xs leading-relaxed break-words text-muted-foreground sm:text-sm">
                     {segment.departureCity} ({segment.departureCode})
-                  </span>
+                  </p>
                 </div>
-
-                <div className={styles.flightPath}>
-                  <span className={styles.duration}>{segment.duration}</span>
-                  <div className={styles.line} />
+                <div className="space-y-2 text-center text-muted-foreground">
+                  <p className="text-xs tabular-nums">{segment.duration}</p>
+                  <div className="flex items-center gap-1.5" aria-hidden="true">
+                    <span className="h-px flex-1 bg-border" />
+                    <Plane className="size-3.5 -rotate-45" />
+                    <span className="h-px flex-1 bg-border" />
+                  </div>
                 </div>
-
-                <div className={styles.point}>
-                  <span className={styles.time}>{segment.arrivalTimeFormatted}</span>
-                  <span className={styles.city}>
+                <div className="min-w-0 space-y-1 text-right">
+                  <p className="text-sm font-semibold tabular-nums sm:text-base">
+                    {segment.arrivalTimeFormatted}
+                  </p>
+                  <p className="text-xs leading-relaxed break-words text-muted-foreground sm:text-sm">
                     {segment.arrivalCity} ({segment.arrivalCode})
-                  </span>
+                  </p>
                 </div>
               </div>
-
-              {/* Динамический блок пересадки (если есть следующий сегмент) */}
-              {nextSegment && layoverDuration && (
-                <div
-                  className={`${styles.layoverBlock} ${
-                    isAirportChange ? styles.airportChange : ''
-                  }`}
-                >
-                  <div className={styles.layoverContent}>
-                    <span className={styles.layoverIcon}>⏳</span>
-                    <span className={styles.layoverText}>
-                      Пересадка в г. <strong>{segment.arrivalCity}</strong> —{' '}
-                      <strong>{layoverDuration}</strong>
-                    </span>
+              {nextSegment && (
+                <div className="space-y-2 rounded-lg bg-muted/70 px-3 py-2.5 text-sm">
+                  <div className="flex items-start gap-2 text-muted-foreground">
+                    <Clock3 className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+                    <p>
+                      Пересадка в г.{' '}
+                      <strong className="font-medium text-foreground">{segment.arrivalCity}</strong>{' '}
+                      —{' '}
+                      <span className="font-medium text-foreground">
+                        {calculateLayover(segment.arrivalTime, nextSegment.departureTime)}
+                      </span>
+                    </p>
                   </div>
-
-                  {/* Предупреждение о смене аэропорта внутри города */}
-                  {isAirportChange && (
-                    <div className={styles.changeBadge}>
-                      ⚠️ Смена аэропорта: прилёт в {segment.arrivalCode}, вылёт из {nextSegment.departureCode}
-                    </div>
+                  {airportChange && (
+                    <Badge variant="outline" className="gap-1.5 whitespace-normal">
+                      Смена аэропорта: {segment.arrivalCode}{' '}
+                      <ArrowRight className="size-3" aria-hidden="true" />{' '}
+                      {nextSegment.departureCode}
+                    </Badge>
                   )}
                 </div>
               )}
-            </React.Fragment>
+            </Fragment>
           );
         })}
-      </div>
-
-      <div className={styles.footer}>
-        <div className={styles.info}>
-          <span className={styles.durationTotal}>Общее время: {route.totalDuration}</span>
-          <span>Оценка маршрута: {route.rankedRoute.score.total.toLocaleString('ru-RU')} / 100</span>
-          {candidate.metrics.self_transfer && <span>Самостоятельная пересадка</span>}
-          <span className={styles.transfers}>
-            {route.transfersCount === 0
-              ? 'Прямой рейс'
-              : `Пересадок: ${route.transfersCount}`}
-          </span>
+      </CardContent>
+      <Separator />
+      <CardFooter className="flex flex-col items-stretch gap-5 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+        <div className="space-y-2">
+          <p className="text-sm font-medium">Общее время: {route.totalDuration}</p>
+          <div className="flex flex-wrap gap-2">
+            <Badge variant="secondary">
+              {route.transfersCount === 0 ? 'Прямой рейс' : `Пересадок: ${route.transfersCount}`}
+            </Badge>
+            <Badge variant="outline">
+              Оценка маршрута:{' '}
+              {route.rankedRoute.score.total.toLocaleString('ru-RU', { maximumFractionDigits: 1 })}{' '}
+              / 100
+            </Badge>
+            {candidate.metrics.self_transfer && (
+              <Badge variant="outline" className="gap-1">
+                <ShieldAlert className="size-3" aria-hidden="true" />
+                Самостоятельная пересадка
+              </Badge>
+            )}
+          </div>
+          <p className="text-xs leading-relaxed text-muted-foreground">
+            Билеты: {formatMoney(candidate.ticket_cost.amount, candidate.ticket_cost.currency)}
+            {' · '}Виза: {formatMoney(candidate.visa_cost.amount, candidate.visa_cost.currency)}
+          </p>
         </div>
-        <div className={styles.priceSection}>
-          <span className={styles.price}>{formatMoney(route.totalPrice, route.currency)}</span>
-          <button className={styles.selectButton} onClick={() => onSelect?.()}>
+        <div className="flex shrink-0 items-center justify-between gap-4 sm:flex-col sm:items-end sm:gap-3">
+          <p className="text-2xl font-semibold tracking-tight tabular-nums">
+            {formatMoney(route.totalPrice, route.currency)}
+          </p>
+          <Button type="button" onClick={onSelect}>
             Выбрать
-          </button>
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Button>
         </div>
-      </div>
-      <div>
-        Билеты: {formatMoney(Number(candidate.ticket_cost.amount), candidate.ticket_cost.currency ?? 'RUB')}
-        {' · '}Виза: {formatMoney(Number(candidate.visa_cost.amount), candidate.visa_cost.currency ?? 'RUB')}
-      </div>
-      <WarningList warnings={candidate.warnings} />
-    </div>
+      </CardFooter>
+      {candidate.warnings?.length ? (
+        <div className="px-5 pb-5 sm:px-6 sm:pb-6">
+          <WarningList warnings={candidate.warnings} />
+        </div>
+      ) : null}
+    </Card>
   );
-};
+}

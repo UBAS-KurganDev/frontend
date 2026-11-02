@@ -7,10 +7,19 @@ afterEach(cleanup);
 
 describe('WarningList', () => {
   it('preserves readable messages and groups repeated unknown codes into a readable note', () => {
-    render(<WarningList warnings={[
-      ' new_provider_warning ', 'new_provider_warning', 'another_unknown_warning',
-      'Часть поставщиков недоступна.', 'Часть поставщиков недоступна.', '', '  ',
-    ]} />);
+    render(
+      <WarningList
+        warnings={[
+          ' new_provider_warning ',
+          'new_provider_warning',
+          'another_unknown_warning',
+          'Часть поставщиков недоступна.',
+          'Часть поставщиков недоступна.',
+          '',
+          '  ',
+        ]}
+      />,
+    );
     const notes = screen.getByRole('list', { name: 'Примечания' });
     expect(within(notes).getAllByRole('listitem')).toHaveLength(2);
     expect(screen.getByText('Для результата поиска есть дополнительные примечания.')).toBeTruthy();

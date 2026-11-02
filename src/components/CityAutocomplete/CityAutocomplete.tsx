@@ -1,112 +1,102 @@
-import { useId, useState } from 'react';
-import type { KeyboardEvent } from 'react';
+import { useId, useRef, useState } from 'react';
+import { Check } from 'lucide-react';
 import type { CityOption } from '../../types/city';
 import { cities } from '../../data/cities';
-import styles from './CityAutocomplete.module.scss';
+import { Command, CommandEmpty, CommandInput, CommandItem, CommandList } from '../ui/command';
+import { Label } from '../ui/label';
+import { cn } from '../../lib/utils';
 
 interface Props {
   label: string;
   value: CityOption | null;
   onChange: (city: CityOption | null) => void;
   placeholder?: string;
+  disabled?: boolean;
 }
 
 export function CityAutocomplete({
   label,
   value,
   onChange,
-  placeholder = 'Город или код города (например, MOW)',
+  placeholder = 'Город или код города',
+  disabled = false,
 }: Props) {
   const inputId = useId();
-  const listId = `${inputId}-cities`;
+  const inputRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-  const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const search = (value?.cityName ?? query).trim().toLowerCase();
-  const suggestions = cities.filter((city) =>
-    city.cityName.toLowerCase().includes(search) || city.cityCode.toLowerCase().includes(search),
+  const suggestions = cities.filter(
+    (city) =>
+      city.cityName.toLowerCase().includes(search) || city.cityCode.toLowerCase().includes(search),
   );
-  const expanded = isOpen && suggestions.length > 0;
-  const highlightedCity = suggestions[highlightedIndex];
-
-  const handleSelect = (city: CityOption) => {
-    setQuery('');
-    onChange(city);
-    setIsOpen(false);
-    setHighlightedIndex(-1);
-  };
-
-  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Escape') {
-      setIsOpen(false);
-      setHighlightedIndex(-1);
-    } else if (suggestions.length > 0 && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
-      event.preventDefault();
-      setIsOpen(true);
-      setHighlightedIndex((previous) => event.key === 'ArrowDown'
-        ? (previous + 1) % suggestions.length
-        : previous <= 0 ? suggestions.length - 1 : previous - 1);
-    } else if (expanded && event.key === 'Enter' && suggestions[highlightedIndex]) {
-      event.preventDefault();
-      handleSelect(suggestions[highlightedIndex]);
-    }
-  };
 
   return (
-    <div className={styles.autocomplete}>
-      <label className={styles.label} htmlFor={inputId}>{label}</label>
-      <div className={styles.inputWrapper}>
-        <input
-          id={inputId}
-          type="text"
-          role="combobox"
-          aria-autocomplete="list"
-          aria-expanded={expanded}
-          aria-controls={listId}
-          aria-activedescendant={expanded && highlightedCity
-            ? `${listId}-${highlightedCity.cityCode}` : undefined}
-          className={styles.input}
+    <div className="min-w-0 space-y-2">
+      <Label id={inputId} onClick={() => inputRef.current?.focus()}>
+        {label}
+      </Label>
+      <Command
+        label={label}
+        shouldFilter={false}
+        className={cn(
+          'relative overflow-visible rounded-md border border-input bg-background shadow-xs',
+          'focus-within:border-ring focus-within:ring-[3px] focus-within:ring-ring/20',
+          '[&_[data-slot=command-input-wrapper]]:border-0',
+          disabled && 'pointer-events-none opacity-50',
+        )}
+      >
+        <CommandInput
+          asChild
           value={value ? `${value.cityName} (${value.cityCode})` : query}
-          placeholder={placeholder}
-          onChange={(event) => {
-            setQuery(event.target.value);
-            // Editing a selected city must clear its code without erasing the typed text.
+          onValueChange={(text) => {
+            setQuery(text);
             onChange(null);
             setIsOpen(true);
-            setHighlightedIndex(-1);
           }}
-          onFocus={() => setIsOpen(true)}
-          onBlur={() => {
-            setIsOpen(false);
-            setHighlightedIndex(-1);
-          }}
-          onKeyDown={handleKeyDown}
+          placeholder={placeholder}
+          disabled={disabled}
           autoComplete="off"
-        />
-      </div>
-
-      {expanded && (
-        <ul className={styles.dropdown} id={listId} role="listbox" aria-label={label}>
-          {suggestions.map((city, index) => (
-            <li
-              id={`${listId}-${city.cityCode}`}
-              key={city.cityCode}
-              role="option"
-              aria-selected={index === highlightedIndex}
-              className={`${styles.option} ${index === highlightedIndex ? styles.highlighted : ''}`}
-              onMouseDown={(event) => event.preventDefault()}
-              onClick={() => handleSelect(city)}
-              onMouseEnter={() => setHighlightedIndex(index)}
-            >
-              <div className={styles.cityInfo}>
-                <span className={styles.cityName}>{city.cityName}</span>
-                <span className={styles.countryName}>{city.countryName}</span>
-              </div>
-              <span className={styles.codeBadge}>{city.cityCode}</span>
-            </li>
-          ))}
-        </ul>
-      )}
+          className="h-11"
+          onFocus={() => setIsOpen(true)}
+          onBlur={() => setIsOpen(false)}
+          onKeyDown={(event) => {
+            if (event.key === 'Escape') setIsOpen(false);
+            if (event.key === 'ArrowDown' || event.key === 'ArrowUp') setIsOpen(true);
+          }}
+        >
+          {/* cmdk owns the input id and uses it to restore focus after filtering. */}
+          <input ref={inputRef} aria-labelledby={inputId} aria-expanded={isOpen} />
+        </CommandInput>
+        {isOpen && !disabled && (
+          <CommandList
+            aria-label={label}
+            className="absolute inset-x-0 top-full z-50 mt-2 max-h-64 rounded-md border bg-popover p-1 shadow-md"
+            onMouseDown={(event) => event.preventDefault()}
+          >
+            <CommandEmpty>Города не найдены.</CommandEmpty>
+            {suggestions.map((city) => (
+              <CommandItem
+                key={city.cityCode}
+                value={city.cityCode}
+                onSelect={() => {
+                  setQuery('');
+                  onChange(city);
+                  setIsOpen(false);
+                }}
+                className="gap-3 px-3 py-2.5"
+              >
+                <div className="min-w-0 flex-1">
+                  <span className="block font-medium">{city.cityName}</span>
+                  <span className="text-xs text-muted-foreground">{city.countryName}</span>
+                </div>
+                <span className="text-xs font-medium text-muted-foreground">{city.cityCode}</span>
+                {value?.cityCode === city.cityCode && <Check className="size-4 text-primary" />}
+              </CommandItem>
+            ))}
+          </CommandList>
+        )}
+      </Command>
     </div>
   );
 }

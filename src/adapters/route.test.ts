@@ -27,13 +27,24 @@ describe('route presentation', () => {
   it('uses the Money schema default when currency is omitted', () => {
     const rankedRoute = structuredClone(queryResult.result.routes[0]);
     rankedRoute.route.total_cost = { amount: '100.50' };
-    expect(mapRankedRouteToFlightRoute(rankedRoute)).toMatchObject({ totalPrice: 100.5, currency: 'RUB' });
+    expect(mapRankedRouteToFlightRoute(rankedRoute)).toMatchObject({
+      totalPrice: 100.5,
+      currency: 'RUB',
+    });
+  });
+
+  it('resolves known city names while keeping the airport code separate', () => {
+    const route = mapRankedRouteToFlightRoute(queryResult.result.routes[0]);
+    expect(route.segments[0].departureCity).toBe('Екатеринбург');
+    expect(route.segments[0].departureCode).toBe('SVX');
   });
 
   it('keeps the ISO timestamp if an airport timezone is unsupported', () => {
     const rankedRoute = structuredClone(queryResult.result.routes[0]);
     const segment = rankedRoute.route.tickets[0].segments[0];
     segment.origin.timezone = 'Unsupported/Timezone';
-    expect(mapRankedRouteToFlightRoute(rankedRoute).segments[0].departureTimeFormatted).toBe(segment.departure_at);
+    expect(mapRankedRouteToFlightRoute(rankedRoute).segments[0].departureTimeFormatted).toBe(
+      segment.departure_at,
+    );
   });
 });

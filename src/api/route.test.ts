@@ -18,8 +18,11 @@ afterEach(() => {
 
 describe('API contract', () => {
   it.each([
-    [undefined, '/api/v1'], ['', '/api/v1'], [' / ', '/api/v1'],
-    ['/api', '/api/v1'], ['/api/v1/', '/api/v1'],
+    [undefined, '/api/v1'],
+    ['', '/api/v1'],
+    [' / ', '/api/v1'],
+    ['/api', '/api/v1'],
+    ['/api/v1/', '/api/v1'],
     ['http://127.0.0.1:8000/', 'http://127.0.0.1:8000/api/v1'],
     ['https://example.com/api/', 'https://example.com/api/v1'],
     ['https://example.com/api/v1/', 'https://example.com/api/v1'],
@@ -50,11 +53,17 @@ describe('API contract', () => {
   it('waits through queued/running and fetches a ready result', async () => {
     mock.onGet(statusPath).replyOnce(200, queryStatus);
     mock.onGet(statusPath).replyOnce(200, { ...queryStatus, status: 'running' });
-    mock.onGet(statusPath).reply(200, { ...queryStatus, status: 'completed', result_available: true });
+    mock
+      .onGet(statusPath)
+      .reply(200, { ...queryStatus, status: 'completed', result_available: true });
     mock.onGet(resultPath).reply(200, queryResult);
     const onStatus = vi.fn();
     expect(await waitForRouteResult(queryId, { pollInterval: 1, onStatus })).toEqual(queryResult);
-    expect(onStatus.mock.calls.map(([state]) => state.status)).toEqual(['queued', 'running', 'completed']);
+    expect(onStatus.mock.calls.map(([state]) => state.status)).toEqual([
+      'queued',
+      'running',
+      'completed',
+    ]);
     expect(mock.history.get.filter((call) => call.url === resultPath)).toHaveLength(1);
   });
 
@@ -70,9 +79,12 @@ describe('API contract', () => {
   it('does not overlap status requests when the backend responds slowly', async () => {
     vi.useFakeTimers();
     let finishStatus!: (reply: [number, GetQueryResponse]) => void;
-    mock.onGet(statusPath).reply(() => new Promise<[number, GetQueryResponse]>((resolve) => {
-      finishStatus = resolve;
-    }));
+    mock.onGet(statusPath).reply(
+      () =>
+        new Promise<[number, GetQueryResponse]>((resolve) => {
+          finishStatus = resolve;
+        }),
+    );
     mock.onGet(resultPath).reply(200, queryResult);
     const pending = waitForRouteResult(queryId, { pollInterval: 100 });
     await vi.advanceTimersByTimeAsync(10000);
@@ -93,7 +105,10 @@ describe('API contract', () => {
     const controller = new AbortController();
     let observed = false;
     const pending = waitForRouteResult(queryId, {
-      signal: controller.signal, onStatus: () => { observed = true; },
+      signal: controller.signal,
+      onStatus: () => {
+        observed = true;
+      },
     }).catch((caught: unknown) => caught);
     await vi.waitFor(() => expect(observed).toBe(true));
     controller.abort();
@@ -105,23 +120,41 @@ describe('API contract', () => {
   it('does not submit an already aborted request', async () => {
     const controller = new AbortController();
     controller.abort();
-    await expect(createRoute(request, { signal: controller.signal })).rejects.toMatchObject({ code: 'ERR_CANCELED' });
+    await expect(createRoute(request, { signal: controller.signal })).rejects.toMatchObject({
+      code: 'ERR_CANCELED',
+    });
     expect(mock.history.post).toHaveLength(0);
   });
 
   it('shows field-specific errors from a 422 response', async () => {
-    mock.onPost('/queries').reply(422, { detail: [
-      { loc: ['body', 'passengers'], msg: 'Input should be less than or equal to 9', type: 'less_than_equal' },
-      { loc: ['body', 'excluded_cities', 0], msg: 'Invalid code', type: 'string_pattern_mismatch' },
-    ] });
+    mock.onPost('/queries').reply(422, {
+      detail: [
+        {
+          loc: ['body', 'passengers'],
+          msg: 'Input should be less than or equal to 9',
+          type: 'less_than_equal',
+        },
+        {
+          loc: ['body', 'excluded_cities', 0],
+          msg: 'Invalid code',
+          type: 'string_pattern_mismatch',
+        },
+      ],
+    });
     const error = await createRoute(request).catch((caught: unknown) => caught);
-    expect(getApiErrorMessage(error)).toBe('passengers: Input should be less than or equal to 9\nexcluded_cities.0: Invalid code');
+    expect(getApiErrorMessage(error)).toBe(
+      'passengers: Input should be less than or equal to 9\nexcluded_cities.0: Invalid code',
+    );
   });
 
   it('handles text HTTP errors and network failures', async () => {
     mock.onGet(resultPath).replyOnce(404, { detail: 'Query not found' });
-    expect(getApiErrorMessage(await getRouteResult(queryId).catch((error: unknown) => error))).toBe('Query not found');
+    expect(getApiErrorMessage(await getRouteResult(queryId).catch((error: unknown) => error))).toBe(
+      'Query not found',
+    );
     mock.onGet(resultPath).networkError();
-    expect(getApiErrorMessage(await getRouteResult(queryId).catch((error: unknown) => error))).toBe('Network Error');
+    expect(getApiErrorMessage(await getRouteResult(queryId).catch((error: unknown) => error))).toBe(
+      'Network Error',
+    );
   });
 });

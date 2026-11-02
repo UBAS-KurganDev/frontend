@@ -1,11 +1,15 @@
 import type { Airport, RankedRoute } from '../api/models';
 import type { FlightRoute } from '../types/route';
+import { cities } from '../data/cities';
 
 function formatDate(isoString: string, timeZone: string): string {
   try {
     return new Date(isoString).toLocaleString('ru-RU', {
       timeZone,
-      day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
+      day: 'numeric',
+      month: 'short',
+      hour: '2-digit',
+      minute: '2-digit',
     });
   } catch {
     // Keep the explicit ISO offset if the browser does not support this timezone.
@@ -21,21 +25,28 @@ function formatMinutes(totalMinutes: number): string {
 
 export function mapRankedRouteToFlightRoute(rankedRoute: RankedRoute): FlightRoute {
   const { route } = rankedRoute;
-  const cityName = (airport: Airport) => airport.city_code === route.stopover.city_code
-    ? route.stopover.name : airport.city_code;
-  const segments = route.tickets.flatMap((ticket) => ticket.segments.map((segment) => ({
-    departureCity: cityName(segment.origin),
-    departureCode: segment.origin.code,
-    departureTime: segment.departure_at,
-    departureTimeFormatted: formatDate(segment.departure_at, segment.origin.timezone),
-    arrivalCity: cityName(segment.destination),
-    arrivalCode: segment.destination.code,
-    arrivalTime: segment.arrival_at,
-    arrivalTimeFormatted: formatDate(segment.arrival_at, segment.destination.timezone),
-    duration: formatMinutes(Math.max(0, Math.round(
-      (Date.parse(segment.arrival_at) - Date.parse(segment.departure_at)) / 60000,
-    ))),
-  })));
+  const cityName = (airport: Airport) =>
+    airport.city_code === route.stopover.city_code
+      ? route.stopover.name
+      : (cities.find((city) => city.cityCode === airport.city_code)?.cityName ?? airport.city_code);
+  const segments = route.tickets.flatMap((ticket) =>
+    ticket.segments.map((segment) => ({
+      departureCity: cityName(segment.origin),
+      departureCode: segment.origin.code,
+      departureTime: segment.departure_at,
+      departureTimeFormatted: formatDate(segment.departure_at, segment.origin.timezone),
+      arrivalCity: cityName(segment.destination),
+      arrivalCode: segment.destination.code,
+      arrivalTime: segment.arrival_at,
+      arrivalTimeFormatted: formatDate(segment.arrival_at, segment.destination.timezone),
+      duration: formatMinutes(
+        Math.max(
+          0,
+          Math.round((Date.parse(segment.arrival_at) - Date.parse(segment.departure_at)) / 60000),
+        ),
+      ),
+    })),
+  );
 
   return {
     id: route.id,
