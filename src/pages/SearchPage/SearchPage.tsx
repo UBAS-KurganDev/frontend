@@ -13,7 +13,7 @@ import { format } from 'date-fns';
 import { Alert, AlertDescription, AlertTitle } from '../../components/ui/alert';
 import { Button } from '../../components/ui/button';
 import { Card, CardContent } from '../../components/ui/card';
-import { Skeleton } from '../../components/ui/skeleton';
+import { WaitingGame } from '../../components/WaitingGame/WaitingGame';
 import { DatePicker } from '../../components/DatePicker/DatePicker';
 import { RouteDetails } from '../../components/RouteDetails/RouteDetails';
 
@@ -29,6 +29,7 @@ export const SearchPage: React.FC = () => {
   const [selectedRoute, setSelectedRoute] = useState<FlightRoute | null>(null);
   const requestRef = useRef<AbortController | null>(null);
   const selectionTriggerRef = useRef<HTMLElement | null>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
   const routes = result?.routes.map(mapRankedRouteToFlightRoute) ?? [];
 
   const handleSwap = () => {
@@ -178,16 +179,6 @@ export const SearchPage: React.FC = () => {
             <AlertTitle>Ищем подходящие маршруты</AlertTitle>
             <AlertDescription>{statusText}</AlertDescription>
           </Alert>
-          <Card aria-hidden="true" className="py-0">
-            <CardContent className="space-y-4 p-6">
-              <div className="flex justify-between gap-4">
-                <Skeleton className="h-5 w-32" />
-                <Skeleton className="h-5 w-32" />
-              </div>
-              <Skeleton className="h-10 w-full" />
-              <Skeleton className="h-6 w-40" />
-            </CardContent>
-          </Card>
         </section>
       )}
 
@@ -202,48 +193,63 @@ export const SearchPage: React.FC = () => {
         </Alert>
       )}
 
-      {!loading && result && !error && (
-        <div className="space-y-4">
-          {!result.complete && (
-            <Alert role="status">
-              <AlertDescription>Получены частичные результаты поиска.</AlertDescription>
-            </Alert>
-          )}
-          <WarningList warnings={result.warnings} />
-        </div>
-      )}
+      <WaitingGame
+        status={loading ? 'loading' : error ? 'error' : result ? 'ready' : 'idle'}
+        onViewResults={() => {
+          resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          resultsRef.current?.focus({ preventScroll: true });
+        }}
+      />
 
-      {!loading && routes.length > 0 && (
-        <section className="space-y-4" aria-labelledby="results-title">
-          <h2 id="results-title" className="text-xl font-semibold tracking-tight">
-            Найденные маршруты ({routes.length})
-          </h2>
+      <div
+        ref={resultsRef}
+        tabIndex={-1}
+        className="space-y-4 outline-none"
+        aria-label="Результаты поиска"
+      >
+        {!loading && result && !error && (
           <div className="space-y-4">
-            {routes.map((route) => (
-              <RouteCard
-                key={route.id}
-                route={route}
-                onSelect={() => {
-                  selectionTriggerRef.current = document.activeElement as HTMLElement;
-                  setSelectedRoute(route);
-                }}
-              />
-            ))}
+            {!result.complete && (
+              <Alert role="status">
+                <AlertDescription>Получены частичные результаты поиска.</AlertDescription>
+              </Alert>
+            )}
+            <WarningList warnings={result.warnings} />
           </div>
-        </section>
-      )}
+        )}
 
-      {!loading && result && routes.length === 0 && !error && (
-        <Card role="status" className="py-0">
-          <CardContent className="flex flex-col items-center gap-3 px-6 py-10 text-center">
-            <SearchX className="size-8 text-muted-foreground" aria-hidden="true" />
-            <p className="font-medium">Маршруты по заданным параметрам не найдены.</p>
-            <p className="max-w-md text-sm text-muted-foreground">
-              Попробуйте изменить города или расширить период вылета.
-            </p>
-          </CardContent>
-        </Card>
-      )}
+        {!loading && routes.length > 0 && (
+          <section className="space-y-4" aria-labelledby="results-title">
+            <h2 id="results-title" className="text-xl font-semibold tracking-tight">
+              Найденные маршруты ({routes.length})
+            </h2>
+            <div className="space-y-4">
+              {routes.map((route) => (
+                <RouteCard
+                  key={route.id}
+                  route={route}
+                  onSelect={() => {
+                    selectionTriggerRef.current = document.activeElement as HTMLElement;
+                    setSelectedRoute(route);
+                  }}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {!loading && result && routes.length === 0 && !error && (
+          <Card role="status" className="py-0">
+            <CardContent className="flex flex-col items-center gap-3 px-6 py-10 text-center">
+              <SearchX className="size-8 text-muted-foreground" aria-hidden="true" />
+              <p className="font-medium">Маршруты по заданным параметрам не найдены.</p>
+              <p className="max-w-md text-sm text-muted-foreground">
+                Попробуйте изменить города или расширить период вылета.
+              </p>
+            </CardContent>
+          </Card>
+        )}
+      </div>
 
       <RouteDetails
         route={selectedRoute}

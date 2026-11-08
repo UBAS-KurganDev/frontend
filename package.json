@@ -11,7 +11,8 @@
     "test:e2e": "playwright test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "ui:add": "shadcn add"
+    "ui:add": "shadcn add",
+    "postinstall": "node scripts/patch-react-2048.mjs"
   },
   "dependencies": {
     "@reduxjs/toolkit": "1.9.7",
@@ -27,6 +28,7 @@
     "lucide-react": "^1.66.0",
     "radix-ui": "^1.8.1",
     "react": "18.2.0",
+    "react-2048": "1.1.0",
     "react-day-picker": "^10.0.2",
     "react-dom": "18.2.0",
     "react-helmet-async": "2.0.5",
