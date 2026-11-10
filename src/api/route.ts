@@ -19,15 +19,25 @@ export async function createRoute(
   options: CreateQueryOptions = {},
 ): Promise<SubmitQueryResponse> {
   const { idempotencyKey, signal } = options;
-  const { data } = await api.post<SubmitQueryResponse>('/queries', request, {
-    signal,
-    headers:
-      idempotencyKey === undefined
-        ? undefined
-        : {
-            'Idempotency-Key': idempotencyKey,
-          },
-  });
+  const { origin, destination, date_from, date_to } = request;
+  const { data } = await api.post<SubmitQueryResponse>(
+    '/queries',
+    {
+      origin,
+      destination,
+      date_from,
+      date_to,
+    },
+    {
+      signal,
+      headers:
+        idempotencyKey === undefined
+          ? undefined
+          : {
+              'Idempotency-Key': idempotencyKey,
+            },
+    },
+  );
   return data;
 }
 

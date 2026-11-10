@@ -65,8 +65,6 @@ export const SearchPage: React.FC = () => {
           destination: destination.cityCode,
           date_from: dateFrom,
           date_to: dateTo,
-          currency: 'RUB',
-          passengers: 1,
         },
         { signal },
       );

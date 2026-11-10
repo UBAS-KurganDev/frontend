@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { ArrowRight, Clock3, Plane, ShieldAlert } from 'lucide-react';
 import type { FlightRoute } from '../../types/route';
-import { formatMoney } from '../../lib/format';
+import { RouteCost, RouteCostBreakdown } from '../RouteCost/RouteCost';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardFooter } from '../ui/card';
@@ -97,27 +97,27 @@ export function RouteCard({ route, onSelect }: Props) {
             <Badge variant="secondary">
               {route.transfersCount === 0 ? 'Прямой рейс' : `Пересадок: ${route.transfersCount}`}
             </Badge>
-            <Badge variant="outline">
-              Оценка маршрута:{' '}
-              {route.rankedRoute.score.total.toLocaleString('ru-RU', { maximumFractionDigits: 1 })}{' '}
-              / 100
-            </Badge>
-            {candidate.metrics.self_transfer && (
+            {route.rankedRoute.score && (
+              <Badge variant="outline">
+                Оценка маршрута:{' '}
+                {route.rankedRoute.score.total.toLocaleString('ru-RU', {
+                  maximumFractionDigits: 1,
+                })}{' '}
+                / 100
+              </Badge>
+            )}
+            {(candidate.metrics?.self_transfer ||
+              candidate.stopovers?.some((stopover) => stopover.self_transfer)) && (
               <Badge variant="outline" className="gap-1">
                 <ShieldAlert className="size-3" aria-hidden="true" />
                 Самостоятельная пересадка
               </Badge>
             )}
           </div>
-          <p className="text-xs leading-relaxed text-muted-foreground">
-            Билеты: {formatMoney(candidate.ticket_cost.amount, candidate.ticket_cost.currency)}
-            {' · '}Виза: {formatMoney(candidate.visa_cost.amount, candidate.visa_cost.currency)}
-          </p>
+          <RouteCostBreakdown route={candidate} />
         </div>
         <div className="flex shrink-0 items-center justify-between gap-4 sm:flex-col sm:items-end sm:gap-3">
-          <p className="text-2xl font-semibold tracking-tight tabular-nums">
-            {formatMoney(route.totalPrice, route.currency)}
-          </p>
+          <RouteCost route={candidate} />
           <Button type="button" onClick={onSelect}>
             Выбрать
             <ArrowRight className="size-4" aria-hidden="true" />

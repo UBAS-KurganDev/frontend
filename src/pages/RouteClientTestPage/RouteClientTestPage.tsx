@@ -46,13 +46,6 @@ const initialRequest: RouteRequest = {
   destination: 'TYO',
   date_from: format(new Date(), 'yyyy-MM-dd'),
   date_to: format(new Date(), 'yyyy-MM-dd'),
-  citizenship: 'RU',
-  passengers: 1,
-  currency: 'RUB',
-  budget: null,
-  limit: 10,
-  excluded_cities: [],
-  checked_baggage_required: false,
 };
 
 const statusLabels: Record<QueryStatus, string> = {
@@ -222,87 +215,6 @@ export default function RouteClientTestPage() {
                 minDate={request.date_from}
                 onChange={(value) => updateField('date_to', value)}
               />
-              <div className="space-y-2">
-                <Label htmlFor="api-citizenship">Гражданство</Label>
-                <Input
-                  id="api-citizenship"
-                  value={request.citizenship ?? 'RU'}
-                  maxLength={2}
-                  onChange={(event) => updateField('citizenship', event.target.value.toUpperCase())}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="api-passengers">Пассажиры</Label>
-                <Input
-                  id="api-passengers"
-                  type="number"
-                  min={1}
-                  max={9}
-                  value={request.passengers ?? 1}
-                  onChange={(event) => updateField('passengers', Number(event.target.value))}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="api-currency">Валюта</Label>
-                <Input
-                  id="api-currency"
-                  value={request.currency ?? 'RUB'}
-                  maxLength={3}
-                  onChange={(event) => updateField('currency', event.target.value.toUpperCase())}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="api-budget">Бюджет</Label>
-                <Input
-                  id="api-budget"
-                  type="number"
-                  min="0.01"
-                  step="any"
-                  value={request.budget ?? ''}
-                  onChange={(event) =>
-                    updateField('budget', event.target.value === '' ? null : event.target.value)
-                  }
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="api-limit">Лимит результатов</Label>
-                <Input
-                  id="api-limit"
-                  type="number"
-                  min={1}
-                  max={50}
-                  value={request.limit ?? 10}
-                  onChange={(event) => updateField('limit', Number(event.target.value))}
-                />
-              </div>
-              <div className="flex items-center gap-2 self-end pb-2">
-                <Checkbox
-                  id="api-baggage"
-                  checked={request.checked_baggage_required ?? false}
-                  onCheckedChange={(checked) =>
-                    updateField('checked_baggage_required', checked === true)
-                  }
-                />
-                <Label htmlFor="api-baggage">Требуется багаж</Label>
-              </div>
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="api-excluded">Исключённые города</Label>
-              <Input
-                id="api-excluded"
-                value={(request.excluded_cities ?? []).join(', ')}
-                onChange={(event) =>
-                  updateField(
-                    'excluded_cities',
-                    event.target.value
-                      .split(',')
-                      .map((city) => city.trim().toUpperCase())
-                      .filter(Boolean),
-                  )
-                }
-                placeholder="Например, DXB, IST"
-              />
-              <p className="text-xs text-muted-foreground">Коды городов через запятую</p>
             </div>
             <div className="flex flex-wrap gap-2">
               <Button type="submit" disabled={loading}>

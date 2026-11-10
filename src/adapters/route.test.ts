@@ -3,6 +3,29 @@ import { queryResult } from '../api/__tests__/fixtures';
 import { mapRankedRouteToFlightRoute } from './route';
 
 describe('route presentation', () => {
+  it.each([null, undefined])('supports direct routes with %s legacy fields', (value) => {
+    const ranked = structuredClone(queryResult.result.routes[0]);
+    Object.assign(ranked.route, {
+      kind: 'direct',
+      stopover: value,
+      visa: value,
+      metrics: value,
+      total_trip_hours: 5,
+    });
+    ranked.score = value;
+    const route = mapRankedRouteToFlightRoute(ranked);
+    expect(route.totalDuration).toBe('5ч 0м');
+    expect(route.segments).toHaveLength(3);
+  });
+
+  it('does not invent a duration when both duration sources are omitted', () => {
+    const ranked = structuredClone(queryResult.result.routes[0]);
+    delete ranked.route.metrics;
+    expect(mapRankedRouteToFlightRoute(ranked).totalDuration).toBe('Нет данных');
+    ranked.route.total_trip_hours = 0;
+    expect(mapRankedRouteToFlightRoute(ranked).totalDuration).toBe('0м');
+  });
+
   it('combines every ticket and uses the route total including visas for all passengers', () => {
     const rankedRoute = queryResult.result.routes[0];
     const route = mapRankedRouteToFlightRoute(rankedRoute);

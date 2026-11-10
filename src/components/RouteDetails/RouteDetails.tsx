@@ -1,6 +1,8 @@
 import { ExternalLink } from 'lucide-react';
 import type { FlightRoute } from '../../types/route';
 import { formatMoney } from '../../lib/format';
+import { RouteCost, RouteCostBreakdown } from '../RouteCost/RouteCost';
+import { WarningList } from '../WarningList/WarningList';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
@@ -25,7 +27,8 @@ function bookingLink(value?: string | null): string | undefined {
 export function RouteDetails({ route, onClose, returnFocus }: Props) {
   if (!route) return null;
 
-  const { tickets, metrics } = route.rankedRoute.route;
+  const candidate = route.rankedRoute.route;
+  const { tickets, metrics } = candidate;
 
   return (
     <Dialog
@@ -58,7 +61,9 @@ export function RouteDetails({ route, onClose, returnFocus }: Props) {
                   <div className="flex items-center justify-between gap-4">
                     <p className="font-medium">Билет {index + 1}</p>
                     <p className="text-sm font-semibold tabular-nums">
-                      {formatMoney(ticket.total_price.amount, ticket.total_price.currency)}
+                      {ticket.total_price
+                        ? formatMoney(ticket.total_price.amount, ticket.total_price.currency)
+                        : 'Стоимость неизвестна'}
                     </p>
                   </div>
                   <p className="text-sm text-muted-foreground">
@@ -75,6 +80,9 @@ export function RouteDetails({ route, onClose, returnFocus }: Props) {
                       </Badge>
                     )}
                   </div>
+                  {!!ticket.unknown_costs?.length && (
+                    <WarningList warnings={ticket.unknown_costs} />
+                  )}
                   {url ? (
                     <Button asChild variant="outline" className="w-full">
                       <a href={url} target="_blank" rel="noopener noreferrer">
@@ -92,13 +100,13 @@ export function RouteDetails({ route, onClose, returnFocus }: Props) {
             );
           })}
         </div>
-        <div className="flex items-center justify-between gap-4 border-t pt-4">
-          <span className="text-sm text-muted-foreground">
-            {metrics.self_transfer ? 'Самостоятельная пересадка' : 'Стоимость маршрута'}
-          </span>
-          <span className="text-xl font-semibold tabular-nums">
-            {formatMoney(route.totalPrice, route.currency)}
-          </span>
+        <div className="space-y-3 border-t pt-4">
+          {(metrics?.self_transfer ||
+            candidate.stopovers?.some((stopover) => stopover.self_transfer)) && (
+            <p className="text-sm text-muted-foreground">Самостоятельная пересадка</p>
+          )}
+          <RouteCostBreakdown route={candidate} />
+          <RouteCost route={candidate} />
         </div>
       </DialogContent>
     </Dialog>

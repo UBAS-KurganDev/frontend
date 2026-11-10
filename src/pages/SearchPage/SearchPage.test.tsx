@@ -42,6 +42,88 @@ function readyResult(result = queryResult) {
 }
 
 describe('SearchPage backend integration', () => {
+  it.each([null, undefined])(
+    'renders and opens a direct route with %s optional fields',
+    async (value) => {
+      const response = structuredClone(queryResult);
+      const ranked = response.result.routes[0];
+      const candidate = ranked.route;
+      Object.assign(candidate, {
+        kind: 'direct',
+        stopover: value,
+        metrics: value,
+        visa: value,
+        total_trip_hours: 4,
+      });
+      candidate.tickets = [candidate.tickets[0]];
+      ranked.score = value;
+      readyResult(response);
+      startSearch();
+      expect(await screen.findByText('Прямой рейс')).toBeTruthy();
+      expect(screen.getByText('Общее время: 4ч 0м')).toBeTruthy();
+      expect(screen.queryByText(/Оценка маршрута:/)).toBeNull();
+      fireEvent.click(screen.getByRole('button', { name: 'Выбрать' }));
+      expect(await screen.findByRole('dialog')).toBeTruthy();
+      expect(screen.getByText('Все перелёты входят в один билет.')).toBeTruthy();
+      const body = JSON.parse(mock.history.post[0].data);
+      expect(body).toEqual({
+        origin: 'MOW',
+        destination: 'TYO',
+        date_from: expect.any(String),
+        date_to: expect.any(String),
+      });
+    },
+  );
+
+  it('renders unknown ticket prices and incomplete totals in the card and details', async () => {
+    const response = structuredClone(queryResult);
+    const candidate = response.result.routes[0].route;
+    candidate.full_cost_known = false;
+    candidate.unknown_costs = ['Цена визы уточняется'];
+    candidate.tickets[0].total_price = null;
+    candidate.tickets[0].unknown_costs = ['Цена билета уточняется'];
+    candidate.tickets[0].expires_at = null;
+    candidate.costs = [
+      {
+        key: 'ticket-a',
+        kind: 'ticket',
+        original: null,
+        rub_amount: null,
+        unknown_reason: 'Нет котировки',
+      },
+      { key: 'visa', kind: 'visa', rub_amount: '1000' },
+    ];
+    readyResult(response);
+    startSearch();
+    expect(await screen.findByText('Полная стоимость неизвестна')).toBeTruthy();
+    expect(screen.getByText('Известная часть:')).toBeTruthy();
+    expect(screen.getByText('Цена визы уточняется')).toBeTruthy();
+    expect(screen.getByText('Цена билета уточняется')).toBeTruthy();
+    expect(screen.getByText('Нет котировки')).toBeTruthy();
+    expect(screen.getByText('Билет: Стоимость неизвестна')).toBeTruthy();
+    expect(screen.getByText(/Виза:.*1.*000/)).toBeTruthy();
+    fireEvent.click(screen.getByRole('button', { name: 'Выбрать' }));
+    expect(await screen.findByRole('dialog')).toBeTruthy();
+    expect(screen.getByText('Стоимость неизвестна')).toBeTruthy();
+    expect(screen.getAllByText('Полная стоимость неизвестна')).toHaveLength(2);
+  });
+
+  it.each(['ticket', 'route', 'component'] as const)(
+    'does not show a full price when only %s signals unknown costs',
+    async (source) => {
+      const response = structuredClone(queryResult);
+      const candidate = response.result.routes[0].route;
+      if (source === 'ticket') candidate.tickets[0].total_price = null;
+      if (source === 'route') candidate.unknown_costs = ['Неполная цена'];
+      if (source === 'component')
+        candidate.costs = [{ key: 'visa', kind: 'visa', rub_amount: null }];
+      readyResult(response);
+      startSearch();
+      expect(await screen.findByText('Полная стоимость неизвестна')).toBeTruthy();
+      expect(screen.getByText('Известная часть:')).toBeTruthy();
+    },
+  );
+
   it('renders a ranked route from multiple tickets, its currency and partial-result warnings', async () => {
     readyResult();
     startSearch();

@@ -25,8 +25,9 @@ function formatMinutes(totalMinutes: number): string {
 
 export function mapRankedRouteToFlightRoute(rankedRoute: RankedRoute): FlightRoute {
   const { route } = rankedRoute;
+  const totalTripHours = route.total_trip_hours ?? route.metrics?.total_trip_hours;
   const cityName = (airport: Airport) =>
-    airport.city_code === route.stopover.city_code
+    route.stopover && airport.city_code === route.stopover.city_code
       ? route.stopover.name
       : (cities.find((city) => city.cityCode === airport.city_code)?.cityName ?? airport.city_code);
   const segments = route.tickets.flatMap((ticket) =>
@@ -53,7 +54,8 @@ export function mapRankedRouteToFlightRoute(rankedRoute: RankedRoute): FlightRou
     segments,
     totalPrice: Number(route.total_cost.amount),
     currency: route.total_cost.currency ?? 'RUB',
-    totalDuration: formatMinutes(Math.round(route.metrics.total_trip_hours * 60)),
+    totalDuration:
+      totalTripHours != null ? formatMinutes(Math.round(totalTripHours * 60)) : 'Нет данных',
     transfersCount: Math.max(0, segments.length - 1),
     // Keep ticket boundaries, costs, visa data, warnings and ranking available to the UI.
     rankedRoute,

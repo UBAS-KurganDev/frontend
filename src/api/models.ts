@@ -20,15 +20,6 @@ export interface RouteRequest {
   destination: Code;
   date_from: string;
   date_to: string;
-  citizenship?: CountryCode;
-  /** Integer from 1 to 9; default 1. */
-  passengers?: number;
-  currency?: Code;
-  budget?: number | string | null;
-  /** Integer from 1 to 50; default 10. */
-  limit?: number;
-  excluded_cities?: Code[];
-  checked_baggage_required?: boolean;
 }
 
 export interface SubmitQueryResponse {
@@ -79,16 +70,17 @@ export interface FlightSegment {
 export interface TicketOffer {
   provider: string;
   offer_id: string;
-  /** One or two flight segments. */
+  /** One to four flight segments. */
   segments: FlightSegment[];
-  total_price: Money;
+  total_price: Money | null;
+  unknown_costs?: string[];
   passengers: number;
   cabin?: 'economy' | 'premium_economy' | 'business' | 'first';
   checked_baggage_included?: boolean | null;
   protected_connection?: boolean;
   booking_url?: string | null;
   fetched_at: string;
-  expires_at: string;
+  expires_at?: string | null;
 }
 
 /** Entry permission for sightseeing, not merely airside transit. */
@@ -128,15 +120,41 @@ export interface VisitMetrics {
   self_transfer: boolean;
 }
 
+export interface CostComponent {
+  key: string;
+  kind: 'ticket' | 'visa';
+  original?: Money | null;
+  rub_amount?: string | null;
+  unknown_reason?: string | null;
+}
+
+export interface Stopover {
+  city_code: Code;
+  arrival_airport: Airport;
+  departure_airport: Airport;
+  arrival_at: string;
+  departure_at: string;
+  duration_hours: PositiveHours;
+  tourism_score: number;
+  airport_change: boolean;
+  self_transfer: boolean;
+}
+
 export interface RouteCandidate {
   id: string;
+  kind?: 'stopover' | 'direct';
   tickets: TicketOffer[];
-  stopover: CityProfile;
-  visa: VisaPolicy;
+  stopovers?: Stopover[];
+  costs?: CostComponent[];
+  full_cost_known?: boolean;
+  unknown_costs?: string[];
+  total_trip_hours?: NonNegative;
+  stopover?: CityProfile | null;
+  visa?: VisaPolicy | null;
   ticket_cost: Money;
   visa_cost: Money;
   total_cost: Money;
-  metrics: VisitMetrics;
+  metrics?: VisitMetrics | null;
   warnings?: string[];
 }
 
@@ -155,7 +173,7 @@ export interface RouteScore {
 
 export interface RankedRoute {
   route: RouteCandidate;
-  score: RouteScore;
+  score?: RouteScore | null;
 }
 
 export interface PlanResult {

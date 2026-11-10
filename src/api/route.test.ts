@@ -43,6 +43,12 @@ describe('API contract', () => {
     expect(mock.history.post[0].headers?.['Idempotency-Key']).toBeUndefined();
   });
 
+  it('only serializes RouteInput fields even if the caller passes extra properties', async () => {
+    mock.onPost('/queries').reply(202, { query_id: queryId, status: 'queued', reused: false });
+    await createRoute({ ...request, passengers: 2, currency: 'EUR' } as typeof request);
+    expect(JSON.parse(mock.history.post[0].data)).toEqual(request);
+  });
+
   it('preserves status metadata and nested results with omitted optional fields', async () => {
     mock.onGet(statusPath).reply(200, queryStatus);
     mock.onGet(resultPath).reply(200, queryResult);

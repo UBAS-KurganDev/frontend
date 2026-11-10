@@ -6,9 +6,6 @@ export const request: RouteRequest = {
   destination: 'PAR',
   date_from: '2026-11-01',
   date_to: '2026-11-02',
-  passengers: 2,
-  currency: 'EUR',
-  budget: '500.50',
 };
 
 export const queryStatus: GetQueryResponse = {
