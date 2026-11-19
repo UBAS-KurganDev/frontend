@@ -1,6 +1,5 @@
 import type { Airport, RankedRoute } from '../api/models';
 import type { FlightRoute } from '../types/route';
-import { cities } from '../data/cities';
 
 function formatDate(isoString: string, timeZone: string): string {
   try {
@@ -23,13 +22,16 @@ function formatMinutes(totalMinutes: number): string {
   return hours > 0 ? `${hours}ч ${minutes}м` : `${minutes}м`;
 }
 
-export function mapRankedRouteToFlightRoute(rankedRoute: RankedRoute): FlightRoute {
+export function mapRankedRouteToFlightRoute(
+  rankedRoute: RankedRoute,
+  cityNames: ReadonlyMap<string, string> = new Map(),
+): FlightRoute {
   const { route } = rankedRoute;
   const totalTripHours = route.total_trip_hours ?? route.metrics?.total_trip_hours;
   const cityName = (airport: Airport) =>
     route.stopover && airport.city_code === route.stopover.city_code
       ? route.stopover.name
-      : (cities.find((city) => city.cityCode === airport.city_code)?.cityName ?? airport.city_code);
+      : (cityNames.get(airport.city_code) ?? airport.city_code);
   const segments = route.tickets.flatMap((ticket) =>
     ticket.segments.map((segment) => ({
       departureCity: cityName(segment.origin),

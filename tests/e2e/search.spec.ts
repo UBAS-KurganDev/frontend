@@ -1,6 +1,41 @@
 import { expect, test } from '@playwright/test';
 import { queryId, queryResult, queryStatus } from '../../src/api/__tests__/fixtures';
 
+test('finds new catalog cities by English aliases and submits their city codes', async ({
+  page,
+}) => {
+  let submitted: Record<string, unknown> | undefined;
+  await page.route('**/api/v1/queries', async (route) => {
+    submitted = route.request().postDataJSON();
+    await route.fulfill({ json: { query_id: queryId, status: 'queued', reused: false } });
+  });
+  await page.route(`**/api/v1/queries/${queryId}`, (route) =>
+    route.fulfill({
+      json: { ...queryStatus, status: 'completed', result_available: true },
+    }),
+  );
+  await page.route(`**/api/v1/queries/${queryId}/result`, (route) =>
+    route.fulfill({
+      json: {
+        ...queryResult,
+        result: { ...queryResult.result, routes: [], warnings: [], complete: true },
+      },
+    }),
+  );
+  await page.goto('/');
+  const origin = page.getByRole('combobox', { name: 'Откуда', exact: true });
+  await origin.fill('Doha');
+  await page.getByRole('option', { name: /Доха.*DOH/ }).click();
+  const destination = page.getByRole('combobox', { name: 'Куда', exact: true });
+  await destination.fill('London');
+  await page.getByRole('option', { name: /Лондон.*LON/ }).click();
+  await expect(origin).toHaveValue('Доха (DOH)');
+  await expect(destination).toHaveValue('Лондон (LON)');
+  await page.getByRole('button', { name: 'Найти билеты', exact: true }).click();
+  await expect(page.getByText('Маршруты по заданным параметрам не найдены.')).toBeVisible();
+  expect(submitted).toMatchObject({ origin: 'DOH', destination: 'LON' });
+});
+
 test('searches by cities, uses Russian calendars, and opens route details', async ({
   page,
 }, info) => {

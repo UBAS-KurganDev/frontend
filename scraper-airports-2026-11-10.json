@@ -1,0 +1,5781 @@
+{
+  "version": 1,
+  "source": "https://flywhereto.com/mcp",
+  "geography_sources": [
+    "https://api.travelpayouts.com/data/en/airports.json",
+    "https://api.travelpayouts.com/data/en/cities.json"
+  ],
+  "attribution": "Fly Where To? / Intuitive Bricks AB; Wikipedia airport route tables (CC BY-SA). Geography: Travelpayouts.",
+  "started_at": "2026-11-10T13:18:59.409894Z",
+  "finished_at": "2026-11-10T13:19:05.088901Z",
+  "covered_cities": [
+    "DOH",
+    "GOJ",
+    "KGD",
+    "KUF",
+    "MCX",
+    "TJM"
+  ],
+  "cities": [
+    {
+      "code": "ABJ",
+      "name": "Abidjan",
+      "country_code": "CI",
+      "timezone": "Africa/Abidjan"
+    },
+    {
+      "code": "ABV",
+      "name": "Abuja",
+      "country_code": "NG",
+      "timezone": "Africa/Lagos"
+    },
+    {
+      "code": "ACC",
+      "name": "Accra",
+      "country_code": "GH",
+      "timezone": "Africa/Accra"
+    },
+    {
+      "code": "ADD",
+      "name": "Addis Ababa",
+      "country_code": "ET",
+      "timezone": "Africa/Addis_Ababa"
+    },
+    {
+      "code": "ADL",
+      "name": "Adelaide",
+      "country_code": "AU",
+      "timezone": "Australia/Adelaide"
+    },
+    {
+      "code": "AER",
+      "name": "Adler/Sochi",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "AGP",
+      "name": "Malaga",
+      "country_code": "ES",
+      "timezone": "Europe/Madrid"
+    },
+    {
+      "code": "AHB",
+      "name": "Abha",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh"
+    },
+    {
+      "code": "AKL",
+      "name": "Auckland",
+      "country_code": "NZ",
+      "timezone": "Pacific/Auckland"
+    },
+    {
+      "code": "ALA",
+      "name": "Almaty",
+      "country_code": "KZ",
+      "timezone": "Asia/Almaty"
+    },
+    {
+      "code": "ALG",
+      "name": "Algiers",
+      "country_code": "DZ",
+      "timezone": "Africa/Algiers"
+    },
+    {
+      "code": "ALP",
+      "name": "Aleppo",
+      "country_code": "SY",
+      "timezone": "Asia/Damascus"
+    },
+    {
+      "code": "ALY",
+      "name": "Alexandria",
+      "country_code": "EG",
+      "timezone": "Africa/Cairo"
+    },
+    {
+      "code": "AMD",
+      "name": "Ahmedabad",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "code": "AMM",
+      "name": "Amman",
+      "country_code": "JO",
+      "timezone": "Asia/Amman"
+    },
+    {
+      "code": "AMS",
+      "name": "Amsterdam",
+      "country_code": "NL",
+      "timezone": "Europe/Amsterdam"
+    },
+    {
+      "code": "ANK",
+      "name": "Ankara",
+      "country_code": "TR",
+      "timezone": "Europe/Istanbul"
+    },
+    {
+      "code": "ARH",
+      "name": "Arkhangelsk",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "ATH",
+      "name": "Athens",
+      "country_code": "GR",
+      "timezone": "Europe/Athens"
+    },
+    {
+      "code": "ATL",
+      "name": "Atlanta",
+      "country_code": "US",
+      "timezone": "America/New_York"
+    },
+    {
+      "code": "ATQ",
+      "name": "Amritsar",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "code": "AUH",
+      "name": "Abu Dhabi",
+      "country_code": "AE",
+      "timezone": "Asia/Dubai"
+    },
+    {
+      "code": "AYT",
+      "name": "Antalya",
+      "country_code": "TR",
+      "timezone": "Europe/Istanbul"
+    },
+    {
+      "code": "BAH",
+      "name": "Manama",
+      "country_code": "BH",
+      "timezone": "Asia/Bahrain"
+    },
+    {
+      "code": "BAK",
+      "name": "Baku",
+      "country_code": "AZ",
+      "timezone": "Asia/Baku"
+    },
+    {
+      "code": "BAX",
+      "name": "Barnaul",
+      "country_code": "RU",
+      "timezone": "Asia/Barnaul"
+    },
+    {
+      "code": "BCN",
+      "name": "Barcelona",
+      "country_code": "ES",
+      "timezone": "Europe/Madrid"
+    },
+    {
+      "code": "BEG",
+      "name": "Belgrade",
+      "country_code": "RS",
+      "timezone": "Europe/Belgrade"
+    },
+    {
+      "code": "BER",
+      "name": "Berlin",
+      "country_code": "DE",
+      "timezone": "Europe/Berlin"
+    },
+    {
+      "code": "BEY",
+      "name": "Beirut",
+      "country_code": "LB",
+      "timezone": "Asia/Beirut"
+    },
+    {
+      "code": "BGW",
+      "name": "Baghdad",
+      "country_code": "IQ",
+      "timezone": "Asia/Baghdad"
+    },
+    {
+      "code": "BHK",
+      "name": "Bukhara",
+      "country_code": "UZ",
+      "timezone": "Asia/Samarkand"
+    },
+    {
+      "code": "BHX",
+      "name": "Birmingham",
+      "country_code": "GB",
+      "timezone": "Europe/London"
+    },
+    {
+      "code": "BJS",
+      "name": "Beijing",
+      "country_code": "CN",
+      "timezone": "Asia/Shanghai"
+    },
+    {
+      "code": "BJV",
+      "name": "Bodrum",
+      "country_code": "TR",
+      "timezone": "Europe/Istanbul"
+    },
+    {
+      "code": "BKK",
+      "name": "Bangkok",
+      "country_code": "TH",
+      "timezone": "Asia/Bangkok"
+    },
+    {
+      "code": "BLR",
+      "name": "Bengaluru",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "code": "BND",
+      "name": "Bandar Abbas",
+      "country_code": "IR",
+      "timezone": "Asia/Tehran"
+    },
+    {
+      "code": "BNE",
+      "name": "Brisbane",
+      "country_code": "AU",
+      "timezone": "Australia/Brisbane"
+    },
+    {
+      "code": "BOG",
+      "name": "Bogota",
+      "country_code": "CO",
+      "timezone": "America/Bogota"
+    },
+    {
+      "code": "BOM",
+      "name": "Mumbai",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "code": "BOS",
+      "name": "Boston",
+      "country_code": "US",
+      "timezone": "America/New_York"
+    },
+    {
+      "code": "BQT",
+      "name": "Brest",
+      "country_code": "BY",
+      "timezone": "Europe/Minsk"
+    },
+    {
+      "code": "BRU",
+      "name": "Brussels",
+      "country_code": "BE",
+      "timezone": "Europe/Brussels"
+    },
+    {
+      "code": "BSR",
+      "name": "Basra",
+      "country_code": "IQ",
+      "timezone": "Asia/Baghdad"
+    },
+    {
+      "code": "BSZ",
+      "name": "Bishkek",
+      "country_code": "KG",
+      "timezone": "Asia/Bishkek"
+    },
+    {
+      "code": "BUD",
+      "name": "Budapest",
+      "country_code": "HU",
+      "timezone": "Europe/Budapest"
+    },
+    {
+      "code": "BUH",
+      "name": "Bucharest",
+      "country_code": "RO",
+      "timezone": "Europe/Bucharest"
+    },
+    {
+      "code": "BUS",
+      "name": "Batumi",
+      "country_code": "GE",
+      "timezone": "Asia/Tbilisi"
+    },
+    {
+      "code": "BVJ",
+      "name": "Bovanenkovo",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "CAI",
+      "name": "Cairo",
+      "country_code": "EG",
+      "timezone": "Africa/Cairo"
+    },
+    {
+      "code": "CAN",
+      "name": "Guangzhou",
+      "country_code": "CN",
+      "timezone": "Asia/Shanghai"
+    },
+    {
+      "code": "CBR",
+      "name": "Canberra",
+      "country_code": "AU",
+      "timezone": "Australia/Sydney"
+    },
+    {
+      "code": "CCJ",
+      "name": "Kozhikode",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "code": "CCS",
+      "name": "Caracas",
+      "country_code": "VE",
+      "timezone": "America/Caracas"
+    },
+    {
+      "code": "CCU",
+      "name": "Kolkata",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "code": "CEB",
+      "name": "Cebu City",
+      "country_code": "PH",
+      "timezone": "Asia/Manila"
+    },
+    {
+      "code": "CEE",
+      "name": "Cherepovets",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "CEK",
+      "name": "Chelyabinsk",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "CGP",
+      "name": "Chittagong",
+      "country_code": "BD",
+      "timezone": "Asia/Dhaka"
+    },
+    {
+      "code": "CHI",
+      "name": "Chicago",
+      "country_code": "US",
+      "timezone": "America/Chicago"
+    },
+    {
+      "code": "CIT",
+      "name": "Shymkent",
+      "country_code": "KZ",
+      "timezone": "Asia/Almaty"
+    },
+    {
+      "code": "CKG",
+      "name": "Chongqing",
+      "country_code": "CN",
+      "timezone": "Asia/Shanghai"
+    },
+    {
+      "code": "CMB",
+      "name": "Colombo",
+      "country_code": "LK",
+      "timezone": "Asia/Colombo"
+    },
+    {
+      "code": "CMN",
+      "name": "Casablanca",
+      "country_code": "MA",
+      "timezone": "Africa/Casablanca"
+    },
+    {
+      "code": "CNN",
+      "name": "Kannur",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "code": "COK",
+      "name": "Kochi",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "code": "CPH",
+      "name": "Copenhagen",
+      "country_code": "DK",
+      "timezone": "Europe/Copenhagen"
+    },
+    {
+      "code": "CPT",
+      "name": "Cape Town",
+      "country_code": "ZA",
+      "timezone": "Africa/Johannesburg"
+    },
+    {
+      "code": "CRK",
+      "name": "City of Angeles",
+      "country_code": "PH",
+      "timezone": "Asia/Manila"
+    },
+    {
+      "code": "CSY",
+      "name": "Cheboksary",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "CTU",
+      "name": "Chengdu",
+      "country_code": "CN",
+      "timezone": "Asia/Shanghai"
+    },
+    {
+      "code": "DAC",
+      "name": "Dhaka",
+      "country_code": "BD",
+      "timezone": "Asia/Dhaka"
+    },
+    {
+      "code": "DAM",
+      "name": "Damascus",
+      "country_code": "SY",
+      "timezone": "Asia/Damascus"
+    },
+    {
+      "code": "DAR",
+      "name": "Dar Es Salaam",
+      "country_code": "TZ",
+      "timezone": "Africa/Dar_es_Salaam"
+    },
+    {
+      "code": "DEL",
+      "name": "New Delhi",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "code": "DFW",
+      "name": "Dallas",
+      "country_code": "US",
+      "timezone": "America/Chicago"
+    },
+    {
+      "code": "DMM",
+      "name": "Dammam",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh"
+    },
+    {
+      "code": "DOH",
+      "name": "Doha",
+      "country_code": "QA",
+      "timezone": "Asia/Qatar"
+    },
+    {
+      "code": "DPS",
+      "name": "Denpasar (Bali)",
+      "country_code": "ID",
+      "timezone": "Asia/Makassar"
+    },
+    {
+      "code": "DUB",
+      "name": "Dublin",
+      "country_code": "IE",
+      "timezone": "Europe/Dublin"
+    },
+    {
+      "code": "DUR",
+      "name": "Durban",
+      "country_code": "ZA",
+      "timezone": "Africa/Johannesburg"
+    },
+    {
+      "code": "DUS",
+      "name": "Dusseldorf",
+      "country_code": "DE",
+      "timezone": "Europe/Berlin"
+    },
+    {
+      "code": "DVO",
+      "name": "Davao City",
+      "country_code": "PH",
+      "timezone": "Asia/Manila"
+    },
+    {
+      "code": "DXB",
+      "name": "Dubai",
+      "country_code": "AE",
+      "timezone": "Asia/Dubai"
+    },
+    {
+      "code": "DYU",
+      "name": "Dushanbe",
+      "country_code": "TJ",
+      "timezone": "Asia/Dushanbe"
+    },
+    {
+      "code": "EBB",
+      "name": "Entebbe",
+      "country_code": "UG",
+      "timezone": "Africa/Kampala"
+    },
+    {
+      "code": "EBL",
+      "name": "Erbil",
+      "country_code": "IQ",
+      "timezone": "Asia/Baghdad"
+    },
+    {
+      "code": "EDI",
+      "name": "Edinburgh",
+      "country_code": "GB",
+      "timezone": "Europe/London"
+    },
+    {
+      "code": "ELQ",
+      "name": "Buraydah",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh"
+    },
+    {
+      "code": "EVN",
+      "name": "Yerevan",
+      "country_code": "AM",
+      "timezone": "Asia/Yerevan"
+    },
+    {
+      "code": "EYK",
+      "name": "Beloyarsky",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "FIH",
+      "name": "Kinshasa",
+      "country_code": "CD",
+      "timezone": "Africa/Kinshasa"
+    },
+    {
+      "code": "FRA",
+      "name": "Frankfurt",
+      "country_code": "DE",
+      "timezone": "Europe/Berlin"
+    },
+    {
+      "code": "GDZ",
+      "name": "Gelendzik",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "GOI",
+      "name": "Goa",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "code": "GOJ",
+      "name": "Nizhniy Novgorod",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "GVA",
+      "name": "Geneva",
+      "country_code": "CH",
+      "timezone": "Europe/Zurich"
+    },
+    {
+      "code": "HAM",
+      "name": "Hamburg",
+      "country_code": "DE",
+      "timezone": "Europe/Berlin"
+    },
+    {
+      "code": "HAN",
+      "name": "Hanoi",
+      "country_code": "VN",
+      "timezone": "Asia/Ho_Chi_Minh"
+    },
+    {
+      "code": "HAS",
+      "name": "Hail",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh"
+    },
+    {
+      "code": "HEL",
+      "name": "Helsinki",
+      "country_code": "FI",
+      "timezone": "Europe/Helsinki"
+    },
+    {
+      "code": "HGH",
+      "name": "Hangzhou",
+      "country_code": "CN",
+      "timezone": "Asia/Shanghai"
+    },
+    {
+      "code": "HKG",
+      "name": "Hong Kong",
+      "country_code": "HK",
+      "timezone": "Asia/Hong_Kong"
+    },
+    {
+      "code": "HKT",
+      "name": "Phuket",
+      "country_code": "TH",
+      "timezone": "Asia/Bangkok"
+    },
+    {
+      "code": "HMA",
+      "name": "Khanty-Mansiysk",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "HOU",
+      "name": "Houston",
+      "country_code": "US",
+      "timezone": "America/Chicago"
+    },
+    {
+      "code": "HRE",
+      "name": "Harare",
+      "country_code": "ZW",
+      "timezone": "Africa/Harare"
+    },
+    {
+      "code": "HRG",
+      "name": "Hurghada",
+      "country_code": "EG",
+      "timezone": "Africa/Cairo"
+    },
+    {
+      "code": "HRI",
+      "name": "Hambantota",
+      "country_code": "LK",
+      "timezone": "Asia/Colombo"
+    },
+    {
+      "code": "HYD",
+      "name": "Hyderabad",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "code": "IAR",
+      "name": "Yaroslavl",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "IJK",
+      "name": "Izhevsk",
+      "country_code": "RU",
+      "timezone": "Europe/Samara"
+    },
+    {
+      "code": "IKT",
+      "name": "Irkutsk",
+      "country_code": "RU",
+      "timezone": "Asia/Irkutsk"
+    },
+    {
+      "code": "IRM",
+      "name": "Igrim",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "ISB",
+      "name": "Islamabad",
+      "country_code": "PK",
+      "timezone": "Asia/Karachi"
+    },
+    {
+      "code": "IST",
+      "name": "Istanbul",
+      "country_code": "TR",
+      "timezone": "Europe/Istanbul"
+    },
+    {
+      "code": "ISU",
+      "name": "Sulaimaniyah",
+      "country_code": "IQ",
+      "timezone": "Asia/Baghdad"
+    },
+    {
+      "code": "IWA",
+      "name": "Ivanovo",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "IXE",
+      "name": "Mangalore",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "code": "JED",
+      "name": "Jeddah",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh"
+    },
+    {
+      "code": "JIB",
+      "name": "Djibouti",
+      "country_code": "DJ",
+      "timezone": "Africa/Djibouti"
+    },
+    {
+      "code": "JKT",
+      "name": "Jakarta",
+      "country_code": "ID",
+      "timezone": "Asia/Jakarta"
+    },
+    {
+      "code": "JMK",
+      "name": "Mikonos",
+      "country_code": "GR",
+      "timezone": "Europe/Athens"
+    },
+    {
+      "code": "JNB",
+      "name": "Johannesburg",
+      "country_code": "ZA",
+      "timezone": "Africa/Johannesburg"
+    },
+    {
+      "code": "JRO",
+      "name": "Kilimanjaro",
+      "country_code": "TZ",
+      "timezone": "Africa/Dar_es_Salaam"
+    },
+    {
+      "code": "KAN",
+      "name": "Kano",
+      "country_code": "NG",
+      "timezone": "Africa/Lagos"
+    },
+    {
+      "code": "KBL",
+      "name": "Kabul",
+      "country_code": "AF",
+      "timezone": "Asia/Kabul"
+    },
+    {
+      "code": "KGD",
+      "name": "Kaliningrad",
+      "country_code": "RU",
+      "timezone": "Europe/Kaliningrad"
+    },
+    {
+      "code": "KGL",
+      "name": "Kigali",
+      "country_code": "RW",
+      "timezone": "Africa/Kigali"
+    },
+    {
+      "code": "KGP",
+      "name": "Kogalym",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "KHI",
+      "name": "Karachi",
+      "country_code": "PK",
+      "timezone": "Asia/Karachi"
+    },
+    {
+      "code": "KJA",
+      "name": "Krasnoyarsk",
+      "country_code": "RU",
+      "timezone": "Asia/Krasnoyarsk"
+    },
+    {
+      "code": "KRR",
+      "name": "Krasnodar",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "KTM",
+      "name": "Kathmandu",
+      "country_code": "NP",
+      "timezone": "Asia/Kathmandu"
+    },
+    {
+      "code": "KUF",
+      "name": "Samara",
+      "country_code": "RU",
+      "timezone": "Europe/Samara"
+    },
+    {
+      "code": "KUL",
+      "name": "Kuala Lumpur",
+      "country_code": "MY",
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    {
+      "code": "KVK",
+      "name": "Kirovsk",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "KVX",
+      "name": "Kirov",
+      "country_code": "RU",
+      "timezone": "Europe/Volgograd"
+    },
+    {
+      "code": "KWI",
+      "name": "Kuwait City",
+      "country_code": "KW",
+      "timezone": "Asia/Kuwait"
+    },
+    {
+      "code": "KZN",
+      "name": "Kazan",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "LAD",
+      "name": "Luanda",
+      "country_code": "AO",
+      "timezone": "Africa/Luanda"
+    },
+    {
+      "code": "LAX",
+      "name": "Los Angeles",
+      "country_code": "US",
+      "timezone": "America/Los_Angeles"
+    },
+    {
+      "code": "LBD",
+      "name": "Khujand",
+      "country_code": "TJ",
+      "timezone": "Asia/Dushanbe"
+    },
+    {
+      "code": "LCA",
+      "name": "Larnaca",
+      "country_code": "CY",
+      "timezone": "Asia/Nicosia"
+    },
+    {
+      "code": "LED",
+      "name": "Saint Petersburg",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "LHE",
+      "name": "Lahore",
+      "country_code": "PK",
+      "timezone": "Asia/Karachi"
+    },
+    {
+      "code": "LIS",
+      "name": "Lisbon",
+      "country_code": "PT",
+      "timezone": "Europe/Lisbon"
+    },
+    {
+      "code": "LON",
+      "name": "London",
+      "country_code": "GB",
+      "timezone": "Europe/London"
+    },
+    {
+      "code": "LOS",
+      "name": "Lagos",
+      "country_code": "NG",
+      "timezone": "Africa/Lagos"
+    },
+    {
+      "code": "LRR",
+      "name": "Lar",
+      "country_code": "IR",
+      "timezone": "Asia/Tehran"
+    },
+    {
+      "code": "LUN",
+      "name": "Lusaka",
+      "country_code": "ZM",
+      "timezone": "Africa/Lusaka"
+    },
+    {
+      "code": "LYP",
+      "name": "Faisalabad",
+      "country_code": "PK",
+      "timezone": "Asia/Karachi"
+    },
+    {
+      "code": "MAA",
+      "name": "Chennai",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "code": "MAD",
+      "name": "Madrid",
+      "country_code": "ES",
+      "timezone": "Europe/Madrid"
+    },
+    {
+      "code": "MAN",
+      "name": "Manchester",
+      "country_code": "GB",
+      "timezone": "Europe/London"
+    },
+    {
+      "code": "MCT",
+      "name": "Muscat",
+      "country_code": "OM",
+      "timezone": "Asia/Muscat"
+    },
+    {
+      "code": "MCX",
+      "name": "Makhachkala",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "MED",
+      "name": "Medina",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh"
+    },
+    {
+      "code": "MEL",
+      "name": "Melbourne",
+      "country_code": "AU",
+      "timezone": "Australia/Melbourne"
+    },
+    {
+      "code": "MGQ",
+      "name": "Mogadishu",
+      "country_code": "SO",
+      "timezone": "Africa/Mogadishu"
+    },
+    {
+      "code": "MHD",
+      "name": "Mashhad",
+      "country_code": "IR",
+      "timezone": "Asia/Tehran"
+    },
+    {
+      "code": "MIA",
+      "name": "Miami",
+      "country_code": "US",
+      "timezone": "America/New_York"
+    },
+    {
+      "code": "MIL",
+      "name": "Milan",
+      "country_code": "IT",
+      "timezone": "Europe/Rome"
+    },
+    {
+      "code": "MLA",
+      "name": "Malta",
+      "country_code": "MT",
+      "timezone": "Europe/Malta"
+    },
+    {
+      "code": "MLE",
+      "name": "Male",
+      "country_code": "MV",
+      "timezone": "Indian/Maldives"
+    },
+    {
+      "code": "MMK",
+      "name": "Murmansk",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "MNL",
+      "name": "Manila",
+      "country_code": "PH",
+      "timezone": "Asia/Manila"
+    },
+    {
+      "code": "MOW",
+      "name": "Moscow",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "MPM",
+      "name": "Maputo",
+      "country_code": "MZ",
+      "timezone": "Africa/Maputo"
+    },
+    {
+      "code": "MRV",
+      "name": "Mineralnye Vody",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "MSQ",
+      "name": "Minsk",
+      "country_code": "BY",
+      "timezone": "Europe/Minsk"
+    },
+    {
+      "code": "MUC",
+      "name": "Munich",
+      "country_code": "DE",
+      "timezone": "Europe/Berlin"
+    },
+    {
+      "code": "MUX",
+      "name": "Multan",
+      "country_code": "PK",
+      "timezone": "Asia/Karachi"
+    },
+    {
+      "code": "NAG",
+      "name": "Nagpur",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "code": "NBC",
+      "name": "Naberezhnye Chelny",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "NBO",
+      "name": "Nairobi",
+      "country_code": "KE",
+      "timezone": "Africa/Nairobi"
+    },
+    {
+      "code": "NCE",
+      "name": "Nice",
+      "country_code": "FR",
+      "timezone": "Europe/Paris"
+    },
+    {
+      "code": "NJC",
+      "name": "Nizhnevartovsk",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "NJF",
+      "name": "Al-Najaf",
+      "country_code": "IQ",
+      "timezone": "Asia/Baghdad"
+    },
+    {
+      "code": "NMA",
+      "name": "Namangan",
+      "country_code": "UZ",
+      "timezone": "Asia/Tashkent"
+    },
+    {
+      "code": "NNM",
+      "name": "Naryan-Mar",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "NOJ",
+      "name": "Noyabrsk",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "NQZ",
+      "name": "Astana",
+      "country_code": "KZ",
+      "timezone": "Asia/Almaty"
+    },
+    {
+      "code": "NSK",
+      "name": "Norilsk",
+      "country_code": "RU",
+      "timezone": "Asia/Krasnoyarsk"
+    },
+    {
+      "code": "NUM",
+      "name": "Neom",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh"
+    },
+    {
+      "code": "NUX",
+      "name": "Novy Urengoy",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "NYA",
+      "name": "Nyagan",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "NYC",
+      "name": "New York",
+      "country_code": "US",
+      "timezone": "America/New_York"
+    },
+    {
+      "code": "NYM",
+      "name": "Nadym",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "OMS",
+      "name": "Omsk",
+      "country_code": "RU",
+      "timezone": "Asia/Omsk"
+    },
+    {
+      "code": "OSA",
+      "name": "Osaka",
+      "country_code": "JP",
+      "timezone": "Asia/Tokyo"
+    },
+    {
+      "code": "OSL",
+      "name": "Oslo",
+      "country_code": "NO",
+      "timezone": "Europe/Oslo"
+    },
+    {
+      "code": "OSS",
+      "name": "Osh",
+      "country_code": "KG",
+      "timezone": "Asia/Bishkek"
+    },
+    {
+      "code": "OVB",
+      "name": "Novosibirsk",
+      "country_code": "RU",
+      "timezone": "Asia/Novosibirsk"
+    },
+    {
+      "code": "OVS",
+      "name": "Sovetsky",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "PAR",
+      "name": "Paris",
+      "country_code": "FR",
+      "timezone": "Europe/Paris"
+    },
+    {
+      "code": "PEE",
+      "name": "Perm",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "PEN",
+      "name": "Penang",
+      "country_code": "MY",
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    {
+      "code": "PER",
+      "name": "Perth",
+      "country_code": "AU",
+      "timezone": "Australia/Perth"
+    },
+    {
+      "code": "PES",
+      "name": "Petrozavodsk",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "PEW",
+      "name": "Peshawar",
+      "country_code": "PK",
+      "timezone": "Asia/Karachi"
+    },
+    {
+      "code": "PHC",
+      "name": "Port Harcourt",
+      "country_code": "NG",
+      "timezone": "Africa/Lagos"
+    },
+    {
+      "code": "PHL",
+      "name": "Philadelphia",
+      "country_code": "US",
+      "timezone": "America/New_York"
+    },
+    {
+      "code": "PKV",
+      "name": "Pskov",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "PNH",
+      "name": "Phnom Penh",
+      "country_code": "KH",
+      "timezone": "Asia/Phnom_Penh"
+    },
+    {
+      "code": "PRG",
+      "name": "Prague",
+      "country_code": "CZ",
+      "timezone": "Europe/Prague"
+    },
+    {
+      "code": "PZU",
+      "name": "Port Sudan",
+      "country_code": "SD",
+      "timezone": "Africa/Khartoum"
+    },
+    {
+      "code": "RAK",
+      "name": "Marrakech",
+      "country_code": "MA",
+      "timezone": "Africa/Casablanca"
+    },
+    {
+      "code": "REN",
+      "name": "Orenburg",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "RMZ",
+      "name": "Tobolsk",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "ROM",
+      "name": "Rome",
+      "country_code": "IT",
+      "timezone": "Europe/Rome"
+    },
+    {
+      "code": "RTW",
+      "name": "Saratov",
+      "country_code": "RU",
+      "timezone": "Europe/Samara"
+    },
+    {
+      "code": "RUH",
+      "name": "Riyadh",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh"
+    },
+    {
+      "code": "SAO",
+      "name": "Sao Paulo",
+      "country_code": "BR",
+      "timezone": "America/Sao_Paulo"
+    },
+    {
+      "code": "SBT",
+      "name": "Sabetta",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "SCO",
+      "name": "Aktau",
+      "country_code": "KZ",
+      "timezone": "Asia/Aqtau"
+    },
+    {
+      "code": "SCW",
+      "name": "Syktyvkar",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "SEA",
+      "name": "Seattle",
+      "country_code": "US",
+      "timezone": "America/Los_Angeles"
+    },
+    {
+      "code": "SEL",
+      "name": "Seoul",
+      "country_code": "KR",
+      "timezone": "Asia/Seoul"
+    },
+    {
+      "code": "SEZ",
+      "name": "Mahe",
+      "country_code": "SC",
+      "timezone": "Indian/Mahe"
+    },
+    {
+      "code": "SFO",
+      "name": "San Francisco",
+      "country_code": "US",
+      "timezone": "America/Los_Angeles"
+    },
+    {
+      "code": "SGC",
+      "name": "Surgut",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "SGN",
+      "name": "Ho Chi Minh City",
+      "country_code": "VN",
+      "timezone": "Asia/Ho_Chi_Minh"
+    },
+    {
+      "code": "SHA",
+      "name": "Shanghai",
+      "country_code": "CN",
+      "timezone": "Asia/Shanghai"
+    },
+    {
+      "code": "SHJ",
+      "name": "Sharjah",
+      "country_code": "AE",
+      "timezone": "Asia/Dubai"
+    },
+    {
+      "code": "SIN",
+      "name": "Singapore",
+      "country_code": "SG",
+      "timezone": "Asia/Singapore"
+    },
+    {
+      "code": "SKT",
+      "name": "Sialkot",
+      "country_code": "PK",
+      "timezone": "Asia/Karachi"
+    },
+    {
+      "code": "SLL",
+      "name": "Salalah",
+      "country_code": "OM",
+      "timezone": "Asia/Muscat"
+    },
+    {
+      "code": "SLY",
+      "name": "Salekhard",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "SOF",
+      "name": "Sofia",
+      "country_code": "BG",
+      "timezone": "Europe/Sofia"
+    },
+    {
+      "code": "SSH",
+      "name": "Sharm el Sheikh",
+      "country_code": "EG",
+      "timezone": "Africa/Cairo"
+    },
+    {
+      "code": "STO",
+      "name": "Stockholm",
+      "country_code": "SE",
+      "timezone": "Europe/Stockholm"
+    },
+    {
+      "code": "STW",
+      "name": "Stavropol",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "SVX",
+      "name": "Yekaterinburg",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "SYD",
+      "name": "Sydney",
+      "country_code": "AU",
+      "timezone": "Australia/Sydney"
+    },
+    {
+      "code": "SYZ",
+      "name": "Shiraz",
+      "country_code": "IR",
+      "timezone": "Asia/Tehran"
+    },
+    {
+      "code": "SZX",
+      "name": "Shenzhen",
+      "country_code": "CN",
+      "timezone": "Asia/Shanghai"
+    },
+    {
+      "code": "TAS",
+      "name": "Tashkent",
+      "country_code": "UZ",
+      "timezone": "Asia/Tashkent"
+    },
+    {
+      "code": "TBS",
+      "name": "Tbilisi",
+      "country_code": "GE",
+      "timezone": "Asia/Tbilisi"
+    },
+    {
+      "code": "THR",
+      "name": "Tehran",
+      "country_code": "IR",
+      "timezone": "Asia/Tehran"
+    },
+    {
+      "code": "TIF",
+      "name": "Taif",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh"
+    },
+    {
+      "code": "TJM",
+      "name": "Tyumen",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "TLK",
+      "name": "Talakan",
+      "country_code": "RU",
+      "timezone": "Asia/Yakutsk"
+    },
+    {
+      "code": "TOF",
+      "name": "Tomsk",
+      "country_code": "RU",
+      "timezone": "Asia/Krasnoyarsk"
+    },
+    {
+      "code": "TRV",
+      "name": "Thiruvananthapuram",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "code": "TRZ",
+      "name": "Tiruchirappalli",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "code": "TUN",
+      "name": "Tunis",
+      "country_code": "TN",
+      "timezone": "Africa/Tunis"
+    },
+    {
+      "code": "TUU",
+      "name": "Tabuk",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh"
+    },
+    {
+      "code": "TYO",
+      "name": "Tokyo",
+      "country_code": "JP",
+      "timezone": "Asia/Tokyo"
+    },
+    {
+      "code": "TZX",
+      "name": "Trabzon",
+      "country_code": "TR",
+      "timezone": "Europe/Istanbul"
+    },
+    {
+      "code": "UFA",
+      "name": "Ufa",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "UGC",
+      "name": "Urgench",
+      "country_code": "UZ",
+      "timezone": "Asia/Samarkand"
+    },
+    {
+      "code": "ULH",
+      "name": "Al Ula",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh"
+    },
+    {
+      "code": "ULY",
+      "name": "Ulyanovsk",
+      "country_code": "RU",
+      "timezone": "Europe/Samara"
+    },
+    {
+      "code": "URJ",
+      "name": "Uraj",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg"
+    },
+    {
+      "code": "USK",
+      "name": "Usinsk",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "code": "UTP",
+      "name": "Pattaya",
+      "country_code": "TH",
+      "timezone": "Asia/Bangkok"
+    },
+    {
+      "code": "VCE",
+      "name": "Venice",
+      "country_code": "IT",
+      "timezone": "Europe/Rome"
+    },
+    {
+      "code": "VIE",
+      "name": "Vienna",
+      "country_code": "AT",
+      "timezone": "Europe/Vienna"
+    },
+    {
+      "code": "VOG",
+      "name": "Volgograd",
+      "country_code": "RU",
+      "timezone": "Europe/Volgograd"
+    },
+    {
+      "code": "WAS",
+      "name": "Washington",
+      "country_code": "US",
+      "timezone": "America/New_York"
+    },
+    {
+      "code": "WAW",
+      "name": "Warsaw",
+      "country_code": "PL",
+      "timezone": "Europe/Warsaw"
+    },
+    {
+      "code": "XMN",
+      "name": "Xiamen",
+      "country_code": "CN",
+      "timezone": "Asia/Shanghai"
+    },
+    {
+      "code": "YMQ",
+      "name": "Montreal",
+      "country_code": "CA",
+      "timezone": "America/Toronto"
+    },
+    {
+      "code": "YNB",
+      "name": "Yanbu",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh"
+    },
+    {
+      "code": "YTO",
+      "name": "Toronto",
+      "country_code": "CA",
+      "timezone": "America/Toronto"
+    },
+    {
+      "code": "ZAG",
+      "name": "Zagreb",
+      "country_code": "HR",
+      "timezone": "Europe/Zagreb"
+    },
+    {
+      "code": "ZNZ",
+      "name": "Zanzibar",
+      "country_code": "TZ",
+      "timezone": "Africa/Dar_es_Salaam"
+    },
+    {
+      "code": "ZRH",
+      "name": "Zurich",
+      "country_code": "CH",
+      "timezone": "Europe/Zurich"
+    },
+    {
+      "code": "ZYL",
+      "name": "Sylhet",
+      "country_code": "BD",
+      "timezone": "Asia/Dhaka"
+    }
+  ],
+  "airports": [
+    {
+      "code": "ABJ",
+      "city_code": "ABJ",
+      "timezone": "Africa/Abidjan",
+      "flightable": true
+    },
+    {
+      "code": "ABV",
+      "city_code": "ABV",
+      "timezone": "Africa/Lagos",
+      "flightable": true
+    },
+    {
+      "code": "ACC",
+      "city_code": "ACC",
+      "timezone": "Africa/Accra",
+      "flightable": true
+    },
+    {
+      "code": "ADD",
+      "city_code": "ADD",
+      "timezone": "Africa/Addis_Ababa",
+      "flightable": true
+    },
+    {
+      "code": "ADL",
+      "city_code": "ADL",
+      "timezone": "Australia/Adelaide",
+      "flightable": true
+    },
+    {
+      "code": "AER",
+      "city_code": "AER",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "AGP",
+      "city_code": "AGP",
+      "timezone": "Europe/Madrid",
+      "flightable": true
+    },
+    {
+      "code": "AHB",
+      "city_code": "AHB",
+      "timezone": "Asia/Riyadh",
+      "flightable": true
+    },
+    {
+      "code": "AKL",
+      "city_code": "AKL",
+      "timezone": "Pacific/Auckland",
+      "flightable": true
+    },
+    {
+      "code": "ALA",
+      "city_code": "ALA",
+      "timezone": "Asia/Almaty",
+      "flightable": true
+    },
+    {
+      "code": "ALG",
+      "city_code": "ALG",
+      "timezone": "Africa/Algiers",
+      "flightable": true
+    },
+    {
+      "code": "ALP",
+      "city_code": "ALP",
+      "timezone": "Asia/Damascus",
+      "flightable": true
+    },
+    {
+      "code": "AMD",
+      "city_code": "AMD",
+      "timezone": "Asia/Kolkata",
+      "flightable": true
+    },
+    {
+      "code": "AMM",
+      "city_code": "AMM",
+      "timezone": "Asia/Amman",
+      "flightable": true
+    },
+    {
+      "code": "AMS",
+      "city_code": "AMS",
+      "timezone": "Europe/Amsterdam",
+      "flightable": true
+    },
+    {
+      "code": "ARH",
+      "city_code": "ARH",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "ARN",
+      "city_code": "STO",
+      "timezone": "Europe/Stockholm",
+      "flightable": true
+    },
+    {
+      "code": "ATH",
+      "city_code": "ATH",
+      "timezone": "Europe/Athens",
+      "flightable": true
+    },
+    {
+      "code": "ATL",
+      "city_code": "ATL",
+      "timezone": "America/New_York",
+      "flightable": true
+    },
+    {
+      "code": "ATQ",
+      "city_code": "ATQ",
+      "timezone": "Asia/Kolkata",
+      "flightable": true
+    },
+    {
+      "code": "AUH",
+      "city_code": "AUH",
+      "timezone": "Asia/Dubai",
+      "flightable": true
+    },
+    {
+      "code": "AYT",
+      "city_code": "AYT",
+      "timezone": "Europe/Istanbul",
+      "flightable": true
+    },
+    {
+      "code": "BAH",
+      "city_code": "BAH",
+      "timezone": "Asia/Bahrain",
+      "flightable": true
+    },
+    {
+      "code": "BAX",
+      "city_code": "BAX",
+      "timezone": "Asia/Omsk",
+      "flightable": true
+    },
+    {
+      "code": "BCN",
+      "city_code": "BCN",
+      "timezone": "Europe/Madrid",
+      "flightable": true
+    },
+    {
+      "code": "BEG",
+      "city_code": "BEG",
+      "timezone": "Europe/Belgrade",
+      "flightable": true
+    },
+    {
+      "code": "BER",
+      "city_code": "BER",
+      "timezone": "Europe/Berlin",
+      "flightable": true
+    },
+    {
+      "code": "BEY",
+      "city_code": "BEY",
+      "timezone": "Asia/Beirut",
+      "flightable": true
+    },
+    {
+      "code": "BGW",
+      "city_code": "BGW",
+      "timezone": "Asia/Baghdad",
+      "flightable": true
+    },
+    {
+      "code": "BHK",
+      "city_code": "BHK",
+      "timezone": "Asia/Tashkent",
+      "flightable": true
+    },
+    {
+      "code": "BHX",
+      "city_code": "BHX",
+      "timezone": "Europe/London",
+      "flightable": true
+    },
+    {
+      "code": "BJV",
+      "city_code": "BJV",
+      "timezone": "Europe/Istanbul",
+      "flightable": true
+    },
+    {
+      "code": "BKK",
+      "city_code": "BKK",
+      "timezone": "Asia/Bangkok",
+      "flightable": true
+    },
+    {
+      "code": "BLR",
+      "city_code": "BLR",
+      "timezone": "Asia/Kolkata",
+      "flightable": true
+    },
+    {
+      "code": "BND",
+      "city_code": "BND",
+      "timezone": "Asia/Tehran",
+      "flightable": true
+    },
+    {
+      "code": "BNE",
+      "city_code": "BNE",
+      "timezone": "Australia/Brisbane",
+      "flightable": true
+    },
+    {
+      "code": "BOG",
+      "city_code": "BOG",
+      "timezone": "America/Bogota",
+      "flightable": true
+    },
+    {
+      "code": "BOM",
+      "city_code": "BOM",
+      "timezone": "Asia/Kolkata",
+      "flightable": true
+    },
+    {
+      "code": "BOS",
+      "city_code": "BOS",
+      "timezone": "America/New_York",
+      "flightable": true
+    },
+    {
+      "code": "BQT",
+      "city_code": "BQT",
+      "timezone": "Europe/Minsk",
+      "flightable": true
+    },
+    {
+      "code": "BRU",
+      "city_code": "BRU",
+      "timezone": "Europe/Brussels",
+      "flightable": true
+    },
+    {
+      "code": "BSR",
+      "city_code": "BSR",
+      "timezone": "Asia/Baghdad",
+      "flightable": true
+    },
+    {
+      "code": "BSZ",
+      "city_code": "BSZ",
+      "timezone": "Asia/Bishkek",
+      "flightable": true
+    },
+    {
+      "code": "BUD",
+      "city_code": "BUD",
+      "timezone": "Europe/Budapest",
+      "flightable": true
+    },
+    {
+      "code": "BUS",
+      "city_code": "BUS",
+      "timezone": "Asia/Tbilisi",
+      "flightable": true
+    },
+    {
+      "code": "BVJ",
+      "city_code": "BVJ",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "CAI",
+      "city_code": "CAI",
+      "timezone": "Africa/Cairo",
+      "flightable": true
+    },
+    {
+      "code": "CAN",
+      "city_code": "CAN",
+      "timezone": "Asia/Shanghai",
+      "flightable": true
+    },
+    {
+      "code": "CBR",
+      "city_code": "CBR",
+      "timezone": "Australia/Sydney",
+      "flightable": true
+    },
+    {
+      "code": "CCJ",
+      "city_code": "CCJ",
+      "timezone": "Asia/Kolkata",
+      "flightable": true
+    },
+    {
+      "code": "CCS",
+      "city_code": "CCS",
+      "timezone": "America/Caracas",
+      "flightable": true
+    },
+    {
+      "code": "CCU",
+      "city_code": "CCU",
+      "timezone": "Asia/Kolkata",
+      "flightable": true
+    },
+    {
+      "code": "CDG",
+      "city_code": "PAR",
+      "timezone": "Europe/Paris",
+      "flightable": true
+    },
+    {
+      "code": "CEB",
+      "city_code": "CEB",
+      "timezone": "Asia/Manila",
+      "flightable": true
+    },
+    {
+      "code": "CEE",
+      "city_code": "CEE",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "CEK",
+      "city_code": "CEK",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "CGK",
+      "city_code": "JKT",
+      "timezone": "Asia/Jakarta",
+      "flightable": true
+    },
+    {
+      "code": "CGP",
+      "city_code": "CGP",
+      "timezone": "Asia/Dhaka",
+      "flightable": true
+    },
+    {
+      "code": "CIT",
+      "city_code": "CIT",
+      "timezone": "Asia/Almaty",
+      "flightable": true
+    },
+    {
+      "code": "CKG",
+      "city_code": "CKG",
+      "timezone": "Asia/Shanghai",
+      "flightable": true
+    },
+    {
+      "code": "CMB",
+      "city_code": "CMB",
+      "timezone": "Asia/Colombo",
+      "flightable": true
+    },
+    {
+      "code": "CMN",
+      "city_code": "CMN",
+      "timezone": "Africa/Casablanca",
+      "flightable": true
+    },
+    {
+      "code": "CNN",
+      "city_code": "CNN",
+      "timezone": "Asia/Kolkata",
+      "flightable": true
+    },
+    {
+      "code": "COK",
+      "city_code": "COK",
+      "timezone": "Asia/Kolkata",
+      "flightable": true
+    },
+    {
+      "code": "CPH",
+      "city_code": "CPH",
+      "timezone": "Europe/Copenhagen",
+      "flightable": true
+    },
+    {
+      "code": "CPT",
+      "city_code": "CPT",
+      "timezone": "Africa/Johannesburg",
+      "flightable": true
+    },
+    {
+      "code": "CRK",
+      "city_code": "CRK",
+      "timezone": "Asia/Manila",
+      "flightable": true
+    },
+    {
+      "code": "CSY",
+      "city_code": "CSY",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "DAC",
+      "city_code": "DAC",
+      "timezone": "Asia/Dhaka",
+      "flightable": true
+    },
+    {
+      "code": "DAM",
+      "city_code": "DAM",
+      "timezone": "Asia/Damascus",
+      "flightable": true
+    },
+    {
+      "code": "DAR",
+      "city_code": "DAR",
+      "timezone": "Africa/Dar_es_Salaam",
+      "flightable": true
+    },
+    {
+      "code": "DEL",
+      "city_code": "DEL",
+      "timezone": "Asia/Kolkata",
+      "flightable": true
+    },
+    {
+      "code": "DFW",
+      "city_code": "DFW",
+      "timezone": "America/Chicago",
+      "flightable": true
+    },
+    {
+      "code": "DME",
+      "city_code": "MOW",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "DMM",
+      "city_code": "DMM",
+      "timezone": "Asia/Riyadh",
+      "flightable": true
+    },
+    {
+      "code": "DOH",
+      "city_code": "DOH",
+      "timezone": "Asia/Qatar",
+      "flightable": true
+    },
+    {
+      "code": "DPS",
+      "city_code": "DPS",
+      "timezone": "Asia/Makassar",
+      "flightable": true
+    },
+    {
+      "code": "DUB",
+      "city_code": "DUB",
+      "timezone": "Europe/Dublin",
+      "flightable": true
+    },
+    {
+      "code": "DUR",
+      "city_code": "DUR",
+      "timezone": "Africa/Johannesburg",
+      "flightable": true
+    },
+    {
+      "code": "DUS",
+      "city_code": "DUS",
+      "timezone": "Europe/Berlin",
+      "flightable": true
+    },
+    {
+      "code": "DVO",
+      "city_code": "DVO",
+      "timezone": "Asia/Manila",
+      "flightable": true
+    },
+    {
+      "code": "DWC",
+      "city_code": "DXB",
+      "timezone": "Asia/Dubai",
+      "flightable": true
+    },
+    {
+      "code": "DXB",
+      "city_code": "DXB",
+      "timezone": "Asia/Dubai",
+      "flightable": true
+    },
+    {
+      "code": "DYU",
+      "city_code": "DYU",
+      "timezone": "Asia/Dushanbe",
+      "flightable": true
+    },
+    {
+      "code": "EBB",
+      "city_code": "EBB",
+      "timezone": "Africa/Kampala",
+      "flightable": true
+    },
+    {
+      "code": "EBL",
+      "city_code": "EBL",
+      "timezone": "Asia/Baghdad",
+      "flightable": true
+    },
+    {
+      "code": "EDI",
+      "city_code": "EDI",
+      "timezone": "Europe/London",
+      "flightable": true
+    },
+    {
+      "code": "ELQ",
+      "city_code": "ELQ",
+      "timezone": "Asia/Riyadh",
+      "flightable": true
+    },
+    {
+      "code": "ESB",
+      "city_code": "ANK",
+      "timezone": "Europe/Istanbul",
+      "flightable": true
+    },
+    {
+      "code": "EVN",
+      "city_code": "EVN",
+      "timezone": "Asia/Yerevan",
+      "flightable": true
+    },
+    {
+      "code": "EYK",
+      "city_code": "EYK",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "FCO",
+      "city_code": "ROM",
+      "timezone": "Europe/Rome",
+      "flightable": true
+    },
+    {
+      "code": "FIH",
+      "city_code": "FIH",
+      "timezone": "Africa/Kinshasa",
+      "flightable": true
+    },
+    {
+      "code": "FRA",
+      "city_code": "FRA",
+      "timezone": "Europe/Berlin",
+      "flightable": true
+    },
+    {
+      "code": "GDZ",
+      "city_code": "GDZ",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "GOJ",
+      "city_code": "GOJ",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "GOX",
+      "city_code": "GOI",
+      "timezone": "Asia/Kolkata",
+      "flightable": true
+    },
+    {
+      "code": "GRU",
+      "city_code": "SAO",
+      "timezone": "America/Sao_Paulo",
+      "flightable": true
+    },
+    {
+      "code": "GSV",
+      "city_code": "RTW",
+      "timezone": "Europe/Saratov",
+      "flightable": true
+    },
+    {
+      "code": "GVA",
+      "city_code": "GVA",
+      "timezone": "Europe/Zurich",
+      "flightable": true
+    },
+    {
+      "code": "GYD",
+      "city_code": "BAK",
+      "timezone": "Asia/Baku",
+      "flightable": true
+    },
+    {
+      "code": "HAM",
+      "city_code": "HAM",
+      "timezone": "Europe/Berlin",
+      "flightable": true
+    },
+    {
+      "code": "HAN",
+      "city_code": "HAN",
+      "timezone": "Asia/Ho_Chi_Minh",
+      "flightable": true
+    },
+    {
+      "code": "HAS",
+      "city_code": "HAS",
+      "timezone": "Asia/Riyadh",
+      "flightable": true
+    },
+    {
+      "code": "HBE",
+      "city_code": "ALY",
+      "timezone": "Africa/Cairo",
+      "flightable": false
+    },
+    {
+      "code": "HEL",
+      "city_code": "HEL",
+      "timezone": "Europe/Helsinki",
+      "flightable": true
+    },
+    {
+      "code": "HGH",
+      "city_code": "HGH",
+      "timezone": "Asia/Shanghai",
+      "flightable": true
+    },
+    {
+      "code": "HKG",
+      "city_code": "HKG",
+      "timezone": "Asia/Hong_Kong",
+      "flightable": true
+    },
+    {
+      "code": "HKT",
+      "city_code": "HKT",
+      "timezone": "Asia/Bangkok",
+      "flightable": true
+    },
+    {
+      "code": "HMA",
+      "city_code": "HMA",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "HND",
+      "city_code": "TYO",
+      "timezone": "Asia/Tokyo",
+      "flightable": true
+    },
+    {
+      "code": "HRE",
+      "city_code": "HRE",
+      "timezone": "Africa/Harare",
+      "flightable": true
+    },
+    {
+      "code": "HRG",
+      "city_code": "HRG",
+      "timezone": "Africa/Cairo",
+      "flightable": true
+    },
+    {
+      "code": "HRI",
+      "city_code": "HRI",
+      "timezone": "Asia/Colombo",
+      "flightable": true
+    },
+    {
+      "code": "HYD",
+      "city_code": "HYD",
+      "timezone": "Asia/Kolkata",
+      "flightable": true
+    },
+    {
+      "code": "IAD",
+      "city_code": "WAS",
+      "timezone": "America/New_York",
+      "flightable": true
+    },
+    {
+      "code": "IAH",
+      "city_code": "HOU",
+      "timezone": "America/Chicago",
+      "flightable": true
+    },
+    {
+      "code": "IAR",
+      "city_code": "IAR",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "ICN",
+      "city_code": "SEL",
+      "timezone": "Asia/Seoul",
+      "flightable": true
+    },
+    {
+      "code": "IJK",
+      "city_code": "IJK",
+      "timezone": "Europe/Samara",
+      "flightable": true
+    },
+    {
+      "code": "IKA",
+      "city_code": "THR",
+      "timezone": "Asia/Tehran",
+      "flightable": true
+    },
+    {
+      "code": "IKT",
+      "city_code": "IKT",
+      "timezone": "Asia/Irkutsk",
+      "flightable": true
+    },
+    {
+      "code": "IRM",
+      "city_code": "IRM",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "ISB",
+      "city_code": "ISB",
+      "timezone": "Asia/Karachi",
+      "flightable": true
+    },
+    {
+      "code": "IST",
+      "city_code": "IST",
+      "timezone": "Europe/Istanbul",
+      "flightable": true
+    },
+    {
+      "code": "ISU",
+      "city_code": "ISU",
+      "timezone": "Asia/Baghdad",
+      "flightable": true
+    },
+    {
+      "code": "IWA",
+      "city_code": "IWA",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "IXE",
+      "city_code": "IXE",
+      "timezone": "Asia/Kolkata",
+      "flightable": true
+    },
+    {
+      "code": "JED",
+      "city_code": "JED",
+      "timezone": "Asia/Riyadh",
+      "flightable": true
+    },
+    {
+      "code": "JFK",
+      "city_code": "NYC",
+      "timezone": "America/New_York",
+      "flightable": true
+    },
+    {
+      "code": "JIB",
+      "city_code": "JIB",
+      "timezone": "Africa/Djibouti",
+      "flightable": true
+    },
+    {
+      "code": "JMK",
+      "city_code": "JMK",
+      "timezone": "Europe/Athens",
+      "flightable": true
+    },
+    {
+      "code": "JNB",
+      "city_code": "JNB",
+      "timezone": "Africa/Johannesburg",
+      "flightable": true
+    },
+    {
+      "code": "JRO",
+      "city_code": "JRO",
+      "timezone": "Africa/Dar_es_Salaam",
+      "flightable": true
+    },
+    {
+      "code": "KAN",
+      "city_code": "KAN",
+      "timezone": "Africa/Lagos",
+      "flightable": true
+    },
+    {
+      "code": "KBL",
+      "city_code": "KBL",
+      "timezone": "Asia/Kabul",
+      "flightable": true
+    },
+    {
+      "code": "KGD",
+      "city_code": "KGD",
+      "timezone": "Europe/Kaliningrad",
+      "flightable": true
+    },
+    {
+      "code": "KGL",
+      "city_code": "KGL",
+      "timezone": "Africa/Kigali",
+      "flightable": true
+    },
+    {
+      "code": "KGP",
+      "city_code": "KGP",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "KHI",
+      "city_code": "KHI",
+      "timezone": "Asia/Karachi",
+      "flightable": true
+    },
+    {
+      "code": "KIX",
+      "city_code": "OSA",
+      "timezone": "Asia/Tokyo",
+      "flightable": true
+    },
+    {
+      "code": "KJA",
+      "city_code": "KJA",
+      "timezone": "Asia/Krasnoyarsk",
+      "flightable": true
+    },
+    {
+      "code": "KRR",
+      "city_code": "KRR",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "KTI",
+      "city_code": "PNH",
+      "timezone": "Asia/Phnom_Penh",
+      "flightable": true
+    },
+    {
+      "code": "KTM",
+      "city_code": "KTM",
+      "timezone": "Asia/Kathmandu",
+      "flightable": true
+    },
+    {
+      "code": "KUF",
+      "city_code": "KUF",
+      "timezone": "Europe/Samara",
+      "flightable": true
+    },
+    {
+      "code": "KUL",
+      "city_code": "KUL",
+      "timezone": "Asia/Kuala_Lumpur",
+      "flightable": true
+    },
+    {
+      "code": "KVK",
+      "city_code": "KVK",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "KVX",
+      "city_code": "KVX",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "KWI",
+      "city_code": "KWI",
+      "timezone": "Asia/Kuwait",
+      "flightable": true
+    },
+    {
+      "code": "KZN",
+      "city_code": "KZN",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "LAD",
+      "city_code": "LAD",
+      "timezone": "Africa/Luanda",
+      "flightable": true
+    },
+    {
+      "code": "LAX",
+      "city_code": "LAX",
+      "timezone": "America/Los_Angeles",
+      "flightable": true
+    },
+    {
+      "code": "LBD",
+      "city_code": "LBD",
+      "timezone": "Asia/Dushanbe",
+      "flightable": true
+    },
+    {
+      "code": "LCA",
+      "city_code": "LCA",
+      "timezone": "Asia/Nicosia",
+      "flightable": true
+    },
+    {
+      "code": "LED",
+      "city_code": "LED",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "LGW",
+      "city_code": "LON",
+      "timezone": "Europe/London",
+      "flightable": true
+    },
+    {
+      "code": "LHE",
+      "city_code": "LHE",
+      "timezone": "Asia/Karachi",
+      "flightable": true
+    },
+    {
+      "code": "LHR",
+      "city_code": "LON",
+      "timezone": "Europe/London",
+      "flightable": true
+    },
+    {
+      "code": "LIS",
+      "city_code": "LIS",
+      "timezone": "Europe/Lisbon",
+      "flightable": true
+    },
+    {
+      "code": "LOS",
+      "city_code": "LOS",
+      "timezone": "Africa/Lagos",
+      "flightable": true
+    },
+    {
+      "code": "LRR",
+      "city_code": "LRR",
+      "timezone": "Asia/Tehran",
+      "flightable": true
+    },
+    {
+      "code": "LUN",
+      "city_code": "LUN",
+      "timezone": "Africa/Lusaka",
+      "flightable": true
+    },
+    {
+      "code": "LYP",
+      "city_code": "LYP",
+      "timezone": "Asia/Karachi",
+      "flightable": true
+    },
+    {
+      "code": "MAA",
+      "city_code": "MAA",
+      "timezone": "Asia/Kolkata",
+      "flightable": true
+    },
+    {
+      "code": "MAD",
+      "city_code": "MAD",
+      "timezone": "Europe/Madrid",
+      "flightable": true
+    },
+    {
+      "code": "MAN",
+      "city_code": "MAN",
+      "timezone": "Europe/London",
+      "flightable": true
+    },
+    {
+      "code": "MCT",
+      "city_code": "MCT",
+      "timezone": "Asia/Muscat",
+      "flightable": true
+    },
+    {
+      "code": "MCX",
+      "city_code": "MCX",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "MED",
+      "city_code": "MED",
+      "timezone": "Asia/Riyadh",
+      "flightable": true
+    },
+    {
+      "code": "MEL",
+      "city_code": "MEL",
+      "timezone": "Australia/Melbourne",
+      "flightable": true
+    },
+    {
+      "code": "MGQ",
+      "city_code": "MGQ",
+      "timezone": "Africa/Mogadishu",
+      "flightable": true
+    },
+    {
+      "code": "MHD",
+      "city_code": "MHD",
+      "timezone": "Asia/Tehran",
+      "flightable": true
+    },
+    {
+      "code": "MIA",
+      "city_code": "MIA",
+      "timezone": "America/New_York",
+      "flightable": true
+    },
+    {
+      "code": "MLA",
+      "city_code": "MLA",
+      "timezone": "Europe/Malta",
+      "flightable": true
+    },
+    {
+      "code": "MLE",
+      "city_code": "MLE",
+      "timezone": "Indian/Maldives",
+      "flightable": true
+    },
+    {
+      "code": "MMK",
+      "city_code": "MMK",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "MNL",
+      "city_code": "MNL",
+      "timezone": "Asia/Manila",
+      "flightable": true
+    },
+    {
+      "code": "MPM",
+      "city_code": "MPM",
+      "timezone": "Africa/Maputo",
+      "flightable": true
+    },
+    {
+      "code": "MRV",
+      "city_code": "MRV",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "MSQ",
+      "city_code": "MSQ",
+      "timezone": "Europe/Minsk",
+      "flightable": true
+    },
+    {
+      "code": "MUC",
+      "city_code": "MUC",
+      "timezone": "Europe/Berlin",
+      "flightable": true
+    },
+    {
+      "code": "MUX",
+      "city_code": "MUX",
+      "timezone": "Asia/Karachi",
+      "flightable": true
+    },
+    {
+      "code": "MXP",
+      "city_code": "MIL",
+      "timezone": "Europe/Rome",
+      "flightable": true
+    },
+    {
+      "code": "NAG",
+      "city_code": "NAG",
+      "timezone": "Asia/Kolkata",
+      "flightable": true
+    },
+    {
+      "code": "NBC",
+      "city_code": "NBC",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "NBO",
+      "city_code": "NBO",
+      "timezone": "Africa/Nairobi",
+      "flightable": true
+    },
+    {
+      "code": "NCE",
+      "city_code": "NCE",
+      "timezone": "Europe/Paris",
+      "flightable": true
+    },
+    {
+      "code": "NJC",
+      "city_code": "NJC",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "NJF",
+      "city_code": "NJF",
+      "timezone": "Asia/Baghdad",
+      "flightable": true
+    },
+    {
+      "code": "NMA",
+      "city_code": "NMA",
+      "timezone": "Asia/Tashkent",
+      "flightable": true
+    },
+    {
+      "code": "NNM",
+      "city_code": "NNM",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "NOJ",
+      "city_code": "NOJ",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "NQZ",
+      "city_code": "NQZ",
+      "timezone": "Asia/Almaty",
+      "flightable": true
+    },
+    {
+      "code": "NRT",
+      "city_code": "TYO",
+      "timezone": "Asia/Tokyo",
+      "flightable": true
+    },
+    {
+      "code": "NSK",
+      "city_code": "NSK",
+      "timezone": "Asia/Krasnoyarsk",
+      "flightable": true
+    },
+    {
+      "code": "NUM",
+      "city_code": "NUM",
+      "timezone": "Asia/Riyadh",
+      "flightable": true
+    },
+    {
+      "code": "NUX",
+      "city_code": "NUX",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "NYA",
+      "city_code": "NYA",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "NYM",
+      "city_code": "NYM",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "OMS",
+      "city_code": "OMS",
+      "timezone": "Asia/Omsk",
+      "flightable": true
+    },
+    {
+      "code": "ORD",
+      "city_code": "CHI",
+      "timezone": "America/Chicago",
+      "flightable": true
+    },
+    {
+      "code": "OSL",
+      "city_code": "OSL",
+      "timezone": "Europe/Oslo",
+      "flightable": true
+    },
+    {
+      "code": "OSS",
+      "city_code": "OSS",
+      "timezone": "Asia/Bishkek",
+      "flightable": true
+    },
+    {
+      "code": "OTP",
+      "city_code": "BUH",
+      "timezone": "Europe/Bucharest",
+      "flightable": true
+    },
+    {
+      "code": "OVB",
+      "city_code": "OVB",
+      "timezone": "Asia/Novosibirsk",
+      "flightable": true
+    },
+    {
+      "code": "OVS",
+      "city_code": "OVS",
+      "timezone": "Europe/Kaliningrad",
+      "flightable": true
+    },
+    {
+      "code": "PEE",
+      "city_code": "PEE",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "PEN",
+      "city_code": "PEN",
+      "timezone": "Asia/Kuala_Lumpur",
+      "flightable": true
+    },
+    {
+      "code": "PER",
+      "city_code": "PER",
+      "timezone": "Australia/Perth",
+      "flightable": true
+    },
+    {
+      "code": "PES",
+      "city_code": "PES",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "PEW",
+      "city_code": "PEW",
+      "timezone": "Asia/Karachi",
+      "flightable": true
+    },
+    {
+      "code": "PHC",
+      "city_code": "PHC",
+      "timezone": "Africa/Lagos",
+      "flightable": true
+    },
+    {
+      "code": "PHL",
+      "city_code": "PHL",
+      "timezone": "America/New_York",
+      "flightable": true
+    },
+    {
+      "code": "PKV",
+      "city_code": "PKV",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "PKX",
+      "city_code": "BJS",
+      "timezone": "Asia/Shanghai",
+      "flightable": true
+    },
+    {
+      "code": "PRG",
+      "city_code": "PRG",
+      "timezone": "Europe/Prague",
+      "flightable": true
+    },
+    {
+      "code": "PVG",
+      "city_code": "SHA",
+      "timezone": "Asia/Shanghai",
+      "flightable": true
+    },
+    {
+      "code": "PZU",
+      "city_code": "PZU",
+      "timezone": "Africa/Khartoum",
+      "flightable": true
+    },
+    {
+      "code": "RAK",
+      "city_code": "RAK",
+      "timezone": "Africa/Casablanca",
+      "flightable": true
+    },
+    {
+      "code": "REN",
+      "city_code": "REN",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "RMZ",
+      "city_code": "RMZ",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "RSI",
+      "city_code": "TUU",
+      "timezone": "Asia/Riyadh",
+      "flightable": true
+    },
+    {
+      "code": "RUH",
+      "city_code": "RUH",
+      "timezone": "Asia/Riyadh",
+      "flightable": true
+    },
+    {
+      "code": "SAW",
+      "city_code": "IST",
+      "timezone": "Europe/Istanbul",
+      "flightable": true
+    },
+    {
+      "code": "SBT",
+      "city_code": "SBT",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "SCO",
+      "city_code": "SCO",
+      "timezone": "Asia/Oral",
+      "flightable": true
+    },
+    {
+      "code": "SCW",
+      "city_code": "SCW",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "SEA",
+      "city_code": "SEA",
+      "timezone": "America/Los_Angeles",
+      "flightable": true
+    },
+    {
+      "code": "SEZ",
+      "city_code": "SEZ",
+      "timezone": "Indian/Mahe",
+      "flightable": true
+    },
+    {
+      "code": "SFO",
+      "city_code": "SFO",
+      "timezone": "America/Los_Angeles",
+      "flightable": true
+    },
+    {
+      "code": "SGC",
+      "city_code": "SGC",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "SGN",
+      "city_code": "SGN",
+      "timezone": "Asia/Ho_Chi_Minh",
+      "flightable": true
+    },
+    {
+      "code": "SHJ",
+      "city_code": "SHJ",
+      "timezone": "Asia/Dubai",
+      "flightable": true
+    },
+    {
+      "code": "SIN",
+      "city_code": "SIN",
+      "timezone": "Asia/Singapore",
+      "flightable": true
+    },
+    {
+      "code": "SKT",
+      "city_code": "SKT",
+      "timezone": "Asia/Karachi",
+      "flightable": true
+    },
+    {
+      "code": "SLL",
+      "city_code": "SLL",
+      "timezone": "Asia/Muscat",
+      "flightable": true
+    },
+    {
+      "code": "SLY",
+      "city_code": "SLY",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "SOF",
+      "city_code": "SOF",
+      "timezone": "Europe/Sofia",
+      "flightable": true
+    },
+    {
+      "code": "SSH",
+      "city_code": "SSH",
+      "timezone": "Africa/Cairo",
+      "flightable": true
+    },
+    {
+      "code": "STW",
+      "city_code": "STW",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "SVO",
+      "city_code": "MOW",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "SVX",
+      "city_code": "SVX",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "SYD",
+      "city_code": "SYD",
+      "timezone": "Australia/Sydney",
+      "flightable": true
+    },
+    {
+      "code": "SYZ",
+      "city_code": "SYZ",
+      "timezone": "Asia/Tehran",
+      "flightable": true
+    },
+    {
+      "code": "SZX",
+      "city_code": "SZX",
+      "timezone": "Asia/Shanghai",
+      "flightable": true
+    },
+    {
+      "code": "TAS",
+      "city_code": "TAS",
+      "timezone": "Asia/Tashkent",
+      "flightable": true
+    },
+    {
+      "code": "TBS",
+      "city_code": "TBS",
+      "timezone": "Asia/Tbilisi",
+      "flightable": true
+    },
+    {
+      "code": "TFU",
+      "city_code": "CTU",
+      "timezone": "Asia/Shanghai",
+      "flightable": true
+    },
+    {
+      "code": "TIF",
+      "city_code": "TIF",
+      "timezone": "Asia/Riyadh",
+      "flightable": true
+    },
+    {
+      "code": "TJM",
+      "city_code": "TJM",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "TLK",
+      "city_code": "TLK",
+      "timezone": "Asia/Yakutsk",
+      "flightable": true
+    },
+    {
+      "code": "TOF",
+      "city_code": "TOF",
+      "timezone": "Asia/Omsk",
+      "flightable": true
+    },
+    {
+      "code": "TRV",
+      "city_code": "TRV",
+      "timezone": "Asia/Kolkata",
+      "flightable": true
+    },
+    {
+      "code": "TRZ",
+      "city_code": "TRZ",
+      "timezone": "Asia/Kolkata",
+      "flightable": true
+    },
+    {
+      "code": "TUN",
+      "city_code": "TUN",
+      "timezone": "Africa/Tunis",
+      "flightable": true
+    },
+    {
+      "code": "TUU",
+      "city_code": "TUU",
+      "timezone": "Asia/Riyadh",
+      "flightable": true
+    },
+    {
+      "code": "TZX",
+      "city_code": "TZX",
+      "timezone": "Europe/Istanbul",
+      "flightable": true
+    },
+    {
+      "code": "UFA",
+      "city_code": "UFA",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "UGC",
+      "city_code": "UGC",
+      "timezone": "Asia/Tashkent",
+      "flightable": true
+    },
+    {
+      "code": "ULH",
+      "city_code": "ULH",
+      "timezone": "Asia/Riyadh",
+      "flightable": true
+    },
+    {
+      "code": "ULV",
+      "city_code": "ULY",
+      "timezone": "Europe/Samara",
+      "flightable": true
+    },
+    {
+      "code": "URJ",
+      "city_code": "URJ",
+      "timezone": "Asia/Yekaterinburg",
+      "flightable": true
+    },
+    {
+      "code": "USK",
+      "city_code": "USK",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "UTP",
+      "city_code": "UTP",
+      "timezone": "Asia/Bangkok",
+      "flightable": true
+    },
+    {
+      "code": "VCE",
+      "city_code": "VCE",
+      "timezone": "Europe/Rome",
+      "flightable": true
+    },
+    {
+      "code": "VIE",
+      "city_code": "VIE",
+      "timezone": "Europe/Vienna",
+      "flightable": true
+    },
+    {
+      "code": "VKO",
+      "city_code": "MOW",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "VOG",
+      "city_code": "VOG",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "WAW",
+      "city_code": "WAW",
+      "timezone": "Europe/Warsaw",
+      "flightable": true
+    },
+    {
+      "code": "WSI",
+      "city_code": "SYD",
+      "timezone": "Australia/Sydney",
+      "flightable": true
+    },
+    {
+      "code": "XMN",
+      "city_code": "XMN",
+      "timezone": "Asia/Shanghai",
+      "flightable": true
+    },
+    {
+      "code": "YNB",
+      "city_code": "YNB",
+      "timezone": "Asia/Riyadh",
+      "flightable": true
+    },
+    {
+      "code": "YUL",
+      "city_code": "YMQ",
+      "timezone": "America/Toronto",
+      "flightable": true
+    },
+    {
+      "code": "YYZ",
+      "city_code": "YTO",
+      "timezone": "America/Toronto",
+      "flightable": true
+    },
+    {
+      "code": "ZAG",
+      "city_code": "ZAG",
+      "timezone": "Europe/Zagreb",
+      "flightable": true
+    },
+    {
+      "code": "ZIA",
+      "city_code": "MOW",
+      "timezone": "Europe/Moscow",
+      "flightable": true
+    },
+    {
+      "code": "ZNZ",
+      "city_code": "ZNZ",
+      "timezone": "Africa/Dar_es_Salaam",
+      "flightable": true
+    },
+    {
+      "code": "ZRH",
+      "city_code": "ZRH",
+      "timezone": "Europe/Zurich",
+      "flightable": true
+    },
+    {
+      "code": "ZYL",
+      "city_code": "ZYL",
+      "timezone": "Asia/Dhaka",
+      "flightable": true
+    }
+  ],
+  "observations": [
+    {
+      "origin": "DOH",
+      "destinations": [
+        {
+          "airport": "ABJ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ABV",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ACC",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ADD",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ADL",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "AGP",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "AHB",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "AKL",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ALA",
+          "kinds": [
+            "scheduled",
+            "charter"
+          ]
+        },
+        {
+          "airport": "ALG",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ALP",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "AMD",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "AMM",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "AMS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ARN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ATH",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ATL",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ATQ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "AUH",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "AYT",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "BAH",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BCN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BEG",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BER",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BEY",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BGW",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BHX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BJV",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "BKK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BLR",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BND",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BNE",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BOG",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BOM",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BOS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BQT",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "BRU",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BSR",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BUD",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CAI",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CAN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CBR",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CCJ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CCS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CCU",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CDG",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CEB",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CGK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CGP",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CIT",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "CKG",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CMB",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CMN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CNN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "COK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CPH",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CPT",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CRK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DAC",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DAM",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DAR",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DEL",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DFW",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DMM",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DPS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DUB",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DUR",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DUS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DVO",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DXB",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "EBB",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "EBL",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "EDI",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ELQ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ESB",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "EVN",
+          "kinds": [
+            "scheduled",
+            "charter"
+          ]
+        },
+        {
+          "airport": "FCO",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "FIH",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "FRA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "GOX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "GRU",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "GVA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "GYD",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "HAM",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "HAN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "HAS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "HBE",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "HEL",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "HGH",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "HKG",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "HKT",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "HND",
+          "kinds": [
+            "scheduled",
+            "resumes"
+          ]
+        },
+        {
+          "airport": "HRE",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "HYD",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "IAD",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "IAH",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ICN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "IKA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ISB",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "IST",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ISU",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "IXE",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "JED",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "JFK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "JIB",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "JMK",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "JNB",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "JRO",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KAN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KBL",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KGL",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KHI",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KIX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KTI",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KTM",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KUL",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KWI",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LAD",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LAX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LCA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LGW",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LHE",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LHR",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LIS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LOS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LRR",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LUN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LYP",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MAA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MAD",
+          "kinds": [
+            "scheduled",
+            "resumes"
+          ]
+        },
+        {
+          "airport": "MAN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MCT",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MED",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MEL",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MGQ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MHD",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MIA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MLA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MLE",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MNL",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MPM",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MUC",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MUX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MXP",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NAG",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NBO",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NCE",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NJF",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NQZ",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "NRT",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NUM",
+          "kinds": [
+            "resumes"
+          ]
+        },
+        {
+          "airport": "ORD",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "OSL",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "OTP",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "PEN",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "PER",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "PEW",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "PHC",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "PHL",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "PKX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "PRG",
+          "kinds": [
+            "scheduled",
+            "charter"
+          ]
+        },
+        {
+          "airport": "PVG",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "PZU",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "RAK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "RSI",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "RUH",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SAW",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SEA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SEZ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SFO",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SGN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SHJ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SIN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SKT",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SLL",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SOF",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "SVO",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SVX",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "SYD",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SYZ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SZX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TAS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TBS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TFU",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TIF",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TRV",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TRZ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TUN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TUU",
+          "kinds": [
+            "resumes"
+          ]
+        },
+        {
+          "airport": "TZX",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "ULH",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "VCE",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "VIE",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "WAW",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "WSI",
+          "kinds": [
+            "begins"
+          ]
+        },
+        {
+          "airport": "XMN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "YNB",
+          "kinds": [
+            "resumes"
+          ]
+        },
+        {
+          "airport": "YUL",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "YYZ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ZAG",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ZNZ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ZRH",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ZYL",
+          "kinds": [
+            "scheduled"
+          ]
+        }
+      ],
+      "fetched_at": "2026-11-10T13:19:00.237834Z"
+    },
+    {
+      "origin": "GOJ",
+      "destinations": [
+        {
+          "airport": "AER",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "AYT",
+          "kinds": [
+            "seasonal",
+            "charter"
+          ]
+        },
+        {
+          "airport": "BEG",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BUS",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "CEK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "EVN",
+          "kinds": [
+            "scheduled",
+            "seasonal",
+            "begins"
+          ]
+        },
+        {
+          "airport": "HRG",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "KGD",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KUF",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KZN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LED",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MRV",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MSQ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "OVB",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "REN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SSH",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "SVO",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SVX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TAS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TBS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "UFA",
+          "kinds": [
+            "scheduled"
+          ]
+        }
+      ],
+      "fetched_at": "2026-11-10T13:19:01.077892Z"
+    },
+    {
+      "origin": "KGD",
+      "destinations": [
+        {
+          "airport": "ARH",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "AYT",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "CEE",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CEK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CSY",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "DME",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "EVN",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "GOJ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "IJK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "IWA",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "KUF",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KVK",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "KVX",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "KZN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LED",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MMK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MSQ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "OVB",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "PEE",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "PES",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "PKV",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "REN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SCW",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "SSH",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "SVO",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SVX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TJM",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "UFA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "VKO",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "VOG",
+          "kinds": [
+            "seasonal"
+          ]
+        }
+      ],
+      "fetched_at": "2026-11-10T13:19:02.078128Z"
+    },
+    {
+      "origin": "KUF",
+      "destinations": [
+        {
+          "airport": "AER",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ALA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "AYT",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "BAX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BUS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CEK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DME",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DXB",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "DYU",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "EVN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "GDZ",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "GOJ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "HKT",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "HRG",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "HRI",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "IAR",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "IST",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KGD",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KJA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KZN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LBD",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LED",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MCX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MRV",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MSQ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NJC",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NMA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NUX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "OSS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "OVB",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "PEE",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "PES",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "RMZ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SGC",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SHJ",
+          "kinds": [
+            "suspended"
+          ]
+        },
+        {
+          "airport": "SSH",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "SVO",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SVX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TAS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TBS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TJM",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "UGC",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "USK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "UTP",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "VKO",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ZIA",
+          "kinds": [
+            "scheduled"
+          ]
+        }
+      ],
+      "fetched_at": "2026-11-10T13:19:03.083682Z"
+    },
+    {
+      "origin": "MCX",
+      "destinations": [
+        {
+          "airport": "AER",
+          "kinds": [
+            "scheduled",
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "AUH",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "AYT",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BHK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BSZ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CEE",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CEK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "CSY",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "DME",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DWC",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DXB",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DYU",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "EVN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "GSV",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "IJK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "IST",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "JED",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KJA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KRR",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KUF",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KVX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KZN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LED",
+          "kinds": [
+            "scheduled",
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "MRV",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MSQ",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "NBC",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NMA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NNM",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "NUX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "OSS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "PEE",
+          "kinds": [
+            "scheduled",
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "PES",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "SCO",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SGC",
+          "kinds": [
+            "scheduled",
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "SHJ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SSH",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "SVO",
+          "kinds": [
+            "scheduled",
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "SVX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TAS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TJM",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "UFA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "UGC",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "ULV",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "VKO",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "VOG",
+          "kinds": [
+            "scheduled"
+          ]
+        }
+      ],
+      "fetched_at": "2026-11-10T13:19:04.082057Z"
+    },
+    {
+      "origin": "TJM",
+      "destinations": [
+        {
+          "airport": "AER",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "AYT",
+          "kinds": [
+            "scheduled",
+            "charter"
+          ]
+        },
+        {
+          "airport": "BAX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BSZ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BUS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "BVJ",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "CEK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DWC",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "DYU",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "EVN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "EYK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "GDZ",
+          "kinds": [
+            "seasonal"
+          ]
+        },
+        {
+          "airport": "GYD",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "HKT",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "HMA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "HRI",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "IKT",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "IRM",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KGD",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KGP",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KJA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KUF",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "KZN",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LBD",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "LED",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MCX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "MRV",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NBC",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NJC",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NOJ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NSK",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NUX",
+          "kinds": [
+            "scheduled",
+            "charter"
+          ]
+        },
+        {
+          "airport": "NYA",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "NYM",
+          "kinds": [
+            "scheduled",
+            "charter"
+          ]
+        },
+        {
+          "airport": "OMS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "OSS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "OVB",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "OVS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "PEE",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SBT",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SGC",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SLY",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SSH",
+          "kinds": [
+            "scheduled",
+            "charter"
+          ]
+        },
+        {
+          "airport": "STW",
+          "kinds": [
+            "charter"
+          ]
+        },
+        {
+          "airport": "SVO",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "SVX",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TAS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TBS",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "TLK",
+          "kinds": [
+            "scheduled",
+            "charter"
+          ]
+        },
+        {
+          "airport": "TOF",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "UFA",
+          "kinds": [
+            "scheduled",
+            "charter"
+          ]
+        },
+        {
+          "airport": "URJ",
+          "kinds": [
+            "scheduled"
+          ]
+        },
+        {
+          "airport": "VKO",
+          "kinds": [
+            "scheduled",
+            "charter"
+          ]
+        },
+        {
+          "airport": "VOG",
+          "kinds": [
+            "scheduled"
+          ]
+        }
+      ],
+      "fetched_at": "2026-11-10T13:19:05.086391Z"
+    }
+  ]
+}

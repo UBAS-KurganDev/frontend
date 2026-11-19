@@ -57,7 +57,10 @@ describe('route presentation', () => {
   });
 
   it('resolves known city names while keeping the airport code separate', () => {
-    const route = mapRankedRouteToFlightRoute(queryResult.result.routes[0]);
+    const route = mapRankedRouteToFlightRoute(
+      queryResult.result.routes[0],
+      new Map([['SVX', 'Екатеринбург']]),
+    );
     expect(route.segments[0].departureCity).toBe('Екатеринбург');
     expect(route.segments[0].departureCode).toBe('SVX');
   });

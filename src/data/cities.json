@@ -1,0 +1,1909 @@
+{
+  "sourceFile": "scraper-airports-2026-11-10.json",
+  "source": "https://flywhereto.com/mcp",
+  "geographySources": [
+    "https://api.travelpayouts.com/data/en/airports.json",
+    "https://api.travelpayouts.com/data/en/cities.json"
+  ],
+  "attribution": "Fly Where To? / Intuitive Bricks AB; Wikipedia airport route tables (CC BY-SA). Geography: Travelpayouts.",
+  "sourceFinishedAt": "2026-11-10T13:19:05.088901Z",
+  "cities": [
+    {
+      "code": "ABJ",
+      "name": "Abidjan",
+      "country_code": "CI",
+      "timezone": "Africa/Abidjan",
+      "name_ru": "Абиджан"
+    },
+    {
+      "code": "ABV",
+      "name": "Abuja",
+      "country_code": "NG",
+      "timezone": "Africa/Lagos",
+      "name_ru": "Абуджа"
+    },
+    {
+      "code": "ACC",
+      "name": "Accra",
+      "country_code": "GH",
+      "timezone": "Africa/Accra",
+      "name_ru": "Аккра"
+    },
+    {
+      "code": "ADD",
+      "name": "Addis Ababa",
+      "country_code": "ET",
+      "timezone": "Africa/Addis_Ababa",
+      "name_ru": "Аддис-Абеба"
+    },
+    {
+      "code": "ADL",
+      "name": "Adelaide",
+      "country_code": "AU",
+      "timezone": "Australia/Adelaide",
+      "name_ru": "Аделаида"
+    },
+    {
+      "code": "AER",
+      "name": "Adler/Sochi",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Сочи (Адлер)"
+    },
+    {
+      "code": "AGP",
+      "name": "Malaga",
+      "country_code": "ES",
+      "timezone": "Europe/Madrid",
+      "name_ru": "Малага"
+    },
+    {
+      "code": "AHB",
+      "name": "Abha",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh",
+      "name_ru": "Абха"
+    },
+    {
+      "code": "AKL",
+      "name": "Auckland",
+      "country_code": "NZ",
+      "timezone": "Pacific/Auckland",
+      "name_ru": "Окленд"
+    },
+    {
+      "code": "ALA",
+      "name": "Almaty",
+      "country_code": "KZ",
+      "timezone": "Asia/Almaty",
+      "name_ru": "Алматы"
+    },
+    {
+      "code": "ALG",
+      "name": "Algiers",
+      "country_code": "DZ",
+      "timezone": "Africa/Algiers",
+      "name_ru": "Алжир"
+    },
+    {
+      "code": "ALP",
+      "name": "Aleppo",
+      "country_code": "SY",
+      "timezone": "Asia/Damascus",
+      "name_ru": "Алеппо"
+    },
+    {
+      "code": "ALY",
+      "name": "Alexandria",
+      "country_code": "EG",
+      "timezone": "Africa/Cairo",
+      "name_ru": "Александрия"
+    },
+    {
+      "code": "AMD",
+      "name": "Ahmedabad",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata",
+      "name_ru": "Ахмадабад"
+    },
+    {
+      "code": "AMM",
+      "name": "Amman",
+      "country_code": "JO",
+      "timezone": "Asia/Amman",
+      "name_ru": "Амман"
+    },
+    {
+      "code": "AMS",
+      "name": "Amsterdam",
+      "country_code": "NL",
+      "timezone": "Europe/Amsterdam",
+      "name_ru": "Амстердам"
+    },
+    {
+      "code": "ANK",
+      "name": "Ankara",
+      "country_code": "TR",
+      "timezone": "Europe/Istanbul",
+      "name_ru": "Анкара"
+    },
+    {
+      "code": "ARH",
+      "name": "Arkhangelsk",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Архангельск"
+    },
+    {
+      "code": "ATH",
+      "name": "Athens",
+      "country_code": "GR",
+      "timezone": "Europe/Athens",
+      "name_ru": "Афины"
+    },
+    {
+      "code": "ATL",
+      "name": "Atlanta",
+      "country_code": "US",
+      "timezone": "America/New_York",
+      "name_ru": "Атланта"
+    },
+    {
+      "code": "ATQ",
+      "name": "Amritsar",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata",
+      "name_ru": "Амритсар"
+    },
+    {
+      "code": "AUH",
+      "name": "Abu Dhabi",
+      "country_code": "AE",
+      "timezone": "Asia/Dubai",
+      "name_ru": "Абу-Даби"
+    },
+    {
+      "code": "AYT",
+      "name": "Antalya",
+      "country_code": "TR",
+      "timezone": "Europe/Istanbul",
+      "name_ru": "Анталья"
+    },
+    {
+      "code": "BAH",
+      "name": "Manama",
+      "country_code": "BH",
+      "timezone": "Asia/Bahrain",
+      "name_ru": "Манама"
+    },
+    {
+      "code": "BAK",
+      "name": "Baku",
+      "country_code": "AZ",
+      "timezone": "Asia/Baku",
+      "name_ru": "Баку"
+    },
+    {
+      "code": "BAX",
+      "name": "Barnaul",
+      "country_code": "RU",
+      "timezone": "Asia/Barnaul",
+      "name_ru": "Барнаул"
+    },
+    {
+      "code": "BCN",
+      "name": "Barcelona",
+      "country_code": "ES",
+      "timezone": "Europe/Madrid",
+      "name_ru": "Барселона"
+    },
+    {
+      "code": "BEG",
+      "name": "Belgrade",
+      "country_code": "RS",
+      "timezone": "Europe/Belgrade",
+      "name_ru": "Белград"
+    },
+    {
+      "code": "BER",
+      "name": "Berlin",
+      "country_code": "DE",
+      "timezone": "Europe/Berlin",
+      "name_ru": "Берлин"
+    },
+    {
+      "code": "BEY",
+      "name": "Beirut",
+      "country_code": "LB",
+      "timezone": "Asia/Beirut",
+      "name_ru": "Бейрут"
+    },
+    {
+      "code": "BGW",
+      "name": "Baghdad",
+      "country_code": "IQ",
+      "timezone": "Asia/Baghdad",
+      "name_ru": "Багдад"
+    },
+    {
+      "code": "BHK",
+      "name": "Bukhara",
+      "country_code": "UZ",
+      "timezone": "Asia/Samarkand",
+      "name_ru": "Бухара"
+    },
+    {
+      "code": "BHX",
+      "name": "Birmingham",
+      "country_code": "GB",
+      "timezone": "Europe/London",
+      "name_ru": "Бирмингем"
+    },
+    {
+      "code": "BJS",
+      "name": "Beijing",
+      "country_code": "CN",
+      "timezone": "Asia/Shanghai",
+      "name_ru": "Пекин"
+    },
+    {
+      "code": "BJV",
+      "name": "Bodrum",
+      "country_code": "TR",
+      "timezone": "Europe/Istanbul",
+      "name_ru": "Бодрум"
+    },
+    {
+      "code": "BKK",
+      "name": "Bangkok",
+      "country_code": "TH",
+      "timezone": "Asia/Bangkok",
+      "name_ru": "Бангкок"
+    },
+    {
+      "code": "BLR",
+      "name": "Bengaluru",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata",
+      "name_ru": "Бенгалуру"
+    },
+    {
+      "code": "BND",
+      "name": "Bandar Abbas",
+      "country_code": "IR",
+      "timezone": "Asia/Tehran",
+      "name_ru": "Бендер-Аббас"
+    },
+    {
+      "code": "BNE",
+      "name": "Brisbane",
+      "country_code": "AU",
+      "timezone": "Australia/Brisbane",
+      "name_ru": "Брисбен"
+    },
+    {
+      "code": "BOG",
+      "name": "Bogota",
+      "country_code": "CO",
+      "timezone": "America/Bogota",
+      "name_ru": "Богота"
+    },
+    {
+      "code": "BOM",
+      "name": "Mumbai",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata",
+      "name_ru": "Мумбаи"
+    },
+    {
+      "code": "BOS",
+      "name": "Boston",
+      "country_code": "US",
+      "timezone": "America/New_York",
+      "name_ru": "Бостон"
+    },
+    {
+      "code": "BQT",
+      "name": "Brest",
+      "country_code": "BY",
+      "timezone": "Europe/Minsk",
+      "name_ru": "Брест"
+    },
+    {
+      "code": "BRU",
+      "name": "Brussels",
+      "country_code": "BE",
+      "timezone": "Europe/Brussels",
+      "name_ru": "Брюссель"
+    },
+    {
+      "code": "BSR",
+      "name": "Basra",
+      "country_code": "IQ",
+      "timezone": "Asia/Baghdad",
+      "name_ru": "Басра"
+    },
+    {
+      "code": "BSZ",
+      "name": "Bishkek",
+      "country_code": "KG",
+      "timezone": "Asia/Bishkek",
+      "name_ru": "Бишкек"
+    },
+    {
+      "code": "BUD",
+      "name": "Budapest",
+      "country_code": "HU",
+      "timezone": "Europe/Budapest",
+      "name_ru": "Будапешт"
+    },
+    {
+      "code": "BUH",
+      "name": "Bucharest",
+      "country_code": "RO",
+      "timezone": "Europe/Bucharest",
+      "name_ru": "Бухарест"
+    },
+    {
+      "code": "BUS",
+      "name": "Batumi",
+      "country_code": "GE",
+      "timezone": "Asia/Tbilisi",
+      "name_ru": "Батуми"
+    },
+    {
+      "code": "BVJ",
+      "name": "Bovanenkovo",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Бованенково"
+    },
+    {
+      "code": "CAI",
+      "name": "Cairo",
+      "country_code": "EG",
+      "timezone": "Africa/Cairo",
+      "name_ru": "Каир"
+    },
+    {
+      "code": "CAN",
+      "name": "Guangzhou",
+      "country_code": "CN",
+      "timezone": "Asia/Shanghai",
+      "name_ru": "Гуанчжоу"
+    },
+    {
+      "code": "CBR",
+      "name": "Canberra",
+      "country_code": "AU",
+      "timezone": "Australia/Sydney",
+      "name_ru": "Канберра"
+    },
+    {
+      "code": "CCJ",
+      "name": "Kozhikode",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata",
+      "name_ru": "Кожикоде"
+    },
+    {
+      "code": "CCS",
+      "name": "Caracas",
+      "country_code": "VE",
+      "timezone": "America/Caracas",
+      "name_ru": "Каракас"
+    },
+    {
+      "code": "CCU",
+      "name": "Kolkata",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata",
+      "name_ru": "Калькутта"
+    },
+    {
+      "code": "CEB",
+      "name": "Cebu City",
+      "country_code": "PH",
+      "timezone": "Asia/Manila",
+      "name_ru": "Себу"
+    },
+    {
+      "code": "CEE",
+      "name": "Cherepovets",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Череповец"
+    },
+    {
+      "code": "CEK",
+      "name": "Chelyabinsk",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Челябинск"
+    },
+    {
+      "code": "CGP",
+      "name": "Chittagong",
+      "country_code": "BD",
+      "timezone": "Asia/Dhaka",
+      "name_ru": "Читтагонг"
+    },
+    {
+      "code": "CHI",
+      "name": "Chicago",
+      "country_code": "US",
+      "timezone": "America/Chicago",
+      "name_ru": "Чикаго"
+    },
+    {
+      "code": "CIT",
+      "name": "Shymkent",
+      "country_code": "KZ",
+      "timezone": "Asia/Almaty",
+      "name_ru": "Шымкент"
+    },
+    {
+      "code": "CKG",
+      "name": "Chongqing",
+      "country_code": "CN",
+      "timezone": "Asia/Shanghai",
+      "name_ru": "Чунцин"
+    },
+    {
+      "code": "CMB",
+      "name": "Colombo",
+      "country_code": "LK",
+      "timezone": "Asia/Colombo",
+      "name_ru": "Коломбо"
+    },
+    {
+      "code": "CMN",
+      "name": "Casablanca",
+      "country_code": "MA",
+      "timezone": "Africa/Casablanca",
+      "name_ru": "Касабланка"
+    },
+    {
+      "code": "CNN",
+      "name": "Kannur",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata",
+      "name_ru": "Каннур"
+    },
+    {
+      "code": "COK",
+      "name": "Kochi",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata",
+      "name_ru": "Коччи"
+    },
+    {
+      "code": "CPH",
+      "name": "Copenhagen",
+      "country_code": "DK",
+      "timezone": "Europe/Copenhagen",
+      "name_ru": "Копенгаген"
+    },
+    {
+      "code": "CPT",
+      "name": "Cape Town",
+      "country_code": "ZA",
+      "timezone": "Africa/Johannesburg",
+      "name_ru": "Кейптаун"
+    },
+    {
+      "code": "CRK",
+      "name": "City of Angeles",
+      "country_code": "PH",
+      "timezone": "Asia/Manila",
+      "name_ru": "Анджелес"
+    },
+    {
+      "code": "CSY",
+      "name": "Cheboksary",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Чебоксары"
+    },
+    {
+      "code": "CTU",
+      "name": "Chengdu",
+      "country_code": "CN",
+      "timezone": "Asia/Shanghai",
+      "name_ru": "Чэнду"
+    },
+    {
+      "code": "DAC",
+      "name": "Dhaka",
+      "country_code": "BD",
+      "timezone": "Asia/Dhaka",
+      "name_ru": "Дакка"
+    },
+    {
+      "code": "DAM",
+      "name": "Damascus",
+      "country_code": "SY",
+      "timezone": "Asia/Damascus",
+      "name_ru": "Дамаск"
+    },
+    {
+      "code": "DAR",
+      "name": "Dar Es Salaam",
+      "country_code": "TZ",
+      "timezone": "Africa/Dar_es_Salaam",
+      "name_ru": "Дар-эс-Салам"
+    },
+    {
+      "code": "DEL",
+      "name": "New Delhi",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata",
+      "name_ru": "Нью-Дели"
+    },
+    {
+      "code": "DFW",
+      "name": "Dallas",
+      "country_code": "US",
+      "timezone": "America/Chicago",
+      "name_ru": "Даллас"
+    },
+    {
+      "code": "DMM",
+      "name": "Dammam",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh",
+      "name_ru": "Даммам"
+    },
+    {
+      "code": "DOH",
+      "name": "Doha",
+      "country_code": "QA",
+      "timezone": "Asia/Qatar",
+      "name_ru": "Доха"
+    },
+    {
+      "code": "DPS",
+      "name": "Denpasar (Bali)",
+      "country_code": "ID",
+      "timezone": "Asia/Makassar",
+      "name_ru": "Денпасар (Бали)"
+    },
+    {
+      "code": "DUB",
+      "name": "Dublin",
+      "country_code": "IE",
+      "timezone": "Europe/Dublin",
+      "name_ru": "Дублин"
+    },
+    {
+      "code": "DUR",
+      "name": "Durban",
+      "country_code": "ZA",
+      "timezone": "Africa/Johannesburg",
+      "name_ru": "Дурбан"
+    },
+    {
+      "code": "DUS",
+      "name": "Dusseldorf",
+      "country_code": "DE",
+      "timezone": "Europe/Berlin",
+      "name_ru": "Дюссельдорф"
+    },
+    {
+      "code": "DVO",
+      "name": "Davao City",
+      "country_code": "PH",
+      "timezone": "Asia/Manila",
+      "name_ru": "Давао"
+    },
+    {
+      "code": "DXB",
+      "name": "Dubai",
+      "country_code": "AE",
+      "timezone": "Asia/Dubai",
+      "name_ru": "Дубай"
+    },
+    {
+      "code": "DYU",
+      "name": "Dushanbe",
+      "country_code": "TJ",
+      "timezone": "Asia/Dushanbe",
+      "name_ru": "Душанбе"
+    },
+    {
+      "code": "EBB",
+      "name": "Entebbe",
+      "country_code": "UG",
+      "timezone": "Africa/Kampala",
+      "name_ru": "Энтеббе"
+    },
+    {
+      "code": "EBL",
+      "name": "Erbil",
+      "country_code": "IQ",
+      "timezone": "Asia/Baghdad",
+      "name_ru": "Эрбиль"
+    },
+    {
+      "code": "EDI",
+      "name": "Edinburgh",
+      "country_code": "GB",
+      "timezone": "Europe/London",
+      "name_ru": "Эдинбург"
+    },
+    {
+      "code": "ELQ",
+      "name": "Buraydah",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh",
+      "name_ru": "Бурайда"
+    },
+    {
+      "code": "EVN",
+      "name": "Yerevan",
+      "country_code": "AM",
+      "timezone": "Asia/Yerevan",
+      "name_ru": "Ереван"
+    },
+    {
+      "code": "EYK",
+      "name": "Beloyarsky",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Белоярский"
+    },
+    {
+      "code": "FIH",
+      "name": "Kinshasa",
+      "country_code": "CD",
+      "timezone": "Africa/Kinshasa",
+      "name_ru": "Киншаса"
+    },
+    {
+      "code": "FRA",
+      "name": "Frankfurt",
+      "country_code": "DE",
+      "timezone": "Europe/Berlin",
+      "name_ru": "Франкфурт"
+    },
+    {
+      "code": "GDZ",
+      "name": "Gelendzik",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Геленджик"
+    },
+    {
+      "code": "GOI",
+      "name": "Goa",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata",
+      "name_ru": "Гоа"
+    },
+    {
+      "code": "GOJ",
+      "name": "Nizhniy Novgorod",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Нижний Новгород"
+    },
+    {
+      "code": "GVA",
+      "name": "Geneva",
+      "country_code": "CH",
+      "timezone": "Europe/Zurich",
+      "name_ru": "Женева"
+    },
+    {
+      "code": "HAM",
+      "name": "Hamburg",
+      "country_code": "DE",
+      "timezone": "Europe/Berlin",
+      "name_ru": "Гамбург"
+    },
+    {
+      "code": "HAN",
+      "name": "Hanoi",
+      "country_code": "VN",
+      "timezone": "Asia/Ho_Chi_Minh",
+      "name_ru": "Ханой"
+    },
+    {
+      "code": "HAS",
+      "name": "Hail",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh",
+      "name_ru": "Хаиль"
+    },
+    {
+      "code": "HEL",
+      "name": "Helsinki",
+      "country_code": "FI",
+      "timezone": "Europe/Helsinki",
+      "name_ru": "Хельсинки"
+    },
+    {
+      "code": "HGH",
+      "name": "Hangzhou",
+      "country_code": "CN",
+      "timezone": "Asia/Shanghai",
+      "name_ru": "Ханчжоу"
+    },
+    {
+      "code": "HKG",
+      "name": "Hong Kong",
+      "country_code": "HK",
+      "timezone": "Asia/Hong_Kong",
+      "name_ru": "Гонконг"
+    },
+    {
+      "code": "HKT",
+      "name": "Phuket",
+      "country_code": "TH",
+      "timezone": "Asia/Bangkok",
+      "name_ru": "Пхукет"
+    },
+    {
+      "code": "HMA",
+      "name": "Khanty-Mansiysk",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Ханты-Мансийск"
+    },
+    {
+      "code": "HOU",
+      "name": "Houston",
+      "country_code": "US",
+      "timezone": "America/Chicago",
+      "name_ru": "Хьюстон"
+    },
+    {
+      "code": "HRE",
+      "name": "Harare",
+      "country_code": "ZW",
+      "timezone": "Africa/Harare",
+      "name_ru": "Хараре"
+    },
+    {
+      "code": "HRG",
+      "name": "Hurghada",
+      "country_code": "EG",
+      "timezone": "Africa/Cairo",
+      "name_ru": "Хургада"
+    },
+    {
+      "code": "HRI",
+      "name": "Hambantota",
+      "country_code": "LK",
+      "timezone": "Asia/Colombo",
+      "name_ru": "Хамбантота"
+    },
+    {
+      "code": "HYD",
+      "name": "Hyderabad",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata",
+      "name_ru": "Хайдарабад"
+    },
+    {
+      "code": "IAR",
+      "name": "Yaroslavl",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Ярославль"
+    },
+    {
+      "code": "IJK",
+      "name": "Izhevsk",
+      "country_code": "RU",
+      "timezone": "Europe/Samara",
+      "name_ru": "Ижевск"
+    },
+    {
+      "code": "IKT",
+      "name": "Irkutsk",
+      "country_code": "RU",
+      "timezone": "Asia/Irkutsk",
+      "name_ru": "Иркутск"
+    },
+    {
+      "code": "IRM",
+      "name": "Igrim",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Игрим"
+    },
+    {
+      "code": "ISB",
+      "name": "Islamabad",
+      "country_code": "PK",
+      "timezone": "Asia/Karachi",
+      "name_ru": "Исламабад"
+    },
+    {
+      "code": "IST",
+      "name": "Istanbul",
+      "country_code": "TR",
+      "timezone": "Europe/Istanbul",
+      "name_ru": "Стамбул"
+    },
+    {
+      "code": "ISU",
+      "name": "Sulaimaniyah",
+      "country_code": "IQ",
+      "timezone": "Asia/Baghdad",
+      "name_ru": "Сулеймания"
+    },
+    {
+      "code": "IWA",
+      "name": "Ivanovo",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Иваново"
+    },
+    {
+      "code": "IXE",
+      "name": "Mangalore",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata",
+      "name_ru": "Мангалур"
+    },
+    {
+      "code": "JED",
+      "name": "Jeddah",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh",
+      "name_ru": "Джидда"
+    },
+    {
+      "code": "JIB",
+      "name": "Djibouti",
+      "country_code": "DJ",
+      "timezone": "Africa/Djibouti",
+      "name_ru": "Джибути"
+    },
+    {
+      "code": "JKT",
+      "name": "Jakarta",
+      "country_code": "ID",
+      "timezone": "Asia/Jakarta",
+      "name_ru": "Джакарта"
+    },
+    {
+      "code": "JMK",
+      "name": "Mikonos",
+      "country_code": "GR",
+      "timezone": "Europe/Athens",
+      "name_ru": "Миконос"
+    },
+    {
+      "code": "JNB",
+      "name": "Johannesburg",
+      "country_code": "ZA",
+      "timezone": "Africa/Johannesburg",
+      "name_ru": "Йоханнесбург"
+    },
+    {
+      "code": "JRO",
+      "name": "Kilimanjaro",
+      "country_code": "TZ",
+      "timezone": "Africa/Dar_es_Salaam",
+      "name_ru": "Килиманджаро"
+    },
+    {
+      "code": "KAN",
+      "name": "Kano",
+      "country_code": "NG",
+      "timezone": "Africa/Lagos",
+      "name_ru": "Кано"
+    },
+    {
+      "code": "KBL",
+      "name": "Kabul",
+      "country_code": "AF",
+      "timezone": "Asia/Kabul",
+      "name_ru": "Кабул"
+    },
+    {
+      "code": "KGD",
+      "name": "Kaliningrad",
+      "country_code": "RU",
+      "timezone": "Europe/Kaliningrad",
+      "name_ru": "Калининград"
+    },
+    {
+      "code": "KGL",
+      "name": "Kigali",
+      "country_code": "RW",
+      "timezone": "Africa/Kigali",
+      "name_ru": "Кигали"
+    },
+    {
+      "code": "KGP",
+      "name": "Kogalym",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Когалым"
+    },
+    {
+      "code": "KHI",
+      "name": "Karachi",
+      "country_code": "PK",
+      "timezone": "Asia/Karachi",
+      "name_ru": "Карачи"
+    },
+    {
+      "code": "KJA",
+      "name": "Krasnoyarsk",
+      "country_code": "RU",
+      "timezone": "Asia/Krasnoyarsk",
+      "name_ru": "Красноярск"
+    },
+    {
+      "code": "KRR",
+      "name": "Krasnodar",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Краснодар"
+    },
+    {
+      "code": "KTM",
+      "name": "Kathmandu",
+      "country_code": "NP",
+      "timezone": "Asia/Kathmandu",
+      "name_ru": "Катманду"
+    },
+    {
+      "code": "KUF",
+      "name": "Samara",
+      "country_code": "RU",
+      "timezone": "Europe/Samara",
+      "name_ru": "Самара"
+    },
+    {
+      "code": "KUL",
+      "name": "Kuala Lumpur",
+      "country_code": "MY",
+      "timezone": "Asia/Kuala_Lumpur",
+      "name_ru": "Куала-Лумпур"
+    },
+    {
+      "code": "KVK",
+      "name": "Kirovsk",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Кировск"
+    },
+    {
+      "code": "KVX",
+      "name": "Kirov",
+      "country_code": "RU",
+      "timezone": "Europe/Volgograd",
+      "name_ru": "Киров"
+    },
+    {
+      "code": "KWI",
+      "name": "Kuwait City",
+      "country_code": "KW",
+      "timezone": "Asia/Kuwait",
+      "name_ru": "Эль-Кувейт"
+    },
+    {
+      "code": "KZN",
+      "name": "Kazan",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Казань"
+    },
+    {
+      "code": "LAD",
+      "name": "Luanda",
+      "country_code": "AO",
+      "timezone": "Africa/Luanda",
+      "name_ru": "Луанда"
+    },
+    {
+      "code": "LAX",
+      "name": "Los Angeles",
+      "country_code": "US",
+      "timezone": "America/Los_Angeles",
+      "name_ru": "Лос-Анджелес"
+    },
+    {
+      "code": "LBD",
+      "name": "Khujand",
+      "country_code": "TJ",
+      "timezone": "Asia/Dushanbe",
+      "name_ru": "Худжанд"
+    },
+    {
+      "code": "LCA",
+      "name": "Larnaca",
+      "country_code": "CY",
+      "timezone": "Asia/Nicosia",
+      "name_ru": "Ларнака"
+    },
+    {
+      "code": "LED",
+      "name": "Saint Petersburg",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Санкт-Петербург"
+    },
+    {
+      "code": "LHE",
+      "name": "Lahore",
+      "country_code": "PK",
+      "timezone": "Asia/Karachi",
+      "name_ru": "Лахор"
+    },
+    {
+      "code": "LIS",
+      "name": "Lisbon",
+      "country_code": "PT",
+      "timezone": "Europe/Lisbon",
+      "name_ru": "Лиссабон"
+    },
+    {
+      "code": "LON",
+      "name": "London",
+      "country_code": "GB",
+      "timezone": "Europe/London",
+      "name_ru": "Лондон"
+    },
+    {
+      "code": "LOS",
+      "name": "Lagos",
+      "country_code": "NG",
+      "timezone": "Africa/Lagos",
+      "name_ru": "Лагос"
+    },
+    {
+      "code": "LRR",
+      "name": "Lar",
+      "country_code": "IR",
+      "timezone": "Asia/Tehran",
+      "name_ru": "Лар"
+    },
+    {
+      "code": "LUN",
+      "name": "Lusaka",
+      "country_code": "ZM",
+      "timezone": "Africa/Lusaka",
+      "name_ru": "Лусака"
+    },
+    {
+      "code": "LYP",
+      "name": "Faisalabad",
+      "country_code": "PK",
+      "timezone": "Asia/Karachi",
+      "name_ru": "Фейсалабад"
+    },
+    {
+      "code": "MAA",
+      "name": "Chennai",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata",
+      "name_ru": "Ченнаи"
+    },
+    {
+      "code": "MAD",
+      "name": "Madrid",
+      "country_code": "ES",
+      "timezone": "Europe/Madrid",
+      "name_ru": "Мадрид"
+    },
+    {
+      "code": "MAN",
+      "name": "Manchester",
+      "country_code": "GB",
+      "timezone": "Europe/London",
+      "name_ru": "Манчестер"
+    },
+    {
+      "code": "MCT",
+      "name": "Muscat",
+      "country_code": "OM",
+      "timezone": "Asia/Muscat",
+      "name_ru": "Маскат"
+    },
+    {
+      "code": "MCX",
+      "name": "Makhachkala",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Махачкала"
+    },
+    {
+      "code": "MED",
+      "name": "Medina",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh",
+      "name_ru": "Медина"
+    },
+    {
+      "code": "MEL",
+      "name": "Melbourne",
+      "country_code": "AU",
+      "timezone": "Australia/Melbourne",
+      "name_ru": "Мельбурн"
+    },
+    {
+      "code": "MGQ",
+      "name": "Mogadishu",
+      "country_code": "SO",
+      "timezone": "Africa/Mogadishu",
+      "name_ru": "Могадишо"
+    },
+    {
+      "code": "MHD",
+      "name": "Mashhad",
+      "country_code": "IR",
+      "timezone": "Asia/Tehran",
+      "name_ru": "Мешхед"
+    },
+    {
+      "code": "MIA",
+      "name": "Miami",
+      "country_code": "US",
+      "timezone": "America/New_York",
+      "name_ru": "Майами"
+    },
+    {
+      "code": "MIL",
+      "name": "Milan",
+      "country_code": "IT",
+      "timezone": "Europe/Rome",
+      "name_ru": "Милан"
+    },
+    {
+      "code": "MLA",
+      "name": "Malta",
+      "country_code": "MT",
+      "timezone": "Europe/Malta",
+      "name_ru": "Мальта"
+    },
+    {
+      "code": "MLE",
+      "name": "Male",
+      "country_code": "MV",
+      "timezone": "Indian/Maldives",
+      "name_ru": "Мале"
+    },
+    {
+      "code": "MMK",
+      "name": "Murmansk",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Мурманск"
+    },
+    {
+      "code": "MNL",
+      "name": "Manila",
+      "country_code": "PH",
+      "timezone": "Asia/Manila",
+      "name_ru": "Манила"
+    },
+    {
+      "code": "MOW",
+      "name": "Moscow",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Москва"
+    },
+    {
+      "code": "MPM",
+      "name": "Maputo",
+      "country_code": "MZ",
+      "timezone": "Africa/Maputo",
+      "name_ru": "Мапуту"
+    },
+    {
+      "code": "MRV",
+      "name": "Mineralnye Vody",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Минеральные Воды"
+    },
+    {
+      "code": "MSQ",
+      "name": "Minsk",
+      "country_code": "BY",
+      "timezone": "Europe/Minsk",
+      "name_ru": "Минск"
+    },
+    {
+      "code": "MUC",
+      "name": "Munich",
+      "country_code": "DE",
+      "timezone": "Europe/Berlin",
+      "name_ru": "Мюнхен"
+    },
+    {
+      "code": "MUX",
+      "name": "Multan",
+      "country_code": "PK",
+      "timezone": "Asia/Karachi",
+      "name_ru": "Мултан"
+    },
+    {
+      "code": "NAG",
+      "name": "Nagpur",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata",
+      "name_ru": "Нагпур"
+    },
+    {
+      "code": "NBC",
+      "name": "Naberezhnye Chelny",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Набережные Челны"
+    },
+    {
+      "code": "NBO",
+      "name": "Nairobi",
+      "country_code": "KE",
+      "timezone": "Africa/Nairobi",
+      "name_ru": "Найроби"
+    },
+    {
+      "code": "NCE",
+      "name": "Nice",
+      "country_code": "FR",
+      "timezone": "Europe/Paris",
+      "name_ru": "Ницца"
+    },
+    {
+      "code": "NJC",
+      "name": "Nizhnevartovsk",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Нижневартовск"
+    },
+    {
+      "code": "NJF",
+      "name": "Al-Najaf",
+      "country_code": "IQ",
+      "timezone": "Asia/Baghdad",
+      "name_ru": "Эн-Наджаф"
+    },
+    {
+      "code": "NMA",
+      "name": "Namangan",
+      "country_code": "UZ",
+      "timezone": "Asia/Tashkent",
+      "name_ru": "Наманган"
+    },
+    {
+      "code": "NNM",
+      "name": "Naryan-Mar",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Нарьян-Мар"
+    },
+    {
+      "code": "NOJ",
+      "name": "Noyabrsk",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Ноябрьск"
+    },
+    {
+      "code": "NQZ",
+      "name": "Astana",
+      "country_code": "KZ",
+      "timezone": "Asia/Almaty",
+      "name_ru": "Астана"
+    },
+    {
+      "code": "NSK",
+      "name": "Norilsk",
+      "country_code": "RU",
+      "timezone": "Asia/Krasnoyarsk",
+      "name_ru": "Норильск"
+    },
+    {
+      "code": "NUM",
+      "name": "Neom",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh",
+      "name_ru": "Неом"
+    },
+    {
+      "code": "NUX",
+      "name": "Novy Urengoy",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Новый Уренгой"
+    },
+    {
+      "code": "NYA",
+      "name": "Nyagan",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Нягань"
+    },
+    {
+      "code": "NYC",
+      "name": "New York",
+      "country_code": "US",
+      "timezone": "America/New_York",
+      "name_ru": "Нью-Йорк"
+    },
+    {
+      "code": "NYM",
+      "name": "Nadym",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Надым"
+    },
+    {
+      "code": "OMS",
+      "name": "Omsk",
+      "country_code": "RU",
+      "timezone": "Asia/Omsk",
+      "name_ru": "Омск"
+    },
+    {
+      "code": "OSA",
+      "name": "Osaka",
+      "country_code": "JP",
+      "timezone": "Asia/Tokyo",
+      "name_ru": "Осака"
+    },
+    {
+      "code": "OSL",
+      "name": "Oslo",
+      "country_code": "NO",
+      "timezone": "Europe/Oslo",
+      "name_ru": "Осло"
+    },
+    {
+      "code": "OSS",
+      "name": "Osh",
+      "country_code": "KG",
+      "timezone": "Asia/Bishkek",
+      "name_ru": "Ош"
+    },
+    {
+      "code": "OVB",
+      "name": "Novosibirsk",
+      "country_code": "RU",
+      "timezone": "Asia/Novosibirsk",
+      "name_ru": "Новосибирск"
+    },
+    {
+      "code": "OVS",
+      "name": "Sovetsky",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Советский"
+    },
+    {
+      "code": "PAR",
+      "name": "Paris",
+      "country_code": "FR",
+      "timezone": "Europe/Paris",
+      "name_ru": "Париж"
+    },
+    {
+      "code": "PEE",
+      "name": "Perm",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Пермь"
+    },
+    {
+      "code": "PEN",
+      "name": "Penang",
+      "country_code": "MY",
+      "timezone": "Asia/Kuala_Lumpur",
+      "name_ru": "Пенанг"
+    },
+    {
+      "code": "PER",
+      "name": "Perth",
+      "country_code": "AU",
+      "timezone": "Australia/Perth",
+      "name_ru": "Перт"
+    },
+    {
+      "code": "PES",
+      "name": "Petrozavodsk",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Петрозаводск"
+    },
+    {
+      "code": "PEW",
+      "name": "Peshawar",
+      "country_code": "PK",
+      "timezone": "Asia/Karachi",
+      "name_ru": "Пешавар"
+    },
+    {
+      "code": "PHC",
+      "name": "Port Harcourt",
+      "country_code": "NG",
+      "timezone": "Africa/Lagos",
+      "name_ru": "Порт-Харкорт"
+    },
+    {
+      "code": "PHL",
+      "name": "Philadelphia",
+      "country_code": "US",
+      "timezone": "America/New_York",
+      "name_ru": "Филадельфия"
+    },
+    {
+      "code": "PKV",
+      "name": "Pskov",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Псков"
+    },
+    {
+      "code": "PNH",
+      "name": "Phnom Penh",
+      "country_code": "KH",
+      "timezone": "Asia/Phnom_Penh",
+      "name_ru": "Пномпень"
+    },
+    {
+      "code": "PRG",
+      "name": "Prague",
+      "country_code": "CZ",
+      "timezone": "Europe/Prague",
+      "name_ru": "Прага"
+    },
+    {
+      "code": "PZU",
+      "name": "Port Sudan",
+      "country_code": "SD",
+      "timezone": "Africa/Khartoum",
+      "name_ru": "Порт-Судан"
+    },
+    {
+      "code": "RAK",
+      "name": "Marrakech",
+      "country_code": "MA",
+      "timezone": "Africa/Casablanca",
+      "name_ru": "Марракеш"
+    },
+    {
+      "code": "REN",
+      "name": "Orenburg",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Оренбург"
+    },
+    {
+      "code": "RMZ",
+      "name": "Tobolsk",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Тобольск"
+    },
+    {
+      "code": "ROM",
+      "name": "Rome",
+      "country_code": "IT",
+      "timezone": "Europe/Rome",
+      "name_ru": "Рим"
+    },
+    {
+      "code": "RTW",
+      "name": "Saratov",
+      "country_code": "RU",
+      "timezone": "Europe/Samara",
+      "name_ru": "Саратов"
+    },
+    {
+      "code": "RUH",
+      "name": "Riyadh",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh",
+      "name_ru": "Эр-Рияд"
+    },
+    {
+      "code": "SAO",
+      "name": "Sao Paulo",
+      "country_code": "BR",
+      "timezone": "America/Sao_Paulo",
+      "name_ru": "Сан-Паулу"
+    },
+    {
+      "code": "SBT",
+      "name": "Sabetta",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Сабетта"
+    },
+    {
+      "code": "SCO",
+      "name": "Aktau",
+      "country_code": "KZ",
+      "timezone": "Asia/Aqtau",
+      "name_ru": "Актау"
+    },
+    {
+      "code": "SCW",
+      "name": "Syktyvkar",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Сыктывкар"
+    },
+    {
+      "code": "SEA",
+      "name": "Seattle",
+      "country_code": "US",
+      "timezone": "America/Los_Angeles",
+      "name_ru": "Сиэтл"
+    },
+    {
+      "code": "SEL",
+      "name": "Seoul",
+      "country_code": "KR",
+      "timezone": "Asia/Seoul",
+      "name_ru": "Сеул"
+    },
+    {
+      "code": "SEZ",
+      "name": "Mahe",
+      "country_code": "SC",
+      "timezone": "Indian/Mahe",
+      "name_ru": "Маэ"
+    },
+    {
+      "code": "SFO",
+      "name": "San Francisco",
+      "country_code": "US",
+      "timezone": "America/Los_Angeles",
+      "name_ru": "Сан-Франциско"
+    },
+    {
+      "code": "SGC",
+      "name": "Surgut",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Сургут"
+    },
+    {
+      "code": "SGN",
+      "name": "Ho Chi Minh City",
+      "country_code": "VN",
+      "timezone": "Asia/Ho_Chi_Minh",
+      "name_ru": "Хошимин"
+    },
+    {
+      "code": "SHA",
+      "name": "Shanghai",
+      "country_code": "CN",
+      "timezone": "Asia/Shanghai",
+      "name_ru": "Шанхай"
+    },
+    {
+      "code": "SHJ",
+      "name": "Sharjah",
+      "country_code": "AE",
+      "timezone": "Asia/Dubai",
+      "name_ru": "Шарджа"
+    },
+    {
+      "code": "SIN",
+      "name": "Singapore",
+      "country_code": "SG",
+      "timezone": "Asia/Singapore",
+      "name_ru": "Сингапур"
+    },
+    {
+      "code": "SKT",
+      "name": "Sialkot",
+      "country_code": "PK",
+      "timezone": "Asia/Karachi",
+      "name_ru": "Сиалкот"
+    },
+    {
+      "code": "SLL",
+      "name": "Salalah",
+      "country_code": "OM",
+      "timezone": "Asia/Muscat",
+      "name_ru": "Салала"
+    },
+    {
+      "code": "SLY",
+      "name": "Salekhard",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Салехард"
+    },
+    {
+      "code": "SOF",
+      "name": "Sofia",
+      "country_code": "BG",
+      "timezone": "Europe/Sofia",
+      "name_ru": "София"
+    },
+    {
+      "code": "SSH",
+      "name": "Sharm el Sheikh",
+      "country_code": "EG",
+      "timezone": "Africa/Cairo",
+      "name_ru": "Шарм-эш-Шейх"
+    },
+    {
+      "code": "STO",
+      "name": "Stockholm",
+      "country_code": "SE",
+      "timezone": "Europe/Stockholm",
+      "name_ru": "Стокгольм"
+    },
+    {
+      "code": "STW",
+      "name": "Stavropol",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Ставрополь"
+    },
+    {
+      "code": "SVX",
+      "name": "Yekaterinburg",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Екатеринбург"
+    },
+    {
+      "code": "SYD",
+      "name": "Sydney",
+      "country_code": "AU",
+      "timezone": "Australia/Sydney",
+      "name_ru": "Сидней"
+    },
+    {
+      "code": "SYZ",
+      "name": "Shiraz",
+      "country_code": "IR",
+      "timezone": "Asia/Tehran",
+      "name_ru": "Шираз"
+    },
+    {
+      "code": "SZX",
+      "name": "Shenzhen",
+      "country_code": "CN",
+      "timezone": "Asia/Shanghai",
+      "name_ru": "Шэньчжэнь"
+    },
+    {
+      "code": "TAS",
+      "name": "Tashkent",
+      "country_code": "UZ",
+      "timezone": "Asia/Tashkent",
+      "name_ru": "Ташкент"
+    },
+    {
+      "code": "TBS",
+      "name": "Tbilisi",
+      "country_code": "GE",
+      "timezone": "Asia/Tbilisi",
+      "name_ru": "Тбилиси"
+    },
+    {
+      "code": "THR",
+      "name": "Tehran",
+      "country_code": "IR",
+      "timezone": "Asia/Tehran",
+      "name_ru": "Тегеран"
+    },
+    {
+      "code": "TIF",
+      "name": "Taif",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh",
+      "name_ru": "Эт-Таиф"
+    },
+    {
+      "code": "TJM",
+      "name": "Tyumen",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Тюмень"
+    },
+    {
+      "code": "TLK",
+      "name": "Talakan",
+      "country_code": "RU",
+      "timezone": "Asia/Yakutsk",
+      "name_ru": "Талакан"
+    },
+    {
+      "code": "TOF",
+      "name": "Tomsk",
+      "country_code": "RU",
+      "timezone": "Asia/Krasnoyarsk",
+      "name_ru": "Томск"
+    },
+    {
+      "code": "TRV",
+      "name": "Thiruvananthapuram",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata",
+      "name_ru": "Тируванантапурам"
+    },
+    {
+      "code": "TRZ",
+      "name": "Tiruchirappalli",
+      "country_code": "IN",
+      "timezone": "Asia/Kolkata",
+      "name_ru": "Тируччираппалли"
+    },
+    {
+      "code": "TUN",
+      "name": "Tunis",
+      "country_code": "TN",
+      "timezone": "Africa/Tunis",
+      "name_ru": "Тунис"
+    },
+    {
+      "code": "TUU",
+      "name": "Tabuk",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh",
+      "name_ru": "Табук"
+    },
+    {
+      "code": "TYO",
+      "name": "Tokyo",
+      "country_code": "JP",
+      "timezone": "Asia/Tokyo",
+      "name_ru": "Токио"
+    },
+    {
+      "code": "TZX",
+      "name": "Trabzon",
+      "country_code": "TR",
+      "timezone": "Europe/Istanbul",
+      "name_ru": "Трабзон"
+    },
+    {
+      "code": "UFA",
+      "name": "Ufa",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Уфа"
+    },
+    {
+      "code": "UGC",
+      "name": "Urgench",
+      "country_code": "UZ",
+      "timezone": "Asia/Samarkand",
+      "name_ru": "Ургенч"
+    },
+    {
+      "code": "ULH",
+      "name": "Al Ula",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh",
+      "name_ru": "Эль-Ула"
+    },
+    {
+      "code": "ULY",
+      "name": "Ulyanovsk",
+      "country_code": "RU",
+      "timezone": "Europe/Samara",
+      "name_ru": "Ульяновск"
+    },
+    {
+      "code": "URJ",
+      "name": "Uraj",
+      "country_code": "RU",
+      "timezone": "Asia/Yekaterinburg",
+      "name_ru": "Урай"
+    },
+    {
+      "code": "USK",
+      "name": "Usinsk",
+      "country_code": "RU",
+      "timezone": "Europe/Moscow",
+      "name_ru": "Усинск"
+    },
+    {
+      "code": "UTP",
+      "name": "Pattaya",
+      "country_code": "TH",
+      "timezone": "Asia/Bangkok",
+      "name_ru": "Паттайя"
+    },
+    {
+      "code": "VCE",
+      "name": "Venice",
+      "country_code": "IT",
+      "timezone": "Europe/Rome",
+      "name_ru": "Венеция"
+    },
+    {
+      "code": "VIE",
+      "name": "Vienna",
+      "country_code": "AT",
+      "timezone": "Europe/Vienna",
+      "name_ru": "Вена"
+    },
+    {
+      "code": "VOG",
+      "name": "Volgograd",
+      "country_code": "RU",
+      "timezone": "Europe/Volgograd",
+      "name_ru": "Волгоград"
+    },
+    {
+      "code": "WAS",
+      "name": "Washington",
+      "country_code": "US",
+      "timezone": "America/New_York",
+      "name_ru": "Вашингтон"
+    },
+    {
+      "code": "WAW",
+      "name": "Warsaw",
+      "country_code": "PL",
+      "timezone": "Europe/Warsaw",
+      "name_ru": "Варшава"
+    },
+    {
+      "code": "XMN",
+      "name": "Xiamen",
+      "country_code": "CN",
+      "timezone": "Asia/Shanghai",
+      "name_ru": "Сямынь"
+    },
+    {
+      "code": "YMQ",
+      "name": "Montreal",
+      "country_code": "CA",
+      "timezone": "America/Toronto",
+      "name_ru": "Монреаль"
+    },
+    {
+      "code": "YNB",
+      "name": "Yanbu",
+      "country_code": "SA",
+      "timezone": "Asia/Riyadh",
+      "name_ru": "Янбу"
+    },
+    {
+      "code": "YTO",
+      "name": "Toronto",
+      "country_code": "CA",
+      "timezone": "America/Toronto",
+      "name_ru": "Торонто"
+    },
+    {
+      "code": "ZAG",
+      "name": "Zagreb",
+      "country_code": "HR",
+      "timezone": "Europe/Zagreb",
+      "name_ru": "Загреб"
+    },
+    {
+      "code": "ZNZ",
+      "name": "Zanzibar",
+      "country_code": "TZ",
+      "timezone": "Africa/Dar_es_Salaam",
+      "name_ru": "Занзибар"
+    },
+    {
+      "code": "ZRH",
+      "name": "Zurich",
+      "country_code": "CH",
+      "timezone": "Europe/Zurich",
+      "name_ru": "Цюрих"
+    },
+    {
+      "code": "ZYL",
+      "name": "Sylhet",
+      "country_code": "BD",
+      "timezone": "Asia/Dhaka",
+      "name_ru": "Силхет"
+    }
+  ]
+}

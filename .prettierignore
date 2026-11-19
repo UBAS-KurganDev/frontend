@@ -4,3 +4,5 @@ package-lock.json
 src/Archive.zip
 test-results/
 playwright-report/
+# Preserve the raw source snapshot; src/data/cities.json is formatted separately.
+/scraper-airports-2026-11-10.json

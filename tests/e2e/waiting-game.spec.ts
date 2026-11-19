@@ -157,7 +157,9 @@ test('search failure does not remove the game or prevent another search', async 
   await expect(page.getByText('Источник временно недоступен.')).toBeVisible();
   await expect(page.getByText(/Можно продолжить игру или повторить поиск/)).toBeVisible();
   await expect(page.locator('iframe[title="Игра 2048"]')).toBeVisible();
+  await page.getByRole('button', { name: 'Новый поиск', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Найти билеты', exact: true })).toBeEnabled();
+  await expect(page.locator('iframe[title="Игра 2048"]')).toBeVisible();
 });
 
 test('keeps the board alive when the next move arrives before delayed animation cleanup', async ({

@@ -1,9 +1,11 @@
 import { useId, useRef, useState } from 'react';
-import { Check } from 'lucide-react';
-import type { CityOption } from '../../types/city';
-import { cities } from '../../data/cities';
+import { Check, LoaderCircle } from 'lucide-react';
+import type { CityOption, CityRepository } from '../../types/city';
+import { cityRepository } from '../../services/city-repository';
+import { useCitySearch } from '../../hooks/useCitySearch';
 import { Command, CommandEmpty, CommandInput, CommandItem, CommandList } from '../ui/command';
 import { Label } from '../ui/label';
+import { Button } from '../ui/button';
 import { cn } from '../../lib/utils';
 
 interface Props {
@@ -12,6 +14,7 @@ interface Props {
   onChange: (city: CityOption | null) => void;
   placeholder?: string;
   disabled?: boolean;
+  repository?: CityRepository;
 }
 
 export function CityAutocomplete({
@@ -20,16 +23,18 @@ export function CityAutocomplete({
   onChange,
   placeholder = 'Город или код города',
   disabled = false,
+  repository = cityRepository,
 }: Props) {
   const inputId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-  const search = (value?.cityName ?? query).trim().toLowerCase();
-  const suggestions = cities.filter(
-    (city) =>
-      city.cityName.toLowerCase().includes(search) || city.cityCode.toLowerCase().includes(search),
-  );
+  const {
+    items: suggestions,
+    loading,
+    failed,
+    retry,
+  } = useCitySearch(value?.cityName ?? query, isOpen && !disabled, repository);
 
   return (
     <div className="min-w-0 space-y-2">
@@ -71,10 +76,28 @@ export function CityAutocomplete({
         {isOpen && !disabled && (
           <CommandList
             aria-label={label}
+            aria-busy={loading}
             className="absolute inset-x-0 top-full z-50 mt-2 max-h-64 rounded-md border bg-popover p-1 shadow-md"
             onMouseDown={(event) => event.preventDefault()}
           >
-            <CommandEmpty>Города не найдены.</CommandEmpty>
+            {loading && (
+              <div
+                role="status"
+                className="flex items-center justify-center gap-2 p-4 text-sm text-muted-foreground"
+              >
+                <LoaderCircle className="size-4 animate-spin" aria-hidden="true" />
+                Ищем города...
+              </div>
+            )}
+            {failed && (
+              <div className="space-y-2 p-3 text-sm">
+                <p role="alert">Не удалось загрузить города.</p>
+                <Button type="button" variant="outline" size="sm" onClick={retry}>
+                  Повторить
+                </Button>
+              </div>
+            )}
+            {!loading && !failed && <CommandEmpty>Города не найдены.</CommandEmpty>}
             {suggestions.map((city) => (
               <CommandItem
                 key={city.cityCode}

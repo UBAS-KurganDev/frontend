@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { isAxiosError } from 'axios';
+import { readQueryCookie, saveQueryCookie, clearQueryCookie } from '../../lib/query-cookie';
 import { CityAutocomplete } from '../../components/CityAutocomplete/CityAutocomplete';
 import type { CityOption } from '../../types/city';
 import { RouteCard } from '../../components/RouteCard/RouteCard';
@@ -8,6 +10,7 @@ import type { PlanResult } from '../../api/models';
 import type { FlightRoute } from '../../types/route';
 import { getApiErrorMessage } from '../../api/errors';
 import { mapRankedRouteToFlightRoute } from '../../adapters/route';
+import { cityRepository } from '../../services/city-repository';
 import { ArrowLeftRight, LoaderCircle, PlaneTakeoff, Search, SearchX } from 'lucide-react';
 import { format } from 'date-fns';
 import { Alert, AlertDescription, AlertTitle } from '../../components/ui/alert';
@@ -18,29 +21,112 @@ import { DatePicker } from '../../components/DatePicker/DatePicker';
 import { RouteDetails } from '../../components/RouteDetails/RouteDetails';
 
 export const SearchPage: React.FC = () => {
+  const [initialQueryId] = useState(readQueryCookie);
+  const [queryId, setQueryId] = useState<string | null>(initialQueryId);
   const [origin, setOrigin] = useState<CityOption | null>(null);
   const [destination, setDestination] = useState<CityOption | null>(null);
   const [dateFrom, setDateFrom] = useState(() => format(new Date(), 'yyyy-MM-dd'));
   const [dateTo, setDateTo] = useState(() => format(new Date(), 'yyyy-MM-dd'));
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(!!initialQueryId);
   const [statusText, setStatusText] = useState('');
   const [result, setResult] = useState<PlanResult | null>(null);
+  const [cityNames, setCityNames] = useState<ReadonlyMap<string, string>>(() => new Map());
   const [error, setError] = useState<string | null>(null);
   const [selectedRoute, setSelectedRoute] = useState<FlightRoute | null>(null);
   const requestRef = useRef<AbortController | null>(null);
   const selectionTriggerRef = useRef<HTMLElement | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
-  const routes = result?.routes.map(mapRankedRouteToFlightRoute) ?? [];
+  const routes = result?.routes.map((route) => mapRankedRouteToFlightRoute(route, cityNames)) ?? [];
 
   const handleSwap = () => {
     setOrigin(destination);
     setDestination(origin);
   };
 
-  useEffect(() => () => requestRef.current?.abort(), []);
+  const loadQuery = useCallback(async (id: string, signal: AbortSignal) => {
+    try {
+      const response = await waitForRouteResult(id, {
+        signal,
+        onStatus: ({ status }) => {
+          if (signal.aborted) return;
+          setStatusText(
+            {
+              queued: 'Запрос в очереди на обработку...',
+              running: 'Запрос в обработке. Идёт поиск предложений...',
+              completed: 'Загрузка результатов...',
+              failed: 'Поиск завершился ошибкой.',
+            }[status],
+          );
+        },
+      });
+      if (signal.aborted) return;
+      const cityCodes = response.result.routes.flatMap(({ route }) =>
+        route.tickets.flatMap((ticket) =>
+          ticket.segments.flatMap((segment) => [
+            segment.origin.city_code,
+            segment.destination.city_code,
+          ]),
+        ),
+      );
+      // City labels are optional enrichment: a directory failure must not hide valid flights.
+      const cities = cityCodes.length
+        ? await cityRepository.getByCodes([...new Set(cityCodes)], { signal }).catch(() => [])
+        : [];
+      if (!signal.aborted) {
+        setCityNames(new Map(cities.map((city) => [city.cityCode, city.cityName])));
+        setResult(response.result);
+      }
+    } catch (err: unknown) {
+      if (!signal.aborted) {
+        setError(
+          isAxiosError(err) && [404, 410].includes(err.response?.status ?? 0)
+            ? 'Сохранённый запрос больше недоступен. Начните новый поиск.'
+            : getApiErrorMessage(err),
+        );
+      }
+    } finally {
+      if (!signal.aborted) setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (initialQueryId) {
+      const controller = new AbortController();
+      requestRef.current = controller;
+      setStatusText('Восстанавливаем сохранённый запрос...');
+      void loadQuery(initialQueryId, controller.signal);
+    }
+    return () => requestRef.current?.abort();
+  }, [initialQueryId, loadQuery]);
+
+  const handleNewSearch = () => {
+    requestRef.current?.abort();
+    requestRef.current = null;
+    clearQueryCookie();
+    setQueryId(null);
+    setLoading(false);
+    setResult(null);
+    setCityNames(new Map());
+    setError(null);
+    setStatusText('');
+    setSelectedRoute(null);
+    selectionTriggerRef.current = null;
+  };
+
+  const handleRetry = () => {
+    if (!queryId) return;
+    requestRef.current?.abort();
+    const controller = new AbortController();
+    requestRef.current = controller;
+    setLoading(true);
+    setError(null);
+    setStatusText('Проверяем статус запроса...');
+    void loadQuery(queryId, controller.signal);
+  };
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (loading || queryId) return;
     if (!origin || !destination) {
       setError('Пожалуйста, выберите город отправления и назначения из списка.');
       return;
@@ -69,19 +155,10 @@ export const SearchPage: React.FC = () => {
         },
         { signal },
       );
-      const response = await waitForRouteResult(query_id, {
-        signal,
-        onStatus: ({ status }) =>
-          setStatusText(
-            {
-              queued: 'В очереди...',
-              running: 'Идёт поиск предложений...',
-              completed: 'Загрузка результатов...',
-              failed: 'Поиск завершился ошибкой.',
-            }[status],
-          ),
-      });
-      if (!signal.aborted) setResult(response.result);
+      if (signal.aborted) return;
+      saveQueryCookie(query_id);
+      setQueryId(query_id);
+      await loadQuery(query_id, signal);
     } catch (err: unknown) {
       if (!signal.aborted) setError(getApiErrorMessage(err));
     } finally {
@@ -104,6 +181,15 @@ export const SearchPage: React.FC = () => {
         </div>
       </header>
 
+      {(queryId || loading) && (
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          {queryId && <p className="break-all text-sm text-muted-foreground">Запрос № {queryId}</p>}
+          <Button type="button" variant="outline" onClick={handleNewSearch}>
+            Новый поиск
+          </Button>
+        </div>
+      )}
+
       <Card className="py-0">
         <CardContent className="p-5 sm:p-7">
           <form className="space-y-6" onSubmit={handleSearch}>
@@ -113,7 +199,7 @@ export const SearchPage: React.FC = () => {
                 value={origin}
                 onChange={setOrigin}
                 placeholder="Город или код города (например, MOW)"
-                disabled={loading}
+                disabled={loading || !!queryId}
               />
               <Button
                 type="button"
@@ -123,7 +209,7 @@ export const SearchPage: React.FC = () => {
                 onClick={handleSwap}
                 title="Поменять местами"
                 aria-label="Поменять местами"
-                disabled={loading}
+                disabled={loading || !!queryId}
               >
                 <ArrowLeftRight className="rotate-90 md:rotate-0" aria-hidden="true" />
               </Button>
@@ -132,7 +218,7 @@ export const SearchPage: React.FC = () => {
                 value={destination}
                 onChange={setDestination}
                 placeholder="Город или код города (например, TYO)"
-                disabled={loading}
+                disabled={loading || !!queryId}
               />
             </div>
 
@@ -145,20 +231,20 @@ export const SearchPage: React.FC = () => {
                     setDateFrom(date);
                     if (date > dateTo) setDateTo(date);
                   }}
-                  disabled={loading}
+                  disabled={loading || !!queryId}
                 />
                 <DatePicker
                   label="Дата по"
                   value={dateTo}
                   onChange={setDateTo}
                   minDate={dateFrom}
-                  disabled={loading}
+                  disabled={loading || !!queryId}
                 />
               </div>
               <p className="text-xs text-muted-foreground">Диапазон дат вылета</p>
             </div>
 
-            <Button type="submit" size="lg" className="h-11 w-full" disabled={loading}>
+            <Button type="submit" size="lg" className="h-11 w-full" disabled={loading || !!queryId}>
               {loading ? (
                 <LoaderCircle className="animate-spin" aria-hidden="true" />
               ) : (
@@ -187,6 +273,11 @@ export const SearchPage: React.FC = () => {
             {error.split('\n').map((line, index) => (
               <p key={index}>{line}</p>
             ))}
+            {queryId && (
+              <Button type="button" variant="outline" onClick={handleRetry}>
+                Повторить загрузку
+              </Button>
+            )}
           </AlertDescription>
         </Alert>
       )}

@@ -1,11 +1,4 @@
-import type { CityOption } from '../types/city';
+import catalog from './cities.json';
 
-// Local catalog until the backend provides city autocomplete.
-export const cities: readonly CityOption[] = [
-  { cityName: 'Екатеринбург', countryName: 'Россия', cityCode: 'SVX' },
-  { cityName: 'Москва', countryName: 'Россия', cityCode: 'MOW' },
-  { cityName: 'Санкт-Петербург', countryName: 'Россия', cityCode: 'LED' },
-  { cityName: 'Анталья', countryName: 'Турция', cityCode: 'AYT' },
-  { cityName: 'Стамбул', countryName: 'Турция', cityCode: 'IST' },
-  { cityName: 'Токио', countryName: 'Япония', cityCode: 'TYO' },
-];
+// Internal catalog format. Consumers must use CityRepository instead of importing this data.
+export const cityRecords = catalog.cities;
