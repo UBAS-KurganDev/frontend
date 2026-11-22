@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { isAxiosError } from 'axios';
-import { readQueryCookie, saveQueryCookie, clearQueryCookie } from '../../lib/query-cookie';
+import {
+  readLinkedQuery,
+  readQueryCookie,
+  saveQueryCookie,
+  clearQueryCookie,
+} from '../../lib/query-cookie';
+import { RouteNotifications } from '../../components/RouteNotifications/RouteNotifications';
 import { CityAutocomplete } from '../../components/CityAutocomplete/CityAutocomplete';
 import type { CityOption } from '../../types/city';
 import { RouteCard } from '../../components/RouteCard/RouteCard';
@@ -21,7 +27,8 @@ import { DatePicker } from '../../components/DatePicker/DatePicker';
 import { RouteDetails } from '../../components/RouteDetails/RouteDetails';
 
 export const SearchPage: React.FC = () => {
-  const [initialQueryId] = useState(readQueryCookie);
+  const [initialQueryId] = useState(() => readLinkedQuery() ?? readQueryCookie());
+  const [watchNotifications, setWatchNotifications] = useState(false);
   const [queryId, setQueryId] = useState<string | null>(initialQueryId);
   const [origin, setOrigin] = useState<CityOption | null>(null);
   const [destination, setDestination] = useState<CityOption | null>(null);
@@ -49,6 +56,7 @@ export const SearchPage: React.FC = () => {
         signal,
         onStatus: ({ status }) => {
           if (signal.aborted) return;
+          if (status === 'queued' || status === 'running') setWatchNotifications(true);
           setStatusText(
             {
               queued: 'Запрос в очереди на обработку...',
@@ -91,6 +99,12 @@ export const SearchPage: React.FC = () => {
 
   useEffect(() => {
     if (initialQueryId) {
+      if (readLinkedQuery()) {
+        saveQueryCookie(initialQueryId);
+        const url = new URL(window.location.href);
+        url.searchParams.delete('query');
+        window.history.replaceState(window.history.state, '', url);
+      }
       const controller = new AbortController();
       requestRef.current = controller;
       setStatusText('Восстанавливаем сохранённый запрос...');
@@ -103,6 +117,7 @@ export const SearchPage: React.FC = () => {
     requestRef.current?.abort();
     requestRef.current = null;
     clearQueryCookie();
+    setWatchNotifications(false);
     setQueryId(null);
     setLoading(false);
     setResult(null);
@@ -140,6 +155,7 @@ export const SearchPage: React.FC = () => {
     const controller = new AbortController();
     requestRef.current = controller;
     const { signal } = controller;
+    setWatchNotifications(true);
     setLoading(true);
     setError(null);
     setResult(null);
@@ -160,7 +176,10 @@ export const SearchPage: React.FC = () => {
       setQueryId(query_id);
       await loadQuery(query_id, signal);
     } catch (err: unknown) {
-      if (!signal.aborted) setError(getApiErrorMessage(err));
+      if (!signal.aborted) {
+        setError(getApiErrorMessage(err));
+        setWatchNotifications(false);
+      }
     } finally {
       if (!signal.aborted) setLoading(false);
     }
@@ -265,6 +284,8 @@ export const SearchPage: React.FC = () => {
           </Alert>
         </section>
       )}
+
+      {watchNotifications && <RouteNotifications queryId={queryId} searching={loading} />}
 
       {error && (
         <Alert variant="destructive">
