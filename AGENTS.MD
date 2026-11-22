@@ -257,6 +257,12 @@ QueryResult.result: PlanResult
 переменная с префиксом `VITE_` попадает в клиентский код. Vite proxy сейчас не настроен;
 при разных origin доступ должен разрешаться конфигурацией CORS на бэкенде.
 
+Production собирается через `Dockerfile` без `VITE_API_URL` и использует
+same-origin `/api/v1`. Контейнер слушает только host loopback `127.0.0.1:8080`;
+публичные `/` и `/api/` разделяет Nginx на VM. Deployment получает доступ к
+Yandex Cloud через OIDC без постоянных ключей. Схема и первичная установка
+описаны в `docs/deployment.md`.
+
 ## Проверки
 
 | Команда                                   | Назначение                                                 |

@@ -1,0 +1,15 @@
+name: ubas-frontend
+
+services:
+  frontend:
+    build:
+      context: .
+      args:
+        VITE_API_URL: ${VITE_API_URL-http://127.0.0.1:8000}
+    image: ${UBAS_FRONTEND_IMAGE:-ubas-frontend:local}
+    init: true
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - '127.0.0.1:${UBAS_FRONTEND_HTTP_PORT:-8080}:8080'

@@ -14,6 +14,17 @@ npm run test:e2e
 npm run format:check
 ```
 
+Docker-сборка и production deployment описаны в
+[docs/deployment.md](docs/deployment.md). Локальный контейнер запускается так:
+
+```sh
+cp .env.example .env
+docker compose up --build -d
+```
+
+Frontend будет доступен на `http://127.0.0.1:8080` и обращаться к локальному
+backend на `http://127.0.0.1:8000`.
+
 ## Интерфейс
 
 Используется shadcn/ui (New York), Radix, Tailwind CSS 4 и Lucide. Оформление —
