@@ -11,15 +11,21 @@ origin. Адрес VM не встраивается в JavaScript, CORS межд
 
 ## Автоматическое обновление
 
-Workflow `.github/workflows/ci.yml` сначала выполняет lint, Prettier, Vitest и
-production build. Для `master` он получает короткоживущий Yandex Cloud IAM token
-через GitHub OIDC, публикует `ubas-frontend:<git-sha>` и
-`ubas-frontend:master` в существующий Cloud Registry.
+Workflow `.github/workflows/ci.yml` автоматически выполняет lint, Prettier,
+Vitest и production build для PR и изменений `master`. Deployment запускается
+только вручную кнопкой **Run workflow** с выбранной веткой `master`. После
+повторных проверок job получает короткоживущий Yandex Cloud IAM token через
+GitHub OIDC и публикует `ubas-frontend:<git-sha>` и `ubas-frontend:master` в
+существующий Cloud Registry.
 
 На VM `ubas-frontend-deploy.timer` раз в минуту проверяет `master`. Pull выполняет
 прикреплённый к VM service account. Compose фиксирует immutable digest, запускает
 контейнер и только после healthcheck обновляет `/opt/ubas-frontend/current-release`.
 GitHub проверяет этот SHA через `/__frontend_version`.
+
+Слияние PR само по себе не меняет production. Для выкладки откройте в GitHub
+**Actions → Quality checks and manual production deploy → Run workflow**,
+выберите `master` и подтвердите запуск.
 
 Постоянные ключи и GitHub secrets не используются. OIDC credential ограничен
 production environment конкретного frontend-репозитория. В Yandex Cloud создана

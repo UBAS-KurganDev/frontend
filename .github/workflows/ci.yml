@@ -1,4 +1,4 @@
-name: Quality checks and production deploy
+name: Quality checks and manual production deploy
 
 on:
   push:
@@ -39,9 +39,9 @@ jobs:
           npm run build
 
   deploy:
-    name: Build and deploy production image
+    name: Manually build and deploy production image
     needs: quality
-    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master'
     environment: production
     runs-on: ubuntu-latest
     timeout-minutes: 30
