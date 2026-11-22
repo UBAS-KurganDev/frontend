@@ -21,6 +21,9 @@ for command in docker jq nginx; do
   fi
 done
 
+# The deployment user must create lock and state files in DEPLOY_ROOT. Nginx
+# needs traverse-only access to serve the world-readable current-release file.
+install -d -o ubas -g ubas -m 0711 "${DEPLOY_ROOT}"
 install -d -o ubas -g ubas -m 0750 "${DEPLOY_ROOT}/staging"
 install -o ubas -g ubas -m 0750 \
   "${REPOSITORY_ROOT}/scripts/poll-production.sh" \
