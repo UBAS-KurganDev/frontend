@@ -2,11 +2,6 @@ const COOKIE_NAME = 'ubas_query_id';
 const MAX_AGE = 7 * 24 * 60 * 60;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
-export function readLinkedQuery(): string | null {
-  const id = new URL(window.location.href).searchParams.get('query');
-  return id && UUID.test(id) ? id : null;
-}
-
 export function readQueryCookie(): string | null {
   const entry = document.cookie
     .split(';')

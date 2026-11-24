@@ -1,11 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { isAxiosError } from 'axios';
-import {
-  readLinkedQuery,
-  readQueryCookie,
-  saveQueryCookie,
-  clearQueryCookie,
-} from '../../lib/query-cookie';
+import { readQueryCookie, saveQueryCookie, clearQueryCookie } from '../../lib/query-cookie';
 import { RouteNotifications } from '../../components/RouteNotifications/RouteNotifications';
 import { CityAutocomplete } from '../../components/CityAutocomplete/CityAutocomplete';
 import type { CityOption } from '../../types/city';
@@ -27,7 +22,7 @@ import { DatePicker } from '../../components/DatePicker/DatePicker';
 import { RouteDetails } from '../../components/RouteDetails/RouteDetails';
 
 export const SearchPage: React.FC = () => {
-  const [initialQueryId] = useState(() => readLinkedQuery() ?? readQueryCookie());
+  const [initialQueryId] = useState(readQueryCookie);
   const [watchNotifications, setWatchNotifications] = useState(false);
   const [queryId, setQueryId] = useState<string | null>(initialQueryId);
   const [origin, setOrigin] = useState<CityOption | null>(null);
@@ -99,12 +94,6 @@ export const SearchPage: React.FC = () => {
 
   useEffect(() => {
     if (initialQueryId) {
-      if (readLinkedQuery()) {
-        saveQueryCookie(initialQueryId);
-        const url = new URL(window.location.href);
-        url.searchParams.delete('query');
-        window.history.replaceState(window.history.state, '', url);
-      }
       const controller = new AbortController();
       requestRef.current = controller;
       setStatusText('Восстанавливаем сохранённый запрос...');
@@ -285,7 +274,12 @@ export const SearchPage: React.FC = () => {
         </section>
       )}
 
-      {watchNotifications && <RouteNotifications queryId={queryId} searching={loading} />}
+      {watchNotifications && (
+        <RouteNotifications
+          searching={loading}
+          completedQueryId={!loading && !error && result?.routes.length ? queryId : null}
+        />
+      )}
 
       {error && (
         <Alert variant="destructive">

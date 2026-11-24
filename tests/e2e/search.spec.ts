@@ -1,6 +1,72 @@
 import { expect, test } from '@playwright/test';
 import { queryId, queryResult, queryStatus } from '../../src/api/__tests__/fixtures';
 
+test('shows a system notification after the open tab loads routes', async ({ context, page }) => {
+  await context.grantPermissions(['notifications']);
+  await page.addInitScript(() => {
+    let permission: NotificationPermission = 'default';
+    Object.defineProperty(Notification, 'permission', { get: () => permission });
+    Object.defineProperty(Notification, 'requestPermission', {
+      value: async () => {
+        permission = 'granted';
+        return permission;
+      },
+    });
+  });
+
+  let complete = false;
+  const apiPaths = new Set<string>();
+  await page.route('**/api/v1/**', async (route) => {
+    const path = new URL(route.request().url()).pathname;
+    apiPaths.add(path);
+    if (path === '/api/v1/queries') {
+      await route.fulfill({ json: { query_id: queryId, status: 'queued', reused: false } });
+    } else if (path === `/api/v1/queries/${queryId}`) {
+      await route.fulfill({
+        json: {
+          ...queryStatus,
+          status: complete ? 'completed' : 'running',
+          result_available: complete,
+        },
+      });
+    } else if (path === `/api/v1/queries/${queryId}/result`) {
+      await route.fulfill({ json: queryResult });
+    } else {
+      await route.fulfill({ status: 404 });
+    }
+  });
+
+  await page.goto('/');
+  await page.getByRole('combobox', { name: 'Откуда', exact: true }).fill('Москва');
+  await page.getByRole('option', { name: /Москва/ }).click();
+  await page.getByRole('combobox', { name: 'Куда', exact: true }).fill('Токио');
+  await page.getByRole('option', { name: /Токио/ }).click();
+  await page.getByRole('button', { name: 'Найти билеты' }).click();
+
+  const enable = page.getByRole('button', { name: 'Включить', exact: true });
+  await expect(enable).toBeVisible();
+  expect(await page.evaluate(() => Notification.permission)).toBe('default');
+  await enable.click();
+  await expect(enable).toBeHidden();
+  complete = true;
+
+  await expect(page.getByRole('heading', { name: 'Найденные маршруты (1)' })).toBeVisible();
+  await expect
+    .poll(() =>
+      page.evaluate(async () => {
+        const registration = await navigator.serviceWorker.getRegistration();
+        const notifications = (await registration?.getNotifications()) ?? [];
+        return notifications.map(({ title, tag }) => ({ title, tag }));
+      }),
+    )
+    .toEqual([{ title: 'Маршруты найдены', tag: `ubas-route-${queryId}` }]);
+  expect([...apiPaths]).toEqual([
+    '/api/v1/queries',
+    `/api/v1/queries/${queryId}`,
+    `/api/v1/queries/${queryId}/result`,
+  ]);
+});
+
 test('finds new catalog cities by English aliases and submits their city codes', async ({
   page,
 }) => {
