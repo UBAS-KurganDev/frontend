@@ -1,18 +1,22 @@
 import type { Airport, RankedRoute } from '../api/models';
-import type { FlightRoute } from '../types/route';
+import type { FlightRoute, LocalFlightTime } from '../types/route';
 
-function formatDate(isoString: string, timeZone: string): string {
+function formatLocalFlightTime(isoString: string, timeZone: string): LocalFlightTime {
   try {
-    return new Date(isoString).toLocaleString('ru-RU', {
+    const parts = new Intl.DateTimeFormat('ru-RU', {
       timeZone,
       day: 'numeric',
       month: 'short',
       hour: '2-digit',
       minute: '2-digit',
-    });
+      hourCycle: 'h23',
+    }).formatToParts(new Date(isoString));
+    const part = (type: Intl.DateTimeFormatPartTypes) =>
+      parts.find((item) => item.type === type)?.value;
+    return { date: `${part('day')} ${part('month')}`, time: `${part('hour')}:${part('minute')}` };
   } catch {
     // Keep the explicit ISO offset if the browser does not support this timezone.
-    return isoString;
+    return { date: '', time: isoString };
   }
 }
 
@@ -37,11 +41,11 @@ export function mapRankedRouteToFlightRoute(
       departureCity: cityName(segment.origin),
       departureCode: segment.origin.code,
       departureTime: segment.departure_at,
-      departureTimeFormatted: formatDate(segment.departure_at, segment.origin.timezone),
+      departureLocalTime: formatLocalFlightTime(segment.departure_at, segment.origin.timezone),
       arrivalCity: cityName(segment.destination),
       arrivalCode: segment.destination.code,
       arrivalTime: segment.arrival_at,
-      arrivalTimeFormatted: formatDate(segment.arrival_at, segment.destination.timezone),
+      arrivalLocalTime: formatLocalFlightTime(segment.arrival_at, segment.destination.timezone),
       duration: formatMinutes(
         Math.max(
           0,

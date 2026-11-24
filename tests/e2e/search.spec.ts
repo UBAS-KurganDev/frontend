@@ -101,7 +101,40 @@ test('searches by cities, uses Russian calendars, and opens route details', asyn
     true,
   );
 
+  const itinerary = page.getByRole('region', { name: 'Перелёты и пересадки' });
+  const flights = itinerary.getByRole('listitem', { name: /^Перелёт / });
+  const transfers = itinerary.getByRole('listitem', { name: /^Пересадка / });
+  const flightBoxes = await flights.evaluateAll((items) =>
+    items.map((item) => {
+      const { x, y, width, height } = item.getBoundingClientRect();
+      return { x, y, width, height };
+    }),
+  );
+  const transferWidths = await transfers.evaluateAll((items) =>
+    items.map((item) => item.getBoundingClientRect().width),
+  );
+  expect(flightBoxes).toHaveLength(3);
+  expect(flightBoxes[0].x).toBeLessThan(flightBoxes[1].x);
+  expect(flightBoxes[1].x).toBeLessThan(flightBoxes[2].x);
+  for (const box of flightBoxes) {
+    expect(box.y).toBe(flightBoxes[0].y);
+    expect(box.width).toBeCloseTo(flightBoxes[0].width, 1);
+    expect(box.height).toBe(flightBoxes[0].height);
+  }
+  expect(transferWidths).toEqual([90, 90]);
+  const scrollable = await itinerary.evaluate(
+    (element) => element.scrollWidth > element.clientWidth,
+  );
+  expect(scrollable).toBe(info.project.name === 'mobile');
+
   await page.screenshot({ path: `/tmp/ubas-shadcn-${info.project.name}.png`, fullPage: true });
+  if (scrollable) {
+    await itinerary.evaluate((element) => {
+      element.scrollLeft = element.scrollWidth;
+    });
+    const end = await flights.last().boundingBox();
+    expect(end!.x + end!.width).toBeLessThanOrEqual(page.viewportSize()!.width);
+  }
   await page.getByRole('button', { name: 'Выбрать', exact: true }).click();
   await expect(page.getByRole('dialog')).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Детали маршрута' })).toBeVisible();

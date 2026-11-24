@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
-import { ArrowRight, Clock3, Plane, ShieldAlert } from 'lucide-react';
-import type { FlightRoute } from '../../types/route';
+import { ArrowRight, Clock3, ShieldAlert } from 'lucide-react';
+import type { FlightRoute, LocalFlightTime } from '../../types/route';
 import { RouteCost, RouteCostBreakdown } from '../RouteCost/RouteCost';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
@@ -26,68 +26,97 @@ const calculateLayover = (arrivalIso: string, departureIso: string): string => {
     .join(' ');
 };
 
+function FlightTime({ timestamp, localTime }: { timestamp: string; localTime: LocalFlightTime }) {
+  return (
+    <time dateTime={timestamp} className="block min-w-0">
+      {localTime.date && (
+        <span className="block text-sm text-muted-foreground">{localTime.date}</span>
+      )}
+      <span className="block text-2xl leading-tight font-semibold tracking-tight wrap-anywhere tabular-nums">
+        {localTime.time}
+      </span>
+    </time>
+  );
+}
+
+function FlightCity({ city, airportCode }: { city: string; airportCode: string }) {
+  return (
+    <div className="min-w-0 space-y-0.5">
+      <p className="text-sm leading-tight font-medium wrap-anywhere">{city}</p>
+      <p className="text-xs text-muted-foreground">{airportCode}</p>
+    </div>
+  );
+}
+
 export function RouteCard({ route, onSelect }: Props) {
   const candidate = route.rankedRoute.route;
 
   return (
     <Card className="gap-0 overflow-hidden py-0">
-      <CardContent className="space-y-4 p-5 sm:p-6">
-        {route.segments.map((segment, index) => {
-          const nextSegment = route.segments[index + 1];
-          const airportChange = nextSegment && segment.arrivalCode !== nextSegment.departureCode;
-          return (
-            <Fragment key={`${segment.departureCode}-${segment.departureTime}-${index}`}>
-              <div className="grid grid-cols-[minmax(0,1fr)_4rem_minmax(0,1fr)] items-center gap-3 sm:grid-cols-[minmax(0,1fr)_7rem_minmax(0,1fr)] sm:gap-5">
-                <div className="min-w-0 space-y-1">
-                  <p className="text-sm font-semibold tabular-nums sm:text-base">
-                    {segment.departureTimeFormatted}
-                  </p>
-                  <p className="text-xs leading-relaxed break-words text-muted-foreground sm:text-sm">
-                    {segment.departureCity} ({segment.departureCode})
-                  </p>
-                </div>
-                <div className="space-y-2 text-center text-muted-foreground">
-                  <p className="text-xs tabular-nums">{segment.duration}</p>
-                  <div className="flex items-center gap-1.5" aria-hidden="true">
-                    <span className="h-px flex-1 bg-border" />
-                    <Plane className="size-3.5 -rotate-45" />
-                    <span className="h-px flex-1 bg-border" />
+      <CardContent
+        className="overflow-x-auto px-0 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring"
+        role="region"
+        aria-label="Перелёты и пересадки"
+        tabIndex={0}
+      >
+        <ol className="flex list-none" role="list">
+          {route.segments.map((segment, index) => {
+            const nextSegment = route.segments[index + 1];
+            const airportChange = nextSegment && segment.arrivalCode !== nextSegment.departureCode;
+            return (
+              <Fragment key={`${segment.departureCode}-${segment.departureTime}-${index}`}>
+                <li
+                  aria-label={`Перелёт ${segment.departureCity} — ${segment.arrivalCity}`}
+                  className="min-h-38 min-w-0 shrink-0 grow basis-60 space-y-[11.5px] px-3.5 py-7"
+                >
+                  <div className="grid grid-cols-[minmax(0,1fr)_minmax(3.25rem,0.72fr)_minmax(0,1fr)] items-start gap-2.5">
+                    <FlightTime
+                      timestamp={segment.departureTime}
+                      localTime={segment.departureLocalTime}
+                    />
+                    <div className="space-y-0.5 self-end text-center text-muted-foreground">
+                      <p className="text-xs whitespace-nowrap tabular-nums">{segment.duration}</p>
+                      <div className="flex items-center" aria-hidden="true">
+                        <span className="h-px flex-1 bg-border" />
+                        <ArrowRight className="-ml-1 size-4 shrink-0" />
+                      </div>
+                    </div>
+                    <div className="min-w-0 text-right">
+                      <FlightTime
+                        timestamp={segment.arrivalTime}
+                        localTime={segment.arrivalLocalTime}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="min-w-0 space-y-1 text-right">
-                  <p className="text-sm font-semibold tabular-nums sm:text-base">
-                    {segment.arrivalTimeFormatted}
-                  </p>
-                  <p className="text-xs leading-relaxed break-words text-muted-foreground sm:text-sm">
-                    {segment.arrivalCity} ({segment.arrivalCode})
-                  </p>
-                </div>
-              </div>
-              {nextSegment && (
-                <div className="space-y-2 rounded-lg bg-muted/70 px-3 py-2.5 text-sm">
-                  <div className="flex items-start gap-2 text-muted-foreground">
-                    <Clock3 className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-                    <p>
-                      Пересадка в г.{' '}
-                      <strong className="font-medium text-foreground">{segment.arrivalCity}</strong>{' '}
-                      —{' '}
-                      <span className="font-medium text-foreground">
-                        {calculateLayover(segment.arrivalTime, nextSegment.departureTime)}
-                      </span>
+                  <div className="grid grid-cols-2 gap-2 [&>:last-child]:text-right">
+                    <FlightCity city={segment.departureCity} airportCode={segment.departureCode} />
+                    <FlightCity city={segment.arrivalCity} airportCode={segment.arrivalCode} />
+                  </div>
+                </li>
+                {nextSegment && (
+                  <li
+                    aria-label={`Пересадка в г. ${segment.arrivalCity}`}
+                    className="flex w-22.5 shrink-0 flex-col items-center gap-1.5 border-x bg-muted/70 px-2 py-7 text-center"
+                  >
+                    <Clock3 className="size-4 text-muted-foreground" aria-hidden="true" />
+                    <p className="text-xs text-muted-foreground">Пересадка</p>
+                    <p className="text-sm font-semibold tabular-nums">
+                      {calculateLayover(segment.arrivalTime, nextSegment.departureTime)}
                     </p>
-                  </div>
-                  {airportChange && (
-                    <Badge variant="outline" className="gap-1.5 whitespace-normal">
-                      Смена аэропорта: {segment.arrivalCode}{' '}
-                      <ArrowRight className="size-3" aria-hidden="true" />{' '}
-                      {nextSegment.departureCode}
-                    </Badge>
-                  )}
-                </div>
-              )}
-            </Fragment>
-          );
-        })}
+                    {airportChange && (
+                      <div className="space-y-0.5 text-xs text-muted-foreground">
+                        <p>Смена аэропорта</p>
+                        <p className="font-medium text-foreground">
+                          {segment.arrivalCode} → {nextSegment.departureCode}
+                        </p>
+                      </div>
+                    )}
+                  </li>
+                )}
+              </Fragment>
+            );
+          })}
+        </ol>
       </CardContent>
       <Separator />
       <CardFooter className="flex flex-col items-stretch gap-5 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">

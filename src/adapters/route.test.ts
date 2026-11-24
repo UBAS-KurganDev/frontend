@@ -40,8 +40,8 @@ describe('route presentation', () => {
 
   it('formats airport-local dates and uses the stopover city name', () => {
     const route = mapRankedRouteToFlightRoute(queryResult.result.routes[0]);
-    expect(route.segments[0].departureTimeFormatted).toContain('06:00');
-    expect(route.segments[0].arrivalTimeFormatted).toContain('08:00');
+    expect(route.segments[0].departureLocalTime).toEqual({ date: '1 нояб.', time: '06:00' });
+    expect(route.segments[0].arrivalLocalTime).toEqual({ date: '1 нояб.', time: '08:00' });
     expect(route.segments[0].duration).toBe('4ч 0м');
     expect(route.segments[0].arrivalCity).toBe('Стамбул');
     expect(route.segments[2].arrivalCity).toBe('PAR');
@@ -69,8 +69,9 @@ describe('route presentation', () => {
     const rankedRoute = structuredClone(queryResult.result.routes[0]);
     const segment = rankedRoute.route.tickets[0].segments[0];
     segment.origin.timezone = 'Unsupported/Timezone';
-    expect(mapRankedRouteToFlightRoute(rankedRoute).segments[0].departureTimeFormatted).toBe(
-      segment.departure_at,
-    );
+    expect(mapRankedRouteToFlightRoute(rankedRoute).segments[0].departureLocalTime).toEqual({
+      date: '',
+      time: segment.departure_at,
+    });
   });
 });
